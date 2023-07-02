@@ -1,0 +1,26 @@
+{
+  "name": "@g-dash/jobs",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "tsup",
+    "jobs": "node dist/index.js",
+    "jobs:dev": "yarn build && yarn jobs",
+    "lint": "yarn eslint --max-warnings=0",
+    "lint:fix": "eslint ./src --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@g-dash/database": "*",
+    "@sentry/node": "7.57.0",
+    "commander": "11.0.0",
+    "zod": "3.21.4"
+  },
+  "devDependencies": {
+    "@g-dash/eslint-config-custom": "*",
+    "@g-dash/tsconfig": "*",
+    "@types/node": "18.16.19",
+    "tsup": "7.1.0",
+    "typescript": "5.1.6"
+  }
+}

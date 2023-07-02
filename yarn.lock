@@ -473,7 +473,6 @@ __metadata:
     "@types/node": 18.16.19
     commander: 11.0.0
     tsup: 7.1.0
-    tsx: 3.12.7
     typescript: 5.1.6
     zod: 3.21.4
   languageName: unknown
