@@ -10,7 +10,7 @@
   "devDependencies": {
     "@turbo/gen": "1.10.7",
     "eslint": "8.44.0",
-    "eslint-config-custom": "*",
+    "@g-dash/eslint-config-custom": "*",
     "prettier": "2.8.8",
     "turbo": "latest"
   },
