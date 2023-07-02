@@ -20,7 +20,10 @@ jobs:
             turbo-${{ github.job }}-
 
       - name: node setup
-        uses: volta-cli/action@v4
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: 'package.json'
+          cache: 'yarn'
 
       - name: Install all packages
         run: yarn install --frozen-lockfile
