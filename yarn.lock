@@ -462,6 +462,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@g-dash/jobs@workspace:apps/jobs":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/jobs@workspace:apps/jobs"
+  dependencies:
+    "@g-dash/database": "*"
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
+    "@sentry/node": 7.57.0
+    "@types/node": 18.16.19
+    commander: 11.0.0
+    tsup: 7.1.0
+    tsx: 3.12.7
+    typescript: 5.1.6
+    zod: 3.21.4
+  languageName: unknown
+  linkType: soft
+
 "@g-dash/tsconfig@*, @g-dash/tsconfig@workspace:packages/tsconfig":
   version: 0.0.0-use.local
   resolution: "@g-dash/tsconfig@workspace:packages/tsconfig"
@@ -774,23 +791,6 @@ __metadata:
   checksum: 010c87ef2d901faaaf70ea1bf86fd3e7b74f24e23205f836e9a32790bca2076afe5de58ded03c35cb482f83691c8d22b1a0c34291b075bfe81afd26cfa5d14cc
   languageName: node
   linkType: hard
-
-"@securify/jobs@workspace:apps/jobs":
-  version: 0.0.0-use.local
-  resolution: "@securify/jobs@workspace:apps/jobs"
-  dependencies:
-    "@g-dash/database": "*"
-    "@g-dash/eslint-config-custom": "*"
-    "@g-dash/tsconfig": "*"
-    "@sentry/node": 7.57.0
-    "@types/node": 18.16.19
-    commander: 11.0.0
-    tsup: 7.1.0
-    tsx: 3.12.7
-    typescript: 5.1.6
-    zod: 3.21.4
-  languageName: unknown
-  linkType: soft
 
 "@sentry-internal/tracing@npm:7.57.0":
   version: 7.57.0
