@@ -1,2 +1,2 @@
-export * from "./execWithScrubbedLog"
-export * from "./getDbUrl"
+export * from "./execWithScrubbedLog";
+export * from "./getDbUrl";
