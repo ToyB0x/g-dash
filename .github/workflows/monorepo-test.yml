@@ -17,7 +17,7 @@ jobs:
           # cache: 'yarn' // temporary disabled for speed up (cache save time is too long)
 
       - name: Install all packages
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Turborepo Cache
         uses: actions/cache@v3
