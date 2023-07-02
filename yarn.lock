@@ -3231,17 +3231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.2":
-  version: 17.0.2
-  resolution: "react@npm:17.0.2"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: b254cc17ce3011788330f7bbf383ab653c6848902d7936a87b09d835d091e3f295f7e9dd1597c6daac5dc80f90e778c8230218ba8ad599f74adcc11e33b9d61b
-  languageName: node
-  linkType: hard
-
-"react@npm:^18.2.0":
+"react@npm:^18.0.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
@@ -4030,7 +4020,7 @@ __metadata:
     "@types/react-dom": ^18.2.0
     eslint: ^8.0.0
     eslint-config-custom: "*"
-    react: ^17.0.2
+    react: ^18.0.0
     tsconfig: "*"
     typescript: ^4.5.2
   languageName: unknown
