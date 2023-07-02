@@ -21,6 +21,7 @@ export const aggregateRepositories = async (orgName: string): Promise<void> => {
   }[] = []
 
   try {
+    // get first page
     let {
       repositories: firstPageResult,
       organization: { id: organizationId, login },
@@ -30,19 +31,18 @@ export const aggregateRepositories = async (orgName: string): Promise<void> => {
 
     repositories.push(...firstPageResult)
 
-    if (cursor) {
-      while (hasNextPage) {
-        await sleep(500)
-        const {
-          repositories: _repositories,
-          hasNextPage: _hasNextPage,
-          cursor: _cursor,
-        } = await paginate(githubClient, orgName, cursor)
+    // get paginated results
+    while (hasNextPage && cursor) {
+      await sleep(500)
+      const {
+        repositories: _repositories,
+        hasNextPage: _hasNextPage,
+        cursor: _cursor,
+      } = await paginate(githubClient, orgName, cursor)
 
-        repositories.push(...repositories)
-        hasNextPage = _hasNextPage
-        cursor = _cursor
-      }
+      repositories.push(...repositories)
+      hasNextPage = _hasNextPage
+      cursor = _cursor
     }
 
     await prismaSingleTenantClient.organization.upsert({
