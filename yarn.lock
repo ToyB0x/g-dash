@@ -1175,6 +1175,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@g-dash/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/utils@workspace:packages/utils"
+  dependencies:
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
+    tsup: 7.1.0
+    typescript: 5.1.6
+  languageName: unknown
+  linkType: soft
+
 "@g-dash/web@workspace:apps/web":
   version: 0.0.0-use.local
   resolution: "@g-dash/web@workspace:apps/web"
