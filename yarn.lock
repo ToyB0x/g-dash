@@ -297,6 +297,51 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@g-dash/database@workspace:packages/database":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/database@workspace:packages/database"
+  dependencies:
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
+    "@prisma/client": 4.16.2
+    prisma: 4.16.2
+    tsup: 5.11.13
+    tsx: 3.7.1
+    typescript: 5.1.6
+  languageName: unknown
+  linkType: soft
+
+"@g-dash/eslint-config-custom@*, @g-dash/eslint-config-custom@workspace:packages/eslint-config-custom":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/eslint-config-custom@workspace:packages/eslint-config-custom"
+  dependencies:
+    eslint-config-next: 13.4.7
+    eslint-config-prettier: 8.8.0
+    eslint-config-turbo: 1.10.7
+    eslint-plugin-react: 7.32.2
+  languageName: unknown
+  linkType: soft
+
+"@g-dash/tsconfig@*, @g-dash/tsconfig@workspace:packages/tsconfig":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/tsconfig@workspace:packages/tsconfig"
+  languageName: unknown
+  linkType: soft
+
+"@g-dash/ui@workspace:packages/ui":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/ui@workspace:packages/ui"
+  dependencies:
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
+    "@types/react": 18.2.14
+    "@types/react-dom": 18.2.6
+    eslint: 8.44.0
+    react: 18.2.0
+    typescript: 5.1.6
+  languageName: unknown
+  linkType: soft
+
 "@humanwhocodes/config-array@npm:^0.11.10":
   version: 0.11.10
   resolution: "@humanwhocodes/config-array@npm:0.11.10"
@@ -1500,20 +1545,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"database@workspace:packages/database":
-  version: 0.0.0-use.local
-  resolution: "database@workspace:packages/database"
-  dependencies:
-    "@prisma/client": 4.16.2
-    eslint-config-custom: "*"
-    prisma: 4.16.2
-    tsconfig: "*"
-    tsup: 5.11.13
-    tsx: 3.7.1
-    typescript: 5.1.6
-  languageName: unknown
-  linkType: soft
-
 "debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
@@ -1654,14 +1685,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:apps/docs"
   dependencies:
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
     "@types/node": 18.16.19
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
-    eslint-config-custom: "*"
     next: 13.4.7
     react: 18.2.0
     react-dom: 18.2.0
-    tsconfig: "*"
     typescript: 5.1.6
     ui: "*"
   languageName: unknown
@@ -2350,17 +2381,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-custom@*, eslint-config-custom@workspace:packages/eslint-config-custom":
-  version: 0.0.0-use.local
-  resolution: "eslint-config-custom@workspace:packages/eslint-config-custom"
-  dependencies:
-    eslint-config-next: 13.4.7
-    eslint-config-prettier: 8.8.0
-    eslint-config-turbo: 1.10.7
-    eslint-plugin-react: 7.32.2
-  languageName: unknown
-  linkType: soft
-
 "eslint-config-next@npm:13.4.7":
   version: 13.4.7
   resolution: "eslint-config-next@npm:13.4.7"
@@ -2906,9 +2926,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "g-dash@workspace:."
   dependencies:
+    "@g-dash/eslint-config-custom": "*"
     "@turbo/gen": 1.10.7
     eslint: 8.44.0
-    eslint-config-custom: "*"
     prettier: 2.8.8
     turbo: latest
   languageName: unknown
@@ -5210,6 +5230,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"std@npm:0.1.x":
+  version: 0.1.40
+  resolution: "std@npm:0.1.40"
+  checksum: ecc79c56d9793d67f8ea2c1d61ea6e3ed1673e157610236ea549d1337f2cb3da4e99a184ed2dcd151524fd079b2387f49bc95d0e6cc5a9f65349d37bea72e370
+  languageName: node
+  linkType: hard
+
 "streamsearch@npm:^1.1.0":
   version: 1.1.0
   resolution: "streamsearch@npm:1.1.0"
@@ -5583,12 +5610,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfig@*, tsconfig@workspace:packages/tsconfig":
-  version: 0.0.0-use.local
-  resolution: "tsconfig@workspace:packages/tsconfig"
-  languageName: unknown
-  linkType: soft
-
 "tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
@@ -5795,19 +5816,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ui@*, ui@workspace:packages/ui":
-  version: 0.0.0-use.local
-  resolution: "ui@workspace:packages/ui"
+"ui@npm:*":
+  version: 0.2.4
+  resolution: "ui@npm:0.2.4"
   dependencies:
-    "@types/react": 18.2.14
-    "@types/react-dom": 18.2.6
-    eslint: 8.44.0
-    eslint-config-custom: "*"
-    react: 18.2.0
-    tsconfig: "*"
-    typescript: 5.1.6
-  languageName: unknown
-  linkType: soft
+    std: 0.1.x
+  checksum: c79eafb255ab5fd2ed83cf898cc98bd5379ee1ae77576b9a1e52ff70fbfdc276d8084719e6071f2448269bcd6f24468971b376c87d0ae48348dd60fcffd60e12
+  languageName: node
+  linkType: hard
 
 "unbox-primitive@npm:^1.0.2":
   version: 1.0.2
@@ -5934,14 +5950,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:apps/web"
   dependencies:
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
     "@types/node": 18.16.19
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
-    eslint-config-custom: "*"
     next: 13.4.7
     react: 18.2.0
     react-dom: 18.2.0
-    tsconfig: "*"
     typescript: 5.1.6
     ui: "*"
   languageName: unknown
