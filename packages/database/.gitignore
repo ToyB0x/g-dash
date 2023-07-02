@@ -1,2 +1,5 @@
 node_modules
 dist
+
+# this is symlinked to the root of the project
+!.env
