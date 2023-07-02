@@ -3,7 +3,7 @@ services:
   # ref1: https://github.com/prisma/prisma-engines/blob/976a00ae3c30ab9507fa742986c9c6f5327ba10f/docker-compose.yml
   # ref2: https://github.com/prisma/prisma/blob/ce6b54a9f77f966062f57870bd5f12d9941c9b88/docker/docker-compose.yml#L35C1-L55C36
   vitess-8:
-    image: vitess/vttestserver:mysql80@sha256:64fb0a0e8a6d747f2c6cfab375413cd4c1defc0d03796bc40424878ab4ce9bf8
+    image: vitess/vttestserver:mysql80@sha256:6dca054a413f861c50c93c144eccbb1293ac9699e924e56f7c57be94136b4c82
     restart: always
     ports:
       - 33807:33807
