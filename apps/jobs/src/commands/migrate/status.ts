@@ -3,7 +3,7 @@ import { getEnv } from '../../utils'
 
 export const status = async (): Promise<void> => {
   const { DB_NAME,DB_USER, DB_PASS  } = getEnv()
-  const dbURL = `mysql://${DB_USER}:${DB_PASS}@aws.connect.psdb.cloud/${DB_NAME}?sslaccept=strict`
+  const dbURL = `postgresql://${DB_USER}:${DB_PASS}@127.0.0.1:5432/${DB_NAME}?schema=public&connection_limit=1`
 
   try {
     const stdout = execSync(
@@ -15,10 +15,10 @@ export const status = async (): Promise<void> => {
     // NOTE: hide DATABASE_URL on error for security reasons
     if (
       e.stdout.toString().includes('DATABASE_URL') ||
-      e.stdout.toString().includes('mysql://')
+      e.stdout.toString().includes('postgresql://')
     ) {
       console.info(
-        "Log is masked because this error message includes 'DATABASE_URL' or 'mysql://'.",
+        "Log is masked because this error message includes 'DATABASE_URL' or 'postgresql://'.",
         '**********'
       )
     } else {
@@ -27,10 +27,10 @@ export const status = async (): Promise<void> => {
 
     if (
       e.stderr.toString().includes('DATABASE_URL') ||
-      e.stderr.toString().includes('mysql://')
+      e.stderr.toString().includes('postgresql://')
     ) {
       console.error(
-        "Log is masked because this error message includes 'DATABASE_URL' or 'mysql://'.",
+        "Log is masked because this error message includes 'DATABASE_URL' or 'postgresql://'.",
         '**********'
       )
     } else {
