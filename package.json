@@ -1,4 +1,5 @@
 {
+  "name": "g-dash",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -13,7 +14,6 @@
     "prettier": "2.8.8",
     "turbo": "latest"
   },
-  "name": "g-dash",
   "packageManager": "yarn@3.6.1",
   "workspaces": [
     "apps/*",
