@@ -25,17 +25,17 @@ jobs:
             turbo-${{ github.job }}-${{ github.ref_name }}-
             turbo-${{ github.job }}-
 
-      - name: Lint check
-        run: yarn build
-
       - name: Format check
         run: yarn format:check
+
+      - name: Lint check
+        run: yarn lint
 
       - name: Build check
         run: yarn build
 
-#      - name: Type check
-#        run: yarn typecheck
+      - name: Type check
+        run: yarn typecheck
 
 #      - name: Test
 #        run: yarn test
