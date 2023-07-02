@@ -6,8 +6,10 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  // emulate foreign key in planetscale
+  relationMode = "prisma"
 }
 
 model User {
