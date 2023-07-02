@@ -10,15 +10,6 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Turborepo Cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules/.cache/turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
-            turbo-${{ github.job }}-
-
       - name: node setup
         uses: actions/setup-node@v3
         with:
@@ -27,6 +18,15 @@ jobs:
 
       - name: Install all packages
         run: yarn install --frozen-lockfile
+
+      - name: Turborepo Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules/.cache/turbo
+          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ github.job }}-${{ github.ref_name }}-
+            turbo-${{ github.job }}-
 
       - name: Lint check
         run: yarn build
