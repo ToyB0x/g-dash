@@ -25,6 +25,9 @@ jobs:
       - name: Install all packages
         run: yarn install --frozen-lockfile
 
+      - name: Lint check
+        run: yarn build
+
       - name: Build check
         run: yarn build
 
