@@ -1142,6 +1142,7 @@ __metadata:
     "@g-dash/database": "*"
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
+    "@g-dash/utils": "*"
     "@graphql-codegen/cli": ^4.0.1
     "@graphql-codegen/client-preset": ^4.0.1
     "@graphql-codegen/introspection": ^4.0.0
@@ -1175,7 +1176,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@g-dash/utils@workspace:packages/utils":
+"@g-dash/utils@*, @g-dash/utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@g-dash/utils@workspace:packages/utils"
   dependencies:
