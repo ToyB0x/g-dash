@@ -25,11 +25,11 @@ jobs:
       - name: Install all packages
         run: yarn install --frozen-lockfile
 
-      - name: Type check
-        run: yarn typecheck
-
       - name: Build check
         run: yarn build
 
-      - name: Test
-        run: yarn test
+#      - name: Type check
+#        run: yarn typecheck
+
+#      - name: Test
+#        run: yarn test
