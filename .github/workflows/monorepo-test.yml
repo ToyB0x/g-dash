@@ -17,7 +17,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install all packages
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Turborepo Cache
         uses: actions/cache@v3
