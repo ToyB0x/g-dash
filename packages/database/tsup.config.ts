@@ -1,10 +1,10 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from 'tsup'
 
 export default defineConfig({
   clean: true,
   dts: true,
-  entry: ["src/index.ts"],
+  entry: ['src/index.ts'],
   format: ['cjs'], // 時間短縮ためCJSのみビルド
   minify: true,
   sourcemap: true,
-});
+})

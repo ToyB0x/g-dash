@@ -9,12 +9,9 @@ const envSchema = z.object({
 
   // OPTIONAL
   SENTRY_DSN: z.string().optional(),
-  GCP_PROJECT_ID: z.enum([
-    'gdash-test',
-    'gdash-dev',
-    'gdash-stg',
-    'gdash-prd',
-  ]).optional(),
+  GCP_PROJECT_ID: z
+    .enum(['gdash-test', 'gdash-dev', 'gdash-stg', 'gdash-prd'])
+    .optional(),
 })
 
 export const getEnv = () => envSchema.parse(process.env)
