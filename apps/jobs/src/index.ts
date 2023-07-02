@@ -1,7 +1,7 @@
 import { Command } from 'commander'
 import * as Sentry from '@sentry/node'
 import { checkEnvOnInitServer } from './utils'
-import { makeMigrateCommand } from './commands'
+import { makeAggregateCommand, makeMigrateCommand } from './commands'
 
 const main = async () => {
   const { NODE_ENV, GCP_PROJECT_ID, SENTRY_DSN } = checkEnvOnInitServer()
@@ -18,6 +18,7 @@ const main = async () => {
   }
 
   const program = new Command()
+  program.addCommand(makeAggregateCommand())
   program.addCommand(makeMigrateCommand())
 
   try {
