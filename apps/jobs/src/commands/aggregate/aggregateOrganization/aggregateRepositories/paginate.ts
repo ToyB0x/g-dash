@@ -1,6 +1,5 @@
 import { GraphQLClient } from 'graphql-request'
 import { graphql } from '../../../../../generated/gql'
-import { sleep } from '@g-dash/utils'
 
 export const paginate = async (
   graphQLClient: GraphQLClient,
