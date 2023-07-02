@@ -1,0 +1,35 @@
+name: Monorepo test
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: CI
+    timeout-minutes: 10
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Turborepo Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules/.cache/turbo
+          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ github.job }}-${{ github.ref_name }}-
+            turbo-${{ github.job }}-
+
+      - name: node setup
+        uses: volta-cli/action@v4
+
+      - name: Install all packages
+        run: yarn install --frozen-lockfile
+
+      - name: Build check
+        run: yarn build
+
+#      - name: Type check
+#        run: yarn typecheck
+
+#      - name: Test
+#        run: yarn test
