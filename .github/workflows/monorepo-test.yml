@@ -10,11 +10,8 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: node setup
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: 'package.json'
-          # cache: 'yarn' // temporary disabled for speed up (cache save time is too long)
+      - name: node setup (via volta)
+        uses: volta-cli/action@v4
 
       - name: Install all packages
         run: yarn install --immutable
