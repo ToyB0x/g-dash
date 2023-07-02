@@ -6,12 +6,21 @@ generator client {
 }
 
 datasource db {
-  provider     = "postgresql"
-  url          = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Organization {
+  id         String       @id // derived from the GitHub API
+  login      String       @unique // The organization's login name (ensure uniqueness by github)
+  Repository Repository[]
+}
+
+model Repository {
+  id             String    @id // derived from the GitHub API
+  name           String
+  pushedAt       DateTime? // if no push has happened, this will be null
+  organizationId String
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 }
