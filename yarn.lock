@@ -287,6 +287,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@g-dash/docs@workspace:apps/docs":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/docs@workspace:apps/docs"
+  dependencies:
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
+    "@g-dash/ui": "*"
+    "@types/node": 18.16.19
+    "@types/react": 18.2.14
+    "@types/react-dom": 18.2.6
+    next: 13.4.7
+    react: 18.2.0
+    react-dom: 18.2.0
+    typescript: 5.1.6
+  languageName: unknown
+  linkType: soft
+
 "@g-dash/eslint-config-custom@*, @g-dash/eslint-config-custom@workspace:packages/eslint-config-custom":
   version: 0.0.0-use.local
   resolution: "@g-dash/eslint-config-custom@workspace:packages/eslint-config-custom"
@@ -304,7 +321,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@g-dash/ui@workspace:packages/ui":
+"@g-dash/ui@*, @g-dash/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@g-dash/ui@workspace:packages/ui"
   dependencies:
@@ -314,6 +331,23 @@ __metadata:
     "@types/react-dom": 18.2.6
     eslint: 8.44.0
     react: 18.2.0
+    typescript: 5.1.6
+  languageName: unknown
+  linkType: soft
+
+"@g-dash/web@workspace:apps/web":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/web@workspace:apps/web"
+  dependencies:
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
+    "@g-dash/ui": "*"
+    "@types/node": 18.16.19
+    "@types/react": 18.2.14
+    "@types/react-dom": 18.2.6
+    next: 13.4.7
+    react: 18.2.0
+    react-dom: 18.2.0
     typescript: 5.1.6
   languageName: unknown
   linkType: soft
@@ -1656,23 +1690,6 @@ __metadata:
   checksum: fa05e18324510d7283f55862f3161c6759a3f2f8dbce491a2fc14c8324c498286c54282c1f0e933cb930da8419b30679389499b919122952a4f8592362ef4615
   languageName: node
   linkType: hard
-
-"docs@workspace:apps/docs":
-  version: 0.0.0-use.local
-  resolution: "docs@workspace:apps/docs"
-  dependencies:
-    "@g-dash/eslint-config-custom": "*"
-    "@g-dash/tsconfig": "*"
-    "@types/node": 18.16.19
-    "@types/react": 18.2.14
-    "@types/react-dom": 18.2.6
-    next: 13.4.7
-    react: 18.2.0
-    react-dom: 18.2.0
-    typescript: 5.1.6
-    ui: "*"
-  languageName: unknown
-  linkType: soft
 
 "doctrine@npm:^2.1.0":
   version: 2.1.0
@@ -4998,13 +5015,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"std@npm:0.1.x":
-  version: 0.1.40
-  resolution: "std@npm:0.1.40"
-  checksum: ecc79c56d9793d67f8ea2c1d61ea6e3ed1673e157610236ea549d1337f2cb3da4e99a184ed2dcd151524fd079b2387f49bc95d0e6cc5a9f65349d37bea72e370
-  languageName: node
-  linkType: hard
-
 "streamsearch@npm:^1.1.0":
   version: 1.1.0
   resolution: "streamsearch@npm:1.1.0"
@@ -5599,15 +5609,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ui@npm:*":
-  version: 0.2.4
-  resolution: "ui@npm:0.2.4"
-  dependencies:
-    std: 0.1.x
-  checksum: c79eafb255ab5fd2ed83cf898cc98bd5379ee1ae77576b9a1e52ff70fbfdc276d8084719e6071f2448269bcd6f24468971b376c87d0ae48348dd60fcffd60e12
-  languageName: node
-  linkType: hard
-
 "unbox-primitive@npm:^1.0.2":
   version: 1.0.2
   resolution: "unbox-primitive@npm:1.0.2"
@@ -5728,23 +5729,6 @@ __metadata:
   checksum: 814e9d1ddcc9798f7377ffa448a5a3892232b9275ebb30a41b529607691c0491de47cba426e917a4d08ded3ee7e9ba2f3fe32e62ee3cd9c7d3bafb7754bd553c
   languageName: node
   linkType: hard
-
-"web@workspace:apps/web":
-  version: 0.0.0-use.local
-  resolution: "web@workspace:apps/web"
-  dependencies:
-    "@g-dash/eslint-config-custom": "*"
-    "@g-dash/tsconfig": "*"
-    "@types/node": 18.16.19
-    "@types/react": 18.2.14
-    "@types/react-dom": 18.2.6
-    next: 13.4.7
-    react: 18.2.0
-    react-dom: 18.2.0
-    typescript: 5.1.6
-    ui: "*"
-  languageName: unknown
-  linkType: soft
 
 "webidl-conversions@npm:^4.0.2":
   version: 4.0.2
