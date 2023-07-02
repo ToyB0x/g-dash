@@ -23,11 +23,11 @@
     "studio": "prisma studio"
   },
   "dependencies": {
-    "@prisma/client": "3.10.0"
+    "@prisma/client": "4.16.2"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "prisma": "3.10.0",
+    "prisma": "4.16.2",
     "tsconfig": "*",
     "tsup": "5.11.13",
     "tsx": "3.7.1",
