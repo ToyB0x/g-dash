@@ -1,3 +1,6 @@
 {
-  "extends": "@g-dash/tsconfig/node/base.json"
+  "extends": "@g-dash/tsconfig/node/base.json",
+  "compilerOptions": {
+    "skipLibCheck": true
+  }
 }
