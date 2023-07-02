@@ -1143,13 +1143,13 @@ __metadata:
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
     "@g-dash/utils": "*"
-    "@graphql-codegen/cli": ^4.0.1
-    "@graphql-codegen/client-preset": ^4.0.1
-    "@graphql-codegen/introspection": ^4.0.0
+    "@graphql-codegen/cli": 4.0.1
+    "@graphql-codegen/client-preset": 4.0.1
+    "@graphql-codegen/introspection": 4.0.0
     "@sentry/node": 7.57.0
     "@types/node": 18.16.19
     commander: 11.0.0
-    graphql: ^16.7.1
+    graphql: 16.7.1
     tsup: 7.1.0
     typescript: 5.1.6
     zod: 3.21.4
@@ -1216,7 +1216,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:^4.0.1":
+"@graphql-codegen/cli@npm:4.0.1":
   version: 4.0.1
   resolution: "@graphql-codegen/cli@npm:4.0.1"
   dependencies:
@@ -1266,7 +1266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/client-preset@npm:^4.0.1":
+"@graphql-codegen/client-preset@npm:4.0.1":
   version: 4.0.1
   resolution: "@graphql-codegen/client-preset@npm:4.0.1"
   dependencies:
@@ -1318,7 +1318,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/introspection@npm:^4.0.0":
+"@graphql-codegen/introspection@npm:4.0.0":
   version: 4.0.0
   resolution: "@graphql-codegen/introspection@npm:4.0.0"
   dependencies:
@@ -5056,7 +5056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.7.1":
+"graphql@npm:16.7.1":
   version: 16.7.1
   resolution: "graphql@npm:16.7.1"
   checksum: c924d8428daf0e96a5ea43e9bc3cd1b6802899907d284478ac8f705c8fd233a0a51eef915f7569fb5de8acb2e85b802ccc6c85c2b157ad805c1e9adba5a299bd
