@@ -1,6 +1,6 @@
 {
-  "name": "database",
-  "version": "1.0.0",
+  "name": "@g-dash/database",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -26,9 +26,9 @@
     "@prisma/client": "4.16.2"
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
+    "@g-dash/eslint-config-custom": "*",
+    "@g-dash/tsconfig": "*",
     "prisma": "4.16.2",
-    "tsconfig": "*",
     "tsup": "5.11.13",
     "tsx": "3.7.1",
     "typescript": "5.1.6"

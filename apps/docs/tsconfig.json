@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/react/nextjs.json",
+  "extends": "@g-dash/tsconfig/react/nextjs.json",
   "compilerOptions": {
     "plugins": [{ "name": "next" }]
   },

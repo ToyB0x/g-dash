@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/node/base.json",
+  "extends": "@g-dash/tsconfig/node/base.json",
   "include": ["**/*.ts", "tsup.config.ts"],
   "exclude": ["node_modules"]
 }
