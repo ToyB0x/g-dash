@@ -8,8 +8,8 @@ export const makeAggregateCommand = () => {
   aggregate
     .command('organization')
     .description('aggregate specific organization repositories.')
-    .argument('<orgId>', 'orgId to aggregate repositories')
-    .action(async (orgId: string) => await aggregateOrganization(orgId))
+    .argument('<orgName>', 'orgName to aggregate repositories')
+    .action(async (orgName: string) => await aggregateOrganization(orgName))
 
   return aggregate
 }
