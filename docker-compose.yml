@@ -1,23 +1,15 @@
+version: "3.8"
 services:
-  # Planetscale
-  # ref1: https://github.com/prisma/prisma-engines/blob/976a00ae3c30ab9507fa742986c9c6f5327ba10f/docker-compose.yml
-  # ref2: https://github.com/prisma/prisma/blob/ce6b54a9f77f966062f57870bd5f12d9941c9b88/docker/docker-compose.yml#L35C1-L55C36
-  vitess-8:
-    image: vitess/vttestserver:mysql80@sha256:6dca054a413f861c50c93c144eccbb1293ac9699e924e56f7c57be94136b4c82
-    restart: always
+  postgres:
+    image: postgres:14
+    container_name: gdash-postgres
     ports:
-      - 33807:33807
-    healthcheck:
-      test: ['CMD', 'mysqladmin', 'ping', '-h127.0.0.1', '-P33577']
-      interval: 5s
-      timeout: 2s
-      retries: 5
-      start_period: 25s
+      - "5432:5432"
     environment:
-      PORT: '33804' # unused in testing, but required by vttestserver
-      KEYSPACES: 'unsharded' # unused in testing, but required by vttestserver
-      NUM_SHARDS: '1' # unused in testing, but required by vttestserver
-      MYSQL_BIND_HOST: '0.0.0.0'
-      FOREIGN_KEY_MODE: 'disallow'
-      MYSQL_MAX_CONNECTIONS: 100000
-      TABLET_REFRESH_INTERVAL: '1s'
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: gdash
+    command: -c 'config_file=/etc/postgresql/postgresql.conf'
+    volumes:
+      - ./packages/database/init:/docker-entrypoint-initdb.d
+      - ./packages/database/config/postgresql.conf:/etc/postgresql/postgresql.conf
