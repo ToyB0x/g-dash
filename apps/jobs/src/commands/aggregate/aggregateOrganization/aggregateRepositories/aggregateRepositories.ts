@@ -45,6 +45,7 @@ export const aggregateRepositories = async (orgName: string): Promise<void> => {
       cursor = _cursor
     }
 
+    // upsert org (because org name can be changed)
     await prismaSingleTenantClient.organization.upsert({
       where: {
         id: organizationId,
@@ -58,6 +59,7 @@ export const aggregateRepositories = async (orgName: string): Promise<void> => {
       },
     })
 
+    // upsert repositories (because repository name can be changed)
     await Promise.all(
       repositories.map(async (repository) => {
         await prismaSingleTenantClient.repository.upsert({
