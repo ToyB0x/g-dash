@@ -3,7 +3,7 @@ import { graphql } from '../../../../../generated/gql'
 
 export const getFirstPage = async (
   graphQLClient: GraphQLClient,
-  orgName: string
+  orgName: string,
 ) => {
   const repositoriesQuery = graphql(/* GraphQL */ `
     query repositories($organization: String!) {
@@ -49,7 +49,7 @@ export const getFirstPage = async (
         name: e.node.name,
         pushedAt: e.node.pushedAt ? e.node.pushedAt : null,
       }
-    }
+    },
   )
 
   return {

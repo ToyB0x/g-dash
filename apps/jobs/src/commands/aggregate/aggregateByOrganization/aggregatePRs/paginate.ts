@@ -7,7 +7,7 @@ export const paginate = async (
   graphQLClient: GraphQLClient,
   orgName: string,
   repositoryName: string,
-  cursor: string
+  cursor: string,
 ): Promise<
   | {
       prs: UserPR[]

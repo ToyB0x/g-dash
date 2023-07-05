@@ -7,7 +7,7 @@ import { maxOld } from '../aggregateByOrganization'
 
 export const aggregatePRs = async (
   orgName: string,
-  repositoryName: string
+  repositoryName: string,
 ): Promise<void> => {
   const prismaSingleTenantClient = getSingleTenantPrismaClient()
 
@@ -125,7 +125,7 @@ export const aggregatePRs = async (
             mergedAt: pr.mergedAt,
           },
         })
-      })
+      }),
     )
   } catch (err) {
     throw err

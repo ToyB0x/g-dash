@@ -31,7 +31,7 @@ export type UserPR = {
 export const getFirstPage = async (
   graphQLClient: GraphQLClient,
   orgName: string,
-  repositoryName: string
+  repositoryName: string,
 ): Promise<{
   prs: UserPR[]
   hasNextPage: boolean
