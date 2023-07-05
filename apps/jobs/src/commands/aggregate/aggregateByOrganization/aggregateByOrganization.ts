@@ -2,6 +2,10 @@ import { getSingleTenantPrismaClient } from '../../../utils'
 import { aggregateRepositories } from './aggregateRepositories'
 import { aggregatePRs } from './aggregatePRs'
 
+export const maxOld = new Date(
+  Date.now() - 60 * 60 * 24 * 30 * 6 * 1000
+).getTime() // half year
+
 export const aggregateByOrganization = async (
   orgName: string
 ): Promise<void> => {
@@ -11,11 +15,14 @@ export const aggregateByOrganization = async (
 
   try {
     const repositoryNames = await aggregateRepositories(orgName)
-    await Promise.all(
-      repositoryNames.map(async (repositoryName) => {
-        await aggregatePRs(orgName, repositoryName)
-      })
-    )
+    if (repositoryNames.length !== new Set(repositoryNames).size)
+      throw new Error('duplicate repository name')
+
+    console.log('aggregatePRs for each repository', repositoryNames.length)
+    for (const [index, repositoryName] of repositoryNames.entries()) {
+      console.info(`trying repository: ${index} / ${repositoryNames.length}`)
+      await aggregatePRs(orgName, repositoryName)
+    }
   } catch (err) {
     throw err
   } finally {
