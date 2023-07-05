@@ -30,7 +30,11 @@ export const aggregatePRs = async (
     prs.push(...firstPageResult)
 
     // get paginated results
+    const maxOld = new Date(Date.now() - 60 * 60 * 24 * 30 * 6 * 1000) // half year
     while (hasNextPage && cursor) {
+      // stop if the oldest PR is older than maxOld
+      if (prs.some((pr) => new Date(pr.createdAt) < maxOld)) break
+
       await sleep(500)
       const {
         prs: _prs,
