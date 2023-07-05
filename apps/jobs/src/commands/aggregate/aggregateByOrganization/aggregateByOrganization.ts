@@ -20,7 +20,9 @@ export const aggregateByOrganization = async (
 
     console.log('aggregatePRs for each repository', repositoryNames.length)
     for (const [index, repositoryName] of repositoryNames.entries()) {
-      console.info(`trying repository: ${index} / ${repositoryNames.length}`)
+      console.info(
+        `trying repository: ${index + 1} / ${repositoryNames.length}`
+      )
       await aggregatePRs(orgName, repositoryName)
     }
   } catch (err) {
