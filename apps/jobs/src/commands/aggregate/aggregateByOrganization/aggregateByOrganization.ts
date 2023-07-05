@@ -1,5 +1,6 @@
 import { getSingleTenantPrismaClient } from '../../../utils'
 import { aggregateRepositories } from './aggregateRepositories'
+import { aggregatePRs } from './aggregatePRs'
 
 export const aggregateByOrganization = async (
   orgName: string
@@ -9,7 +10,12 @@ export const aggregateByOrganization = async (
   const prismaSingleTenantClient = getSingleTenantPrismaClient()
 
   try {
-    await aggregateRepositories(orgName)
+    const repositoryNames = await aggregateRepositories(orgName)
+    await Promise.all(
+      repositoryNames.map(async (repositoryName) => {
+        await aggregatePRs(orgName, repositoryName)
+      })
+    )
   } catch (err) {
     throw err
   } finally {

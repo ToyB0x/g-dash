@@ -4,7 +4,9 @@ import { paginate } from './paginate'
 import { getFirstPage } from './getFirstPage'
 import { getEnv, getSingleTenantPrismaClient } from '../../../../utils'
 
-export const aggregateRepositories = async (orgName: string): Promise<void> => {
+export const aggregateRepositories = async (
+  orgName: string
+): Promise<string[]> => {
   const prismaSingleTenantClient = getSingleTenantPrismaClient()
 
   const githubClient = new GraphQLClient('https://api.github.com/graphql', {
@@ -84,6 +86,8 @@ export const aggregateRepositories = async (orgName: string): Promise<void> => {
         })
       })
     )
+
+    return repositories.map((repository) => repository.name)
   } catch (err) {
     throw err
   } finally {
