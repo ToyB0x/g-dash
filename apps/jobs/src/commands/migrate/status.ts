@@ -12,6 +12,6 @@ export const status = () => {
 
   execWithScrubbedLog(
     execSync,
-    `DATABASE_URL="${dbURL}" yarn workspace @g-dash/database prisma migrate status`
+    `DATABASE_URL="${dbURL}" yarn workspace @g-dash/database prisma migrate status`,
   )
 }

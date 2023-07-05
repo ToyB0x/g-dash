@@ -13,7 +13,7 @@
     "@g-dash/eslint-config-custom": "*",
     "@turbo/gen": "1.10.7",
     "eslint": "8.44.0",
-    "prettier": "2.8.8",
+    "prettier": "3.0.0",
     "turbo": "latest"
   },
   "packageManager": "yarn@3.6.1",

@@ -11,6 +11,6 @@ export const deploy = () => {
   })
   execWithScrubbedLog(
     execSync,
-    `DATABASE_URL="${dbURL}" yarn workspace @g-dash/database prisma migrate deploy`
+    `DATABASE_URL="${dbURL}" yarn workspace @g-dash/database prisma migrate deploy`,
   )
 }

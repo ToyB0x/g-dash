@@ -4,7 +4,7 @@ import { graphql } from '../../../../../generated/gql'
 export const paginate = async (
   graphQLClient: GraphQLClient,
   orgName: string,
-  cursor: string
+  cursor: string,
 ) => {
   const paginateRepositoriesQuery = graphql(/* GraphQL */ `
     query paginateRepositories($organization: String!, $after: String) {
@@ -37,7 +37,7 @@ export const paginate = async (
     {
       organization: orgName,
       after: cursor,
-    }
+    },
   )
 
   if (!paginateRepositoriesResult.organization) throw Error('null organization')

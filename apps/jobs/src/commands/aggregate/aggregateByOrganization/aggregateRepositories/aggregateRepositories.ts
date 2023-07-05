@@ -6,7 +6,7 @@ import { getEnv, getSingleTenantPrismaClient } from '../../../../utils'
 import { maxOld } from '../aggregateByOrganization'
 
 export const aggregateRepositories = async (
-  orgName: string
+  orgName: string,
 ): Promise<string[]> => {
   const prismaSingleTenantClient = getSingleTenantPrismaClient()
 
@@ -93,7 +93,7 @@ export const aggregateRepositories = async (
               : null,
           },
         })
-      })
+      }),
     )
 
     return recentRepositories.map((repository) => repository.name)

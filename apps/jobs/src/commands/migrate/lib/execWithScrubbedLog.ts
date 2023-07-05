@@ -1,6 +1,6 @@
 export const execWithScrubbedLog = (
   execSync: (command: string) => Buffer,
-  command: string
+  command: string,
 ): void => {
   try {
     const stdout = execSync(command)
@@ -14,7 +14,7 @@ export const execWithScrubbedLog = (
     ) {
       console.info(
         "Log is masked because this error message includes 'DATABASE_URL' or 'postgresql://'.",
-        '**********'
+        '**********',
       )
     } else {
       console.info(e.stdout.toString())
@@ -26,7 +26,7 @@ export const execWithScrubbedLog = (
     ) {
       console.error(
         "Log is masked because this error message includes 'DATABASE_URL' or 'postgresql://'.",
-        '**********'
+        '**********',
       )
     } else {
       console.error(e.stderr.toString())
