@@ -16,14 +16,14 @@ jobs:
       - name: Install all packages
         run: yarn install --immutable
 
-#      - name: Turborepo Cache
-#        uses: actions/cache@v3
-#        with:
-#          path: node_modules/.cache/turbo
-#          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
-#          restore-keys: |
-#            turbo-${{ github.job }}-${{ github.ref_name }}-
-#            turbo-${{ github.job }}-
+      - name: Turborepo Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules/.cache/turbo
+          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ github.job }}-${{ github.ref_name }}-
+            turbo-${{ github.job }}-
 
       - name: Format check
         run: yarn format:check
