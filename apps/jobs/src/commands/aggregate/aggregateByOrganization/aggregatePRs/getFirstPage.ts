@@ -8,6 +8,9 @@ export type UserPR = {
   author: {
     id: string
     avatarUrl: string
+    login: string
+    name: string | undefined | null
+    __typename: 'User'
   }
   comments: {
     totalCount: number
@@ -47,9 +50,12 @@ export const getFirstPage = async (
             node {
               id
               author {
+                __typename
                 avatarUrl
                 ... on User {
                   id
+                  login
+                  name
                 }
               }
               comments {
@@ -98,8 +104,11 @@ export const getFirstPage = async (
         title: userPr.title,
         url: userPr.url,
         author: {
-          avatarUrl: userPr.author.avatarUrl,
           id: userPr.author.id,
+          login: userPr.author.login,
+          name: userPr.author.name,
+          avatarUrl: userPr.author.avatarUrl,
+          __typename: 'User' as const,
         },
         comments: {
           totalCount: userPr.comments.totalCount,

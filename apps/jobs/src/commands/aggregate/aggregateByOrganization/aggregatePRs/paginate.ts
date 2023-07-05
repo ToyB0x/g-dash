@@ -1,19 +1,32 @@
 import { GraphQLClient } from 'graphql-request'
 import { graphql } from '../../../../../generated/gql'
 import { UserPR } from './getFirstPage'
+import { PaginatePrsQuery } from '../../../../../generated/gql/graphql'
 
 export const paginate = async (
   graphQLClient: GraphQLClient,
   orgName: string,
   repositoryName: string,
   cursor: string
-): Promise<{
-  prs: UserPR[]
-  hasNextPage: boolean
-  cursor: string | undefined | null
-}> => {
+): Promise<
+  | {
+      prs: UserPR[]
+      hasNextPage: boolean
+      cursor: string | undefined | null
+    }
+  | {
+      'retry-after': string
+      'x-ratelimit-remaining': string
+      'x-ratelimit-reset': string
+    }
+> => {
   const prsQuery = graphql(/* GraphQL */ `
     query paginatePrs($owner: String!, $name: String!, $after: String) {
+      rateLimit {
+        limit
+        cost
+        remaining
+      }
       repository(owner: $owner, name: $name) {
         pullRequests(
           orderBy: { field: CREATED_AT, direction: DESC }
@@ -25,9 +38,12 @@ export const paginate = async (
             node {
               id
               author {
+                __typename
                 avatarUrl
                 ... on User {
                   id
+                  login
+                  name
                 }
               }
               comments {
@@ -58,11 +74,27 @@ export const paginate = async (
     }
   `)
 
-  const paginatePrsResult = await graphQLClient.request(prsQuery, {
-    owner: orgName,
-    name: repositoryName,
-    after: cursor,
-  })
+  const maxRetry = 3
+  let tryCount = 0
+  let paginatePrsResult: PaginatePrsQuery | null = null
+  while (tryCount < maxRetry) {
+    try {
+      paginatePrsResult = await graphQLClient.request(prsQuery, {
+        owner: orgName,
+        name: repositoryName,
+        after: cursor,
+      })
+      break
+    } catch (e) {
+      console.error(e)
+    } finally {
+      tryCount++
+    }
+  }
+
+  if (!paginatePrsResult) throw Error('null paginatePrsResult')
+
+  console.log(repositoryName, paginatePrsResult.rateLimit)
 
   if (!paginatePrsResult.repository) throw Error('null repository')
 
@@ -79,7 +111,10 @@ export const paginate = async (
         url: userPr.url,
         author: {
           id: userPr.author.id,
+          login: userPr.author.login,
+          name: userPr.author.name,
           avatarUrl: userPr.author.avatarUrl,
+          __typename: 'User' as const,
         },
         comments: {
           totalCount: userPr.comments.totalCount,

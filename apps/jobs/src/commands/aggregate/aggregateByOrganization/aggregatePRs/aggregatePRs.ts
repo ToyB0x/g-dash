@@ -3,6 +3,7 @@ import { sleep } from '@g-dash/utils'
 import { paginate } from './paginate'
 import { getFirstPage, UserPR } from './getFirstPage'
 import { getEnv, getSingleTenantPrismaClient } from '../../../../utils'
+import { maxOld } from '../aggregateByOrganization'
 
 export const aggregatePRs = async (
   orgName: string,
@@ -30,18 +31,27 @@ export const aggregatePRs = async (
     prs.push(...firstPageResult)
 
     // get paginated results
-    const maxOld = new Date(Date.now() - 60 * 60 * 24 * 30 * 6 * 1000) // half year
     while (hasNextPage && cursor) {
       // stop if the oldest PR is older than maxOld
-      if (prs.some((pr) => new Date(pr.createdAt) < maxOld)) break
+      if (prs.some((pr) => new Date(pr.createdAt).getTime() < maxOld)) break
 
-      await sleep(500)
-      const {
-        prs: _prs,
-        hasNextPage: _hasNextPage,
-        cursor: _cursor,
-      } = await paginate(githubClient, orgName, repositoryName, cursor)
+      let result = await paginate(githubClient, orgName, repositoryName, cursor)
 
+      while ('retry-after' in result) {
+        console.warn('retry-after', result['retry-after'])
+        await sleep(Number(result['retry-after']) * 1000)
+        result = await paginate(githubClient, orgName, repositoryName, cursor)
+      }
+
+      while ('x-ratelimit-remaining' in result) {
+        console.warn('x-ratelimit-remaining', result['x-ratelimit-remaining'])
+        const waitFor = Number(result['x-ratelimit-reset']) - Date.now()
+        console.warn('waitFor', waitFor)
+        await sleep(waitFor)
+        result = await paginate(githubClient, orgName, repositoryName, cursor)
+      }
+
+      const { prs: _prs, hasNextPage: _hasNextPage, cursor: _cursor } = result
       prs.push(..._prs)
       hasNextPage = _hasNextPage
       cursor = _cursor
@@ -60,6 +70,23 @@ export const aggregatePRs = async (
     // upsert repositories (because repository name can be changed)
     await Promise.all(
       prs.map(async (pr) => {
+        await prismaSingleTenantClient.user.upsert({
+          where: {
+            id: pr.author.id,
+          },
+          create: {
+            id: pr.author.id,
+            login: pr.author.login,
+            name: pr.author.name,
+            avatarUrl: pr.author.avatarUrl,
+          },
+          update: {
+            login: pr.author.login,
+            name: pr.author.name,
+            avatarUrl: pr.author.avatarUrl,
+          },
+        })
+
         await prismaSingleTenantClient.pr.upsert({
           where: {
             id: pr.id,
