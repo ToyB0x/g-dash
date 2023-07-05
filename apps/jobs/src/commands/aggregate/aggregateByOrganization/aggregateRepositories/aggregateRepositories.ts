@@ -3,6 +3,7 @@ import { sleep } from '@g-dash/utils'
 import { paginate } from './paginate'
 import { getFirstPage } from './getFirstPage'
 import { getEnv, getSingleTenantPrismaClient } from '../../../../utils'
+import { maxOld } from '../aggregateByOrganization'
 
 export const aggregateRepositories = async (
   orgName: string
@@ -42,10 +43,18 @@ export const aggregateRepositories = async (
         cursor: _cursor,
       } = await paginate(githubClient, orgName, cursor)
 
-      repositories.push(...repositories)
+      repositories.push(..._repositories)
       hasNextPage = _hasNextPage
       cursor = _cursor
     }
+
+    const recentRepositories = repositories.filter((repository) => {
+      if (repository.pushedAt) {
+        return new Date(repository.pushedAt).getTime() >= maxOld
+      } else {
+        return false
+      }
+    })
 
     // upsert org (because org name can be changed)
     await prismaSingleTenantClient.organization.upsert({
@@ -63,7 +72,7 @@ export const aggregateRepositories = async (
 
     // upsert repositories (because repository name can be changed)
     await Promise.all(
-      repositories.map(async (repository) => {
+      recentRepositories.map(async (repository) => {
         await prismaSingleTenantClient.repository.upsert({
           where: {
             id: repository.id,
@@ -87,7 +96,7 @@ export const aggregateRepositories = async (
       })
     )
 
-    return repositories.map((repository) => repository.name)
+    return recentRepositories.map((repository) => repository.name)
   } catch (err) {
     throw err
   } finally {
