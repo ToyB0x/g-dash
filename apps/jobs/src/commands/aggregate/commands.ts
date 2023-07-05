@@ -1,5 +1,5 @@
 import { Command } from 'commander'
-import { aggregateOrganization } from './aggregateOrganization'
+import { aggregateByOrganization } from './aggregateByOrganization'
 
 export const makeAggregateCommand = () => {
   const aggregate = new Command('aggregate')
@@ -9,7 +9,7 @@ export const makeAggregateCommand = () => {
     .command('organization')
     .description('aggregate specific organization repositories.')
     .argument('<orgName>', 'orgName to aggregate repositories')
-    .action(async (orgName: string) => await aggregateOrganization(orgName))
+    .action(async (orgName: string) => await aggregateByOrganization(orgName))
 
   return aggregate
 }

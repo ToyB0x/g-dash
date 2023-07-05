@@ -14,6 +14,15 @@ model Organization {
   id         String       @id // derived from the GitHub API
   login      String       @unique // The organization's login name (ensure uniqueness by github)
   Repository Repository[]
+  Pr         Pr[]
+}
+
+model User {
+  id        String  @id
+  login     String
+  name      String?
+  avatarUrl String
+  Pr        Pr[]
 }
 
 model Repository {
@@ -22,5 +31,30 @@ model Repository {
   pushedAt       DateTime? // if no push has happened, this will be null
   organizationId String
 
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+}
+
+model Pr {
+  id             String @id
+  organizationId String
+  authorId       String
+  title          String
+  url            String
+
+  additions    Int
+  deletions    Int
+  changedFiles Int
+
+  commentsTotalCount Int
+  commitsTotalCount  Int
+
+  merged Boolean
+  closed Boolean
+
+  createdAt DateTime
+  closedAt  DateTime?
+  mergedAt  DateTime?
+
+  user         User         @relation(fields: [authorId], references: [id])
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 }
