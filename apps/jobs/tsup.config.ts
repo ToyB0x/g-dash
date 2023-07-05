@@ -5,6 +5,6 @@ export default defineConfig({
   dts: true,
   entry: ['src/index.ts'],
   format: ['cjs'],
-  minify: true,
   sourcemap: true,
+  // minify: true, // disabled for debugging
 })
