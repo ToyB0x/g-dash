@@ -1,5 +1,5 @@
-// app/providers.tsx
 'use client'
+import 'client-only'
 
 import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider } from '@chakra-ui/react'
