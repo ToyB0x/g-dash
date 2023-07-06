@@ -16,7 +16,9 @@ export default function RootLayout({
         <Providers>
           <Flex>
             <Sidebar />
-            <Box h="120vh">{children}</Box>
+            <Box minH="100vh" flexGrow={1} bg="gray.50">
+              {children}
+            </Box>
           </Flex>
         </Providers>
       </body>
