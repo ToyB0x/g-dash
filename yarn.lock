@@ -1135,7 +1135,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/next-js@npm:^2.1.4":
+"@chakra-ui/next-js@npm:2.1.4":
   version: 2.1.4
   resolution: "@chakra-ui/next-js@npm:2.1.4"
   dependencies:
@@ -1529,7 +1529,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:^2.7.1":
+"@chakra-ui/react@npm:2.7.1":
   version: 2.7.1
   resolution: "@chakra-ui/react@npm:2.7.1"
   dependencies:
@@ -1999,7 +1999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11.11.1":
+"@emotion/react@npm:11.11.1":
   version: 11.11.1
   resolution: "@emotion/react@npm:11.11.1"
   dependencies:
@@ -2040,7 +2040,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.11.0":
+"@emotion/styled@npm:11.11.0":
   version: 11.11.0
   resolution: "@emotion/styled@npm:11.11.0"
   dependencies:
@@ -2543,7 +2543,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@g-dash/ui@workspace:packages/ui"
   dependencies:
-    "@chakra-ui/react": ^2.7.1
+    "@chakra-ui/react": 2.7.1
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
     "@types/react": 18.2.14
@@ -2552,7 +2552,7 @@ __metadata:
     react: 18.2.0
     typescript: 5.1.6
   peerDependencies:
-    "@chakra-ui/react": ^2.7.1
+    "@chakra-ui/react": 2.7.1
     react: 18.2.0
     typescript: 5.1.6
   languageName: unknown
@@ -2573,17 +2573,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@g-dash/web@workspace:apps/web"
   dependencies:
-    "@chakra-ui/next-js": ^2.1.4
-    "@chakra-ui/react": ^2.7.1
-    "@emotion/react": ^11.11.1
-    "@emotion/styled": ^11.11.0
+    "@chakra-ui/next-js": 2.1.4
+    "@chakra-ui/react": 2.7.1
+    "@emotion/react": 11.11.1
+    "@emotion/styled": 11.11.0
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
     "@g-dash/ui": "*"
     "@types/node": 18.16.19
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
-    framer-motion: ^10.12.18
+    framer-motion: 10.12.18
     next: 13.4.9
     react: 18.2.0
     react-dom: 18.2.0
@@ -6184,7 +6184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^10.12.18":
+"framer-motion@npm:10.12.18":
   version: 10.12.18
   resolution: "framer-motion@npm:10.12.18"
   dependencies:

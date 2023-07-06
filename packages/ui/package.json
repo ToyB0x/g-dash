@@ -9,12 +9,12 @@
     "generate:component": "turbo gen react-component"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^2.7.1",
+    "@chakra-ui/react": "2.7.1",
     "react": "18.2.0",
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@chakra-ui/react": "^2.7.1",
+    "@chakra-ui/react": "2.7.1",
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
     "@types/react": "18.2.14",
