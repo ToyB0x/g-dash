@@ -12,4 +12,4 @@ It is provided as OSS so that anyone can view, add, and edit the analysis logic 
 ## Current project status
 
 Currently, the sample implementation as Proof of Concept has been completed.  
-Over the next few months to a year, we will be adding more practical implementations.  
+Over the next few months to a year, we will be adding more practical implementations.
