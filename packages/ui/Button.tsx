@@ -1,7 +1,7 @@
 'use client'
 
-import * as React from 'react'
+import { Button as ChakraButton } from '@chakra-ui/react'
 
 export const Button = () => {
-  return <button onClick={() => alert('boop')}>Boop</button>
+  return <ChakraButton colorScheme="brand">Button</ChakraButton>
 }
