@@ -1,7 +1,8 @@
 'use client'
 import 'client-only'
 
-import { Box, Link } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/next-js'
 
 type LinkItem = {
   name: string
