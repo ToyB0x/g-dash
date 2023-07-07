@@ -22,6 +22,7 @@ export const aggregateRepositories = async (
     id: string
     name: string
     pushedAt: string | null
+    hasVulnerabilityAlertsEnabled: boolean
     vulnerabilityAlertsTotalCount: number
   }[] = []
 
@@ -86,6 +87,8 @@ export const aggregateRepositories = async (
             pushedAt: repository.pushedAt
               ? new Date(repository.pushedAt)
               : null,
+            hasVulnerabilityAlertsEnabled:
+              repository.hasVulnerabilityAlertsEnabled,
             vulnerabilityAlertsTotalCount:
               repository.vulnerabilityAlertsTotalCount,
           },
@@ -95,6 +98,8 @@ export const aggregateRepositories = async (
             pushedAt: repository.pushedAt
               ? new Date(repository.pushedAt)
               : null,
+            hasVulnerabilityAlertsEnabled:
+              repository.hasVulnerabilityAlertsEnabled,
             vulnerabilityAlertsTotalCount:
               repository.vulnerabilityAlertsTotalCount,
           },

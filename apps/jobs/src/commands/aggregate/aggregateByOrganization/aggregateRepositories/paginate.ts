@@ -25,6 +25,7 @@ export const paginate = async (
               id
               name
               pushedAt
+              hasVulnerabilityAlertsEnabled
               vulnerabilityAlerts(first: 100, states: [OPEN]) {
                 totalCount
               }
@@ -56,6 +57,7 @@ export const paginate = async (
         id: e.node.id,
         name: e.node.name,
         pushedAt: e.node.pushedAt ? e.node.pushedAt : null,
+        hasVulnerabilityAlertsEnabled: e.node.hasVulnerabilityAlertsEnabled,
         vulnerabilityAlertsTotalCount: e.node.vulnerabilityAlerts
           ? e.node.vulnerabilityAlerts.totalCount
           : 0,
