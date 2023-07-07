@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("PACKAGES_DATABASE_DB_URL")
 }
 
 model Organization {
