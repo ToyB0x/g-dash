@@ -14,21 +14,24 @@ export const PRsAccordion: FC<Props> = ({ prs }) => {
 
   return (
     <List>
-      {prs.slice(hidePrs ? 0 : -3).map((pr) => (
-        <ListItem key={pr.url}>
-          <HStack justify="space-between">
-            <Box w="32rem" isTruncated>
-              <Link href={pr.url} isExternal>
-                {pr.title}
-              </Link>
-            </Box>
-            <Box>
-              {/*+{pr.additions} / -{pr.deletions} lines*/}
-              {pr.changedFiles} files
-            </Box>
-          </HStack>
-        </ListItem>
-      ))}
+      {prs
+        .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())
+        .slice(hidePrs ? 0 : -3)
+        .map((pr) => (
+          <ListItem key={pr.url}>
+            <HStack justify="space-between">
+              <Box w="32rem" isTruncated>
+                <Link href={pr.url} isExternal>
+                  {pr.title}
+                </Link>
+              </Box>
+              <Box>
+                {/*+{pr.additions} / -{pr.deletions} lines*/}
+                {pr.changedFiles} files
+              </Box>
+            </HStack>
+          </ListItem>
+        ))}
       <Box textAlign="right">
         <Button
           textColor="black"
