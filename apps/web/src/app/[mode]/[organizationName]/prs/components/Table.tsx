@@ -1,7 +1,7 @@
 'use client'
 import 'client-only'
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { DataTable } from '@g-dash/ui'
 import { PRsAccordion } from './PRsAccordion'
 import { Avatar, Box, Stack } from '@chakra-ui/react'
@@ -53,6 +53,22 @@ const columns = [
       isNumeric: true,
     },
   }),
+  {
+    header: 'リードタイム',
+    accessorFn: (props) =>
+      Math.round(
+        props.Prs.reduce(
+          (a, b) =>
+            b.mergedAt ? a + (b.mergedAt.getTime() - b.createdAt.getTime()) : 0,
+          0,
+        ) /
+          props.Prs.filter((pr) => pr.merged).length /
+          (1000 * 60 * 60),
+      ),
+    meta: {
+      isNumeric: true,
+    },
+  },
   columnHelper.display({
     header: '詳細',
     cell: (props) => <PRsAccordion prs={props.row.original.Prs} />,
