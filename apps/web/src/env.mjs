@@ -4,15 +4,15 @@ import { createEnv } from '@t3-oss/env-nextjs'
 export const env = createEnv({
   server: {
     // REQUIRED
-    DB_NAME: z.string(),
+    APPS_DB_NAME: z.string(),
     // RLS ENABLED
-    DB_USER_RLS_ENABLED: z.string(),
-    DB_PASS_RLS_ENABLED: z.string(),
+    APPS_DB_USER_RLS_ENABLED: z.string(),
+    APPS_DB_PASS_RLS_ENABLED: z.string(),
     // RLS DISABLED
-    DB_USER_RLS_DISABLED: z.string(),
-    DB_PASS_RLS_DISABLED: z.string(),
+    APPS_DB_USER_RLS_DISABLED: z.string(),
+    APPS_DB_PASS_RLS_DISABLED: z.string(),
     // DB CONNECTION POOL SIZE
-    CONNECTION_LIMIT: z.coerce.number()
+    APPS_WEB_CONNECTION_LIMIT: z.coerce.number()
   },
   // client: {
   //   NEXT_PUBLIC_PUBLISHABLE_KEY: z.string().min(1),
