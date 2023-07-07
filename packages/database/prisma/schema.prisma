@@ -26,10 +26,11 @@ model User {
 }
 
 model Repository {
-  id             String    @id // derived from the GitHub API
-  name           String
-  pushedAt       DateTime? // if no push has happened, this will be null
-  organizationId String
+  id                            String    @id // derived from the GitHub API
+  name                          String
+  vulnerabilityAlertsTotalCount Int       @default(0)
+  pushedAt                      DateTime? // if no push has happened, this will be null
+  organizationId                String
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 }

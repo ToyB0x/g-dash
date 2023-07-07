@@ -22,6 +22,7 @@ export const aggregateRepositories = async (
     id: string
     name: string
     pushedAt: string | null
+    vulnerabilityAlertsTotalCount: number
   }[] = []
 
   try {
@@ -85,6 +86,8 @@ export const aggregateRepositories = async (
             pushedAt: repository.pushedAt
               ? new Date(repository.pushedAt)
               : null,
+            vulnerabilityAlertsTotalCount:
+              repository.vulnerabilityAlertsTotalCount,
           },
           update: {
             name: repository.name,
@@ -92,6 +95,8 @@ export const aggregateRepositories = async (
             pushedAt: repository.pushedAt
               ? new Date(repository.pushedAt)
               : null,
+            vulnerabilityAlertsTotalCount:
+              repository.vulnerabilityAlertsTotalCount,
           },
         })
       }),

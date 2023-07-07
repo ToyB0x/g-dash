@@ -24,6 +24,9 @@ export const getFirstPage = async (
               id
               name
               pushedAt
+              vulnerabilityAlerts(first: 100, states: [OPEN]) {
+                totalCount
+              }
             }
           }
         }
@@ -48,6 +51,9 @@ export const getFirstPage = async (
         id: e.node.id,
         name: e.node.name,
         pushedAt: e.node.pushedAt ? e.node.pushedAt : null,
+        vulnerabilityAlertsTotalCount: e.node.vulnerabilityAlerts
+          ? e.node.vulnerabilityAlerts.totalCount
+          : 0,
       }
     },
   )
