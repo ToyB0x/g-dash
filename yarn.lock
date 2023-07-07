@@ -2581,7 +2581,7 @@ __metadata:
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
     "@g-dash/ui": "*"
-    "@t3-oss/env-core": 0.6.0
+    "@t3-oss/env-nextjs": 0.6.0
     "@types/node": 18.16.19
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
@@ -3703,6 +3703,18 @@ __metadata:
     typescript: ">=4.7.2"
     zod: ^3.0.0
   checksum: 00c5b8e2d893f85e9d33099fded1e9ee1c74e642144b91d60096d31ed5bcd09986f14b275316568aa1a1f42d1b01a34b67dcf1396e11d837ff5c11b4bfb56a3a
+  languageName: node
+  linkType: hard
+
+"@t3-oss/env-nextjs@npm:0.6.0":
+  version: 0.6.0
+  resolution: "@t3-oss/env-nextjs@npm:0.6.0"
+  dependencies:
+    "@t3-oss/env-core": 0.6.0
+  peerDependencies:
+    typescript: ">=4.7.2"
+    zod: ^3.0.0
+  checksum: d3708558241bcf857dfcfbc778a4d0166a5e690414893d7a4eb95dcafa12810d4fdc1cffe41402004acdd0d8f558f9369499bd9032d04e158d8698b5e85c7f32
   languageName: node
   linkType: hard
 
