@@ -2,6 +2,7 @@
   "extends": "@g-dash/tsconfig/react/nextjs.json",
   "compilerOptions": {
     "plugins": [{ "name": "next" }],
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
