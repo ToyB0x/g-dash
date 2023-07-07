@@ -1009,7 +1009,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/icons@npm:2.0.19, @chakra-ui/icons@npm:^2.0.19":
+"@chakra-ui/icons@npm:2.0.19":
   version: 2.0.19
   resolution: "@chakra-ui/icons@npm:2.0.19"
   dependencies:
@@ -2588,7 +2588,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@g-dash/web@workspace:apps/web"
   dependencies:
-    "@chakra-ui/icons": ^2.0.19
+    "@chakra-ui/icons": 2.0.19
     "@chakra-ui/next-js": 2.1.4
     "@chakra-ui/react": 2.7.1
     "@emotion/react": 11.11.1
