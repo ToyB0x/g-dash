@@ -15,14 +15,16 @@ model Organization {
   login        String       @unique // The organization's login name (ensure uniqueness by github)
   Repositories Repository[]
   Prs          Pr[]
+  Commit       Commit[]
 }
 
 model User {
-  id        String  @id
+  id        String   @id
   login     String
   name      String?
   avatarUrl String
   Prs       Pr[]
+  Commit    Commit[]
 }
 
 model Repository {
@@ -61,4 +63,17 @@ model Pr {
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
   @@index([organizationId, createdAt])
+}
+
+model Commit {
+  id             String   @id
+  organizationId String
+  resourcePath   String
+  committedDate  DateTime
+  authorId       String
+
+  user         User         @relation(fields: [authorId], references: [id])
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, committedDate])
 }
