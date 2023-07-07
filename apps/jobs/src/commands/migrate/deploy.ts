@@ -1,5 +1,6 @@
 import { execSync } from 'child_process'
-import { getEnv, getDbUrl } from '../../utils'
+import { getEnv } from '../../utils'
+import { getDbUrl } from '@g-dash/database'
 import { execWithScrubbedLog } from './lib'
 
 export const deploy = () => {
@@ -8,6 +9,7 @@ export const deploy = () => {
     DB_NAME,
     DB_USER: DB_USER_MIGRATION,
     DB_PASS: DB_PASS_MIGRATION,
+    CONNECTION_LIMIT: 1,
   })
   execWithScrubbedLog(
     execSync,

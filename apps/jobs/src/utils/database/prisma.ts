@@ -1,5 +1,4 @@
-import { PrismaClient } from '@g-dash/database'
-import { getDbUrl } from './getDbUrl'
+import { PrismaClient, getDbUrl } from '@g-dash/database'
 import { getEnv } from '../env'
 
 export const getSingleTenantPrismaClient = () => {
@@ -9,6 +8,7 @@ export const getSingleTenantPrismaClient = () => {
     DB_NAME,
     DB_USER: DB_USER_RLS_ENABLED,
     DB_PASS: DB_PASS_RLS_ENABLED,
+    CONNECTION_LIMIT: 1,
   })
 
   return new PrismaClient({
