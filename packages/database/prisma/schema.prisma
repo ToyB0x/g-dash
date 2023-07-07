@@ -7,14 +7,14 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("PACKAGES_DATABASE_DB_URL")
 }
 
 model Organization {
-  id         String       @id // derived from the GitHub API
-  login      String       @unique // The organization's login name (ensure uniqueness by github)
-  Repository Repository[]
-  Pr         Pr[]
+  id           String       @id // derived from the GitHub API
+  login        String       @unique // The organization's login name (ensure uniqueness by github)
+  Repositories Repository[]
+  Prs          Pr[]
 }
 
 model User {
@@ -22,7 +22,7 @@ model User {
   login     String
   name      String?
   avatarUrl String
-  Pr        Pr[]
+  Prs       Pr[]
 }
 
 model Repository {
