@@ -1009,6 +1009,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/icons@npm:2.0.19, @chakra-ui/icons@npm:^2.0.19":
+  version: 2.0.19
+  resolution: "@chakra-ui/icons@npm:2.0.19"
+  dependencies:
+    "@chakra-ui/icon": 3.0.16
+  peerDependencies:
+    "@chakra-ui/system": ">=2.0.0"
+    react: ">=18"
+  checksum: 343a55d853c0b7c566ea5831dabfdfa4d5e6e88069ba3966189fab6d62671ba732fb3cab42b97c61db8d4488b279b8f6555fa096ae4cad2b96c33cc1fc13dc27
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/image@npm:2.0.16":
   version: 2.0.16
   resolution: "@chakra-ui/image@npm:2.0.16"
@@ -2543,15 +2555,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@g-dash/ui@workspace:packages/ui"
   dependencies:
+    "@chakra-ui/icons": 2.0.19
     "@chakra-ui/react": 2.7.1
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
+    "@tanstack/react-table": 8.9.3
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
     eslint: 8.44.0
     react: 18.2.0
     typescript: 5.1.6
   peerDependencies:
+    "@chakra-ui/icons": 2.0.19
     "@chakra-ui/react": 2.7.1
     react: 18.2.0
     typescript: 5.1.6
@@ -2573,6 +2588,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@g-dash/web@workspace:apps/web"
   dependencies:
+    "@chakra-ui/icons": ^2.0.19
     "@chakra-ui/next-js": 2.1.4
     "@chakra-ui/react": 2.7.1
     "@emotion/react": 11.11.1
@@ -2582,6 +2598,7 @@ __metadata:
     "@g-dash/tsconfig": "*"
     "@g-dash/ui": "*"
     "@t3-oss/env-nextjs": 0.6.0
+    "@tanstack/react-table": 8.9.3
     "@types/node": 18.16.19
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
@@ -3715,6 +3732,25 @@ __metadata:
     typescript: ">=4.7.2"
     zod: ^3.0.0
   checksum: d3708558241bcf857dfcfbc778a4d0166a5e690414893d7a4eb95dcafa12810d4fdc1cffe41402004acdd0d8f558f9369499bd9032d04e158d8698b5e85c7f32
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-table@npm:8.9.3":
+  version: 8.9.3
+  resolution: "@tanstack/react-table@npm:8.9.3"
+  dependencies:
+    "@tanstack/table-core": 8.9.3
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: a71fbbc608bb11b79ecd2b1a838fad2fc4140f9eb1a25bd44b6b1b4c6acd52741b5745e3e022390c642c284d0d528249360e322c0dbc3d34fea031611c207a7d
+  languageName: node
+  linkType: hard
+
+"@tanstack/table-core@npm:8.9.3":
+  version: 8.9.3
+  resolution: "@tanstack/table-core@npm:8.9.3"
+  checksum: 52c7e57daaa3160450fb0bde702ec0b8aab159e2b19efd1012e03b3e167acc52839f5b39578cc8bf96e91346719f400d0435a5191384c168d9477da82f276c38
   languageName: node
   linkType: hard
 
