@@ -49,8 +49,22 @@ export const paginate = async (
               comments {
                 totalCount
               }
-              commits {
+              # TODO: pagination
+              commits(first: 100) {
                 totalCount
+                nodes {
+                  id
+                  commit {
+                    id
+                    resourcePath
+                    committedDate
+                    author {
+                      user {
+                        id
+                      }
+                    }
+                  }
+                }
               }
               createdAt
               merged
