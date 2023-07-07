@@ -21,6 +21,7 @@ export default function Page({
     }),
   )
 
+  const halfYearAgo = new Date(Date.now() - 60 * 60 * 24 * 30 * 6 * 1000)
   const usersWithPRs = use(
     prisma.user.findMany({
       select: {
@@ -28,7 +29,10 @@ export default function Page({
         login: true,
         avatarUrl: true,
         Prs: {
-          where: { organizationId: organization.id },
+          where: {
+            organizationId: organization.id,
+            createdAt: { gte: halfYearAgo },
+          },
           select: {
             id: true,
             organizationId: true,
@@ -51,5 +55,5 @@ export default function Page({
     }),
   )
 
-  return <Table usersWithPRs={usersWithPRs} />
+  return <Table usersWithPRs={usersWithPRs.filter((u) => u.Prs.length)} />
 }
