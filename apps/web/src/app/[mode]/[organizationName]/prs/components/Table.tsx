@@ -7,7 +7,7 @@ import { PRsAccordion } from './PRsAccordion'
 import { Avatar, Box, Stack } from '@chakra-ui/react'
 import { createColumnHelper } from '@tanstack/react-table'
 
-type UserWithPRs = {
+export type UserWithPRs = {
   id: string
   login: string
   avatarUrl: string
