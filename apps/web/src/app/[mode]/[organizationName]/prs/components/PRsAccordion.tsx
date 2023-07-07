@@ -10,13 +10,13 @@ type Props = {
 }
 
 export const PRsAccordion: FC<Props> = ({ prs }) => {
-  const [hidePrs, setHidePrs] = useState(false)
+  const [hidePrs, setHidePrs] = useState(true)
 
   return (
     <List>
       {prs
-        .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())
-        .slice(hidePrs ? 0 : -3)
+        .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+        .slice(0, hidePrs ? 3 : prs.length)
         .map((pr) => (
           <ListItem key={pr.url}>
             <HStack justify="space-between">
@@ -32,18 +32,20 @@ export const PRsAccordion: FC<Props> = ({ prs }) => {
             </HStack>
           </ListItem>
         ))}
-      <Box textAlign="right">
-        <Button
-          textColor="black"
-          colorScheme="transparent"
-          size="xs"
-          px={0}
-          alignSelf={'right'}
-          onClick={() => setHidePrs(!hidePrs)}
-        >
-          {!hidePrs ? 'more' : 'less'}
-        </Button>
-      </Box>
+      {prs.length > 3 && (
+        <Box textAlign="right">
+          <Button
+            textColor="black"
+            colorScheme="transparent"
+            size="xs"
+            px={0}
+            alignSelf={'right'}
+            onClick={() => setHidePrs(!hidePrs)}
+          >
+            {hidePrs ? 'more..' : 'less..'}
+          </Button>
+        </Box>
+      )}
     </List>
   )
 }
