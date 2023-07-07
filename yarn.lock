@@ -2577,9 +2577,11 @@ __metadata:
     "@chakra-ui/react": 2.7.1
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
+    "@g-dash/database": "*"
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
     "@g-dash/ui": "*"
+    "@t3-oss/env-core": 0.6.0
     "@types/node": 18.16.19
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
@@ -2588,6 +2590,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 5.1.6
+    zod: 3.21.4
   languageName: unknown
   linkType: soft
 
@@ -3690,6 +3693,16 @@ __metadata:
   dependencies:
     tslib: ^2.4.0
   checksum: 71e0e27234590435e4c62b97ef5e796f88e786841a38c7116a5e27a3eafa7b9ead7cdec5249b32165902076de78446945311c973e59bddf77c1e24f33a8f272a
+  languageName: node
+  linkType: hard
+
+"@t3-oss/env-core@npm:0.6.0":
+  version: 0.6.0
+  resolution: "@t3-oss/env-core@npm:0.6.0"
+  peerDependencies:
+    typescript: ">=4.7.2"
+    zod: ^3.0.0
+  checksum: 00c5b8e2d893f85e9d33099fded1e9ee1c74e642144b91d60096d31ed5bcd09986f14b275316568aa1a1f42d1b01a34b67dcf1396e11d837ff5c11b4bfb56a3a
   languageName: node
   linkType: hard
 
