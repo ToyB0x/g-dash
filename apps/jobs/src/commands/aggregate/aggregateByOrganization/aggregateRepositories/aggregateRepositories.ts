@@ -22,6 +22,12 @@ export const aggregateRepositories = async (
     id: string
     name: string
     pushedAt: string | null
+    releases: {
+      id: string
+      url: string
+      tagName: string
+      publishedAt: string
+    }[]
     hasVulnerabilityAlertsEnabled: boolean
     vulnerabilityAlertsTotalCount: number
   }[] = []
@@ -104,6 +110,29 @@ export const aggregateRepositories = async (
               repository.vulnerabilityAlertsTotalCount,
           },
         })
+
+        await Promise.all(
+          repository.releases.map(async (release) => {
+            await prismaSingleTenantClient.release.upsert({
+              where: {
+                id: release.id,
+              },
+              create: {
+                id: release.id,
+                tagName: release.tagName,
+                url: release.url,
+                organizationId,
+                publishedAt: new Date(release.publishedAt),
+              },
+              update: {
+                tagName: release.tagName,
+                url: release.url,
+                organizationId,
+                publishedAt: new Date(release.publishedAt),
+              },
+            })
+          }),
+        )
       }),
     )
 
