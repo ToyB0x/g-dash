@@ -2,14 +2,17 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
+    "typecheck": {
+      "dependsOn": ["topo"]
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["topo"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "lint": {},
-    "typecheck": {
-      "dependsOn": ["build"]
-    },
     "dev": {
       "cache": false,
       "persistent": true
