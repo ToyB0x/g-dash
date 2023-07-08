@@ -25,6 +25,21 @@ export const paginate = async (
               id
               name
               pushedAt
+              releases(
+                first: 100
+                orderBy: { field: CREATED_AT, direction: DESC }
+              ) {
+                nodes {
+                  id
+                  tagName
+                  url
+                  publishedAt
+                }
+              }
+              hasVulnerabilityAlertsEnabled
+              vulnerabilityAlerts(first: 100, states: [OPEN]) {
+                totalCount
+              }
             }
           }
         }
@@ -53,6 +68,29 @@ export const paginate = async (
         id: e.node.id,
         name: e.node.name,
         pushedAt: e.node.pushedAt ? e.node.pushedAt : null,
+        releases: e.node.releases.nodes
+          ? e.node.releases.nodes
+              .filter(
+                (
+                  n,
+                ): n is {
+                  id: string
+                  url: string
+                  tagName: string
+                  publishedAt: string
+                } => !!n?.publishedAt,
+              )
+              .map((n) => ({
+                id: n.id,
+                tagName: n.tagName,
+                url: n.url,
+                publishedAt: n.publishedAt,
+              }))
+          : [],
+        hasVulnerabilityAlertsEnabled: e.node.hasVulnerabilityAlertsEnabled,
+        vulnerabilityAlertsTotalCount: e.node.vulnerabilityAlerts
+          ? e.node.vulnerabilityAlerts.totalCount
+          : 0,
       }
     })
 

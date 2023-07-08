@@ -1,5 +1,6 @@
 import { GraphQLClient } from 'graphql-request'
 import { graphql } from '../../../../../generated/gql'
+import { PrsQuery } from '../../../../../generated/gql/graphql'
 
 export type UserPR = {
   id: string
@@ -15,8 +16,33 @@ export type UserPR = {
   comments: {
     totalCount: number
   }
+  reviews: {
+    nodes: {
+      id: string
+      url: string
+      author: {
+        login: string
+      }
+    }[]
+  }
   commits: {
     totalCount: number
+    nodes: {
+      id: string
+      commit: {
+        id: string
+        url: string
+        committedDate: string
+        author: {
+          user: {
+            id: string
+            login: string
+            avatarUrl: string
+            name: string | undefined | null
+          }
+        }
+      }
+    }[]
   }
   createdAt: string
   merged: boolean
@@ -61,8 +87,35 @@ export const getFirstPage = async (
               comments {
                 totalCount
               }
-              commits {
+              # TODO: pagination
+              reviews(first: 100) {
+                nodes {
+                  id
+                  url
+                  author {
+                    login
+                  }
+                }
+              }
+              # TODO: pagination
+              commits(first: 100) {
                 totalCount
+                nodes {
+                  id
+                  commit {
+                    id
+                    url
+                    committedDate
+                    author {
+                      user {
+                        id
+                        login
+                        name
+                        avatarUrl
+                      }
+                    }
+                  }
+                }
               }
               createdAt
               merged
@@ -86,13 +139,25 @@ export const getFirstPage = async (
     }
   `)
 
-  const prsResult = await graphQLClient.request(prsQuery, {
-    owner: orgName,
-    name: repositoryName,
-  })
+  const maxRetry = 5
+  let tryCount = 0
+  let prsResult: PrsQuery | null = null
+  while (tryCount < maxRetry) {
+    try {
+      prsResult = await graphQLClient.request(prsQuery, {
+        owner: orgName,
+        name: repositoryName,
+      })
+      break
+    } catch (e) {
+      console.error(e)
+    } finally {
+      tryCount++
+    }
+  }
 
-  if (!prsResult.repository) throw Error('null repository')
-
+  if (!prsResult) throw Error('null prsResult')
+  if (!prsResult?.repository) throw Error('null repository')
   if (!prsResult.repository.pullRequests.edges) throw Error('null edges')
 
   const prs = prsResult.repository.pullRequests.edges
@@ -113,8 +178,42 @@ export const getFirstPage = async (
         comments: {
           totalCount: userPr.comments.totalCount,
         },
+        reviews: {
+          nodes: userPr.reviews.nodes
+            .filter<UserPR['reviews']['nodes'][0]>(
+              (n): n is UserPR['reviews']['nodes'][0] => !!n.author,
+            )
+            .map((n) => ({
+              id: n.id,
+              url: n.url,
+              author: {
+                login: n.author.login,
+              },
+            })),
+        },
         commits: {
           totalCount: userPr.commits.totalCount,
+          nodes: userPr.commits.nodes
+            .filter<UserPR['commits']['nodes'][0]>(
+              (n): n is UserPR['commits']['nodes'][0] =>
+                !!n.commit.author?.user?.id,
+            )
+            .map((n) => ({
+              id: n.id,
+              commit: {
+                id: n.commit.id,
+                url: n.commit.url,
+                committedDate: n.commit.committedDate,
+                author: {
+                  user: {
+                    id: n.commit.author.user.id,
+                    login: n.commit.author.user.login,
+                    name: n.commit.author.user.name,
+                    avatarUrl: n.commit.author.user.avatarUrl,
+                  },
+                },
+              },
+            })),
         },
         createdAt: userPr.createdAt,
         merged: userPr.merged,

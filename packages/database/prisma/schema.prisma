@@ -15,20 +15,37 @@ model Organization {
   login        String       @unique // The organization's login name (ensure uniqueness by github)
   Repositories Repository[]
   Prs          Pr[]
+  Commits      Commit[]
+  Reviews      Review[]
+  Releases     Release[]
 }
 
 model User {
-  id        String  @id
-  login     String
+  id        String   @id
+  login     String // not unique, because sync delays can cause duplicates login ids
   name      String?
   avatarUrl String
   Prs       Pr[]
+  Commits   Commit[]
+  Reviews   Review[]
 }
 
 model Repository {
-  id             String    @id // derived from the GitHub API
-  name           String
-  pushedAt       DateTime? // if no push has happened, this will be null
+  id                            String    @id // derived from the GitHub API
+  name                          String
+  hasVulnerabilityAlertsEnabled Boolean
+  vulnerabilityAlertsTotalCount Int
+  pushedAt                      DateTime? // if no push has happened, this will be null
+  organizationId                String
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+}
+
+model Release {
+  id             String   @id // derived from the GitHub API
+  tagName        String
+  url            String
+  publishedAt    DateTime
   organizationId String
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
@@ -59,4 +76,29 @@ model Pr {
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
   @@index([organizationId, createdAt])
+}
+
+model Commit {
+  id             String   @id
+  organizationId String
+  url            String
+  committedDate  DateTime
+  authorId       String
+
+  user         User         @relation(fields: [authorId], references: [id])
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, committedDate])
+}
+
+model Review {
+  id             String @id
+  organizationId String
+  url            String
+  authorId       String
+
+  user         User         @relation(fields: [authorId], references: [id])
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, authorId])
 }

@@ -88,6 +88,29 @@ export const aggregatePRs = async (
           },
         })
 
+        // 後続処理のため事前にcommit authorをUserテーブルに追加
+        await Promise.all(
+          pr.commits.nodes.map(
+            async (n) =>
+              await prismaSingleTenantClient.user.upsert({
+                where: {
+                  id: n.commit.author.user.id,
+                },
+                create: {
+                  id: n.commit.author.user.id,
+                  login: n.commit.author.user.login,
+                  name: n.commit.author.user.name,
+                  avatarUrl: n.commit.author.user.avatarUrl,
+                },
+                update: {
+                  login: n.commit.author.user.login,
+                  name: n.commit.author.user.name,
+                  avatarUrl: n.commit.author.user.avatarUrl,
+                },
+              }),
+          ),
+        )
+
         await prismaSingleTenantClient.pr.upsert({
           where: {
             id: pr.id,
@@ -126,6 +149,60 @@ export const aggregatePRs = async (
             mergedAt: pr.mergedAt,
           },
         })
+
+        // upsert commits
+        await Promise.all(
+          pr.commits.nodes.map(async (commit) => {
+            await prismaSingleTenantClient.commit.upsert({
+              where: {
+                id: commit.id,
+              },
+              create: {
+                id: commit.id,
+                organizationId,
+                url: commit.commit.url,
+                committedDate: commit.commit.committedDate,
+                authorId: commit.commit.author.user.id,
+              },
+              update: {
+                url: commit.commit.url,
+                committedDate: commit.commit.committedDate,
+                authorId: commit.commit.author.user.id,
+              },
+            })
+          }),
+        )
+
+        // upsert reviews
+        await Promise.all(
+          pr.reviews.nodes.map(async (review) => {
+            const authors = await prismaSingleTenantClient.user.findMany({
+              where: {
+                login: review.author.login,
+              },
+            })
+
+            // not unique, because sync delays can cause duplicates login ids
+            if (authors.length !== 1) return
+            const author = authors[0]
+
+            await prismaSingleTenantClient.review.upsert({
+              where: {
+                id: review.id,
+              },
+              create: {
+                id: review.id,
+                organizationId,
+                url: review.url,
+                authorId: author.id,
+              },
+              update: {
+                url: review.url,
+                authorId: author.id,
+              },
+            })
+          }),
+        )
       }),
     )
   } catch (err) {
