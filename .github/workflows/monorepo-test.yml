@@ -1,5 +1,7 @@
 name: Monorepo test
 on: push
+env:
+  CACHE_VERSION: 1
 
 jobs:
   test:
@@ -20,10 +22,11 @@ jobs:
         uses: actions/cache@v3
         with:
           path: node_modules/.cache/turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          key:
+            turbo/${{ env.CACHE_VERSION }}/${{ github.job }}/${{ github.ref_name }}/${{ github.sha }}
           restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
-            turbo-${{ github.job }}-
+            turbo/${{ env.CACHE_VERSION }}/${{ github.job }}/${{ github.ref_name }}/
+            turbo/${{ env.CACHE_VERSION }}/${{ github.job }}/
 
       - name: Format check
         run: yarn format:check
