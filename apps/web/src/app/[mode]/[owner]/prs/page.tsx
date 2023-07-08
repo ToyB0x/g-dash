@@ -4,16 +4,12 @@ import { use } from 'react'
 import { Table } from './components'
 import { getSingleTenantPrismaClient } from '@/clients'
 
-export default function Page({
-  params,
-}: {
-  params: { organizationName: string }
-}) {
+export default function Page({ params }: { params: { owner: string } }) {
   const prisma = getSingleTenantPrismaClient()
   const organization = use(
     prisma.organization.findUniqueOrThrow({
       where: {
-        login: params.organizationName,
+        login: params.owner,
       },
       select: {
         id: true,
