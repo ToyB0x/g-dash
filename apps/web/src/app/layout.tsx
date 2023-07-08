@@ -1,9 +1,7 @@
 'use client'
 import 'client-only'
 
-import { Box, Flex } from '@chakra-ui/react'
 import { Providers } from './providers'
-import { Sidebar } from '@g-dash/ui'
 
 export default function RootLayout({
   children,
@@ -13,14 +11,7 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <Providers>
-          <Flex>
-            <Sidebar />
-            <Box minH="100vh" flexGrow={1} bg="gray.50">
-              {children}
-            </Box>
-          </Flex>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
