@@ -1,8 +1,10 @@
 'use client'
 import 'client-only'
 
+import { FC } from 'react'
 import { Box } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/next-js'
+import { Modes } from '@g-dash/types'
 
 type LinkItem = {
   name: string
@@ -15,7 +17,12 @@ const linkItems: LinkItem[] = [
   { name: 'Comments', href: 'comments' },
 ]
 
-export const Sidebar = () => {
+type Props = {
+  mode: (typeof Modes)[keyof typeof Modes]
+  owner: string
+}
+
+export const Sidebar: FC<Props> = ({ mode, owner }) => {
   return (
     <Box
       pos="sticky"
@@ -35,7 +42,7 @@ export const Sidebar = () => {
           display="block"
           fontSize="lg"
           key={link.name}
-          href={`/${link.href}`}
+          href={`/${mode}/${owner}/${link.href}`}
         >
           {link.name}
         </Link>
