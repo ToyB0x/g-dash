@@ -17,10 +17,10 @@ jobs:
         with:
           path: node_modules/.cache/turbo
           key:
-            turbo-${{ env.CACHE_VERSION }}-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+            turbo/${{ env.CACHE_VERSION }}/${{ github.job }}/${{ github.ref_name }}/${{ github.sha }}
           restore-keys: |
-            turbo-${{ env.CACHE_VERSION }}-${{ github.job }}-${{ github.ref_name }}-
-            turbo-${{ env.CACHE_VERSION }}-${{ github.job }}-
+            turbo/${{ env.CACHE_VERSION }}/${{ github.job }}/${{ github.ref_name }}/
+            turbo/${{ env.CACHE_VERSION }}/${{ github.job }}/
 
       - name: node setup (via volta)
         uses: volta-cli/action@v4
