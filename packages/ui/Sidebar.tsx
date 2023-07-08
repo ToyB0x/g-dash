@@ -1,6 +1,7 @@
 'use client'
 import 'client-only'
 
+import { FC } from 'react'
 import { Box } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/next-js'
 
@@ -15,7 +16,12 @@ const linkItems: LinkItem[] = [
   { name: 'Comments', href: 'comments' },
 ]
 
-export const Sidebar = () => {
+type Props = {
+  mode: 'personal' | 'organization'
+  owner: string
+}
+
+export const Sidebar: FC<Props> = ({ mode, owner }) => {
   return (
     <Box
       pos="sticky"
@@ -35,7 +41,7 @@ export const Sidebar = () => {
           display="block"
           fontSize="lg"
           key={link.name}
-          href={`/${link.href}`}
+          href={`/${mode}/${owner}/${link.href}`}
         >
           {link.name}
         </Link>
