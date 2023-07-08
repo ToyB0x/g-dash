@@ -7,7 +7,9 @@
     "typecheck": "turbo run typecheck",
     "lint": "dotenv -e .env.sample -- turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,md}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "clear:all": "rm -rf ./node_modules ./apps/*/node_modules ./packages/*/node_modules",
+    "refresh": "yarn clear:all && yarn"
   },
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
