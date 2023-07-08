@@ -1,5 +1,7 @@
 name: Monorepo test
 on: push
+env:
+  CACHE_VERSION: 1
 
 jobs:
   test:
@@ -10,20 +12,21 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
+      - name: Turborepo Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules/.cache/turbo
+          key:
+            turbo-${{ env.CACHE_VERSION }}-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ env.CACHE_VERSION }}-${{ github.job }}-${{ github.ref_name }}-
+            turbo-${{ env.CACHE_VERSION }}-${{ github.job }}-
+
       - name: node setup (via volta)
         uses: volta-cli/action@v4
 
       - name: Install all packages
         run: yarn install --immutable
-
-      - name: Turborepo Cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules/.cache/turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
-            turbo-${{ github.job }}-
 
       - name: Format check
         run: yarn format:check
