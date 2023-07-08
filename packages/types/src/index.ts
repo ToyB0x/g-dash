@@ -1,4 +1,4 @@
 export const Modes = {
-  PERSONAL: 'PERSONAL',
-  GITHUB_APP: 'GITHUB_APP',
+  PERSONAL: 'personal',
+  GITHUB_APP: 'github-app',
 } as const

@@ -4,6 +4,7 @@ import 'client-only'
 import { FC } from 'react'
 import { Box } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/next-js'
+import { Modes } from '@g-dash/types'
 
 type LinkItem = {
   name: string
@@ -17,7 +18,7 @@ const linkItems: LinkItem[] = [
 ]
 
 type Props = {
-  mode: 'personal' | 'organization'
+  mode: (typeof Modes)[keyof typeof Modes]
   owner: string
 }
 

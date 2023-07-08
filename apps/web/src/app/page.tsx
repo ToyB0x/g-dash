@@ -3,6 +3,7 @@ import 'client-only'
 
 import { useRouter } from 'next/navigation'
 import { Center, Select } from '@chakra-ui/react'
+import { Modes } from '@g-dash/types'
 
 export default function Page() {
   const router = useRouter()
@@ -17,8 +18,11 @@ export default function Page() {
         placeholder="Select mode"
         variant="filled"
       >
-        <option value="personal">personal</option>
-        <option value="organization">organization</option>
+        {Object.values(Modes).map((mode) => (
+          <option value={mode} key={mode}>
+            {mode.toUpperCase()}
+          </option>
+        ))}
       </Select>
     </Center>
   )

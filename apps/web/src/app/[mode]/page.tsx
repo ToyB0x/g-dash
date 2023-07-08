@@ -3,15 +3,16 @@ import 'client-only'
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Button, Center, Input, Select, Stack } from '@chakra-ui/react'
+import { Button, Center, Input, Stack } from '@chakra-ui/react'
+import { Modes } from '@g-dash/types'
 
 export default function Page({
   params,
 }: {
-  params: { mode: 'personal' | 'organization' }
+  params: { mode: (typeof Modes)[keyof typeof Modes] }
 }) {
   const router = useRouter()
-  const [organizationName, setOrganizationName] = useState('')
+  const [ownerName, setOwnerName] = useState('')
 
   return (
     <Center h="100vh">
@@ -19,16 +20,15 @@ export default function Page({
         <Input
           w="24rem"
           placeholder="input organizationName"
-          onChange={(e) => setOrganizationName(e.target.value)}
+          onChange={(e) => setOwnerName(e.target.value)}
           onKeyDown={(e) => {
-            if (e.key === 'Enter')
-              router.push(params.mode + '/' + organizationName)
+            if (e.key === 'Enter') router.push(params.mode + '/' + ownerName)
           }}
         />
         <Button
           w="30%"
           marginLeft="auto"
-          onClick={() => router.push(params.mode + '/' + organizationName)}
+          onClick={() => router.push(params.mode + '/' + ownerName)}
         >
           Submit
         </Button>
