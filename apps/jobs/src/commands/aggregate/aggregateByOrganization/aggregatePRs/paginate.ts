@@ -50,17 +50,30 @@ export const paginate = async (
                 totalCount
               }
               # TODO: pagination
+              reviews(first: 100) {
+                nodes {
+                  id
+                  url
+                  author {
+                    login
+                  }
+                }
+              }
+              # TODO: pagination
               commits(first: 100) {
                 totalCount
                 nodes {
                   id
                   commit {
                     id
-                    resourcePath
+                    url
                     committedDate
                     author {
                       user {
                         id
+                        login
+                        name
+                        avatarUrl
                       }
                     }
                   }
@@ -88,7 +101,7 @@ export const paginate = async (
     }
   `)
 
-  const maxRetry = 3
+  const maxRetry = 5
   let tryCount = 0
   let paginatePrsResult: PaginatePrsQuery | null = null
   while (tryCount < maxRetry) {
@@ -133,8 +146,42 @@ export const paginate = async (
         comments: {
           totalCount: userPr.comments.totalCount,
         },
+        reviews: {
+          nodes: userPr.reviews.nodes
+            .filter<UserPR['reviews']['nodes'][0]>(
+              (n): n is UserPR['reviews']['nodes'][0] => !!n.author,
+            )
+            .map((n) => ({
+              id: n.id,
+              url: n.url,
+              author: {
+                login: n.author.login,
+              },
+            })),
+        },
         commits: {
           totalCount: userPr.commits.totalCount,
+          nodes: userPr.commits.nodes
+            .filter<UserPR['commits']['nodes'][0]>(
+              (n): n is UserPR['commits']['nodes'][0] =>
+                !!n.commit.author?.user?.id,
+            )
+            .map((n) => ({
+              id: n.id,
+              commit: {
+                id: n.commit.id,
+                url: n.commit.url,
+                committedDate: n.commit.committedDate,
+                author: {
+                  user: {
+                    id: n.commit.author.user.id,
+                    login: n.commit.author.user.login,
+                    name: n.commit.author.user.name,
+                    avatarUrl: n.commit.author.user.avatarUrl,
+                  },
+                },
+              },
+            })),
         },
         createdAt: userPr.createdAt,
         merged: userPr.merged,
