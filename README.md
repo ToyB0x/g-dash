@@ -15,9 +15,7 @@ Currently, the sample implementation as Proof of Concept has been completed.
 Over the next few months to a year, we will be adding more practical implementations.
 
 # TODO
-- prs
-  - add columns
-  - add period selector
+
 - dashboard
   - first review latency card (review cycle health)
   - release cycle card (release cycle health)
