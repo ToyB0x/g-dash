@@ -49,7 +49,7 @@ const columns = [
   }),
   columnHelper.accessor('Prs', {
     header: 'マージ済みPR',
-    cell: (props) => props.row.original.Prs.length,
+    cell: (props) => props.row.original.Prs.filter((pr) => pr.merged).length,
     meta: {
       isNumeric: true,
     },
