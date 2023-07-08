@@ -2551,6 +2551,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@g-dash/types@*, @g-dash/types@workspace:packages/types":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/types@workspace:packages/types"
+  dependencies:
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
+    tsup: 7.1.0
+    typescript: 5.1.6
+  languageName: unknown
+  linkType: soft
+
 "@g-dash/ui@*, @g-dash/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@g-dash/ui@workspace:packages/ui"
@@ -2559,6 +2570,7 @@ __metadata:
     "@chakra-ui/react": 2.7.1
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
+    "@g-dash/types": "*"
     "@tanstack/react-table": 8.9.3
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
@@ -2596,6 +2608,7 @@ __metadata:
     "@g-dash/database": "*"
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
+    "@g-dash/types": "*"
     "@g-dash/ui": "*"
     "@t3-oss/env-nextjs": 0.6.0
     "@tanstack/react-table": 8.9.3
