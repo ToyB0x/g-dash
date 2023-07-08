@@ -12,6 +12,12 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
+      - name: node setup (via volta)
+        uses: volta-cli/action@v4
+
+      - name: Install all packages
+        run: yarn install --immutable
+
       - name: Turborepo Cache
         uses: actions/cache@v3
         with:
@@ -21,12 +27,6 @@ jobs:
           restore-keys: |
             turbo/${{ env.CACHE_VERSION }}/${{ github.job }}/${{ github.ref_name }}/
             turbo/${{ env.CACHE_VERSION }}/${{ github.job }}/
-
-      - name: node setup (via volta)
-        uses: volta-cli/action@v4
-
-      - name: Install all packages
-        run: yarn install --immutable
 
       - name: Format check
         run: yarn format:check
