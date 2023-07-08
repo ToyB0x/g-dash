@@ -25,8 +25,8 @@ export type UserWithPRs = {
     merged: boolean
     closed: boolean
     createdAt: Date
-    closedAt: Date
-    mergedAt: Date
+    closedAt: Date | null
+    mergedAt: Date | null
   }[]
 }
 
@@ -55,16 +55,25 @@ const columns = [
   }),
   {
     header: 'リードタイム',
-    accessorFn: (props) =>
-      Math.round(
-        props.Prs.reduce(
-          (a, b) =>
-            b.mergedAt ? a + (b.mergedAt.getTime() - b.createdAt.getTime()) : 0,
+    accessorFn: (props: UserWithPRs) => {
+      const mergedPrs = props.Prs.filter(
+        (
+          pr,
+        ): pr is UserWithPRs['Prs'][0] & {
+          mergedAt: Date
+        } => pr.merged && !!pr.mergedAt,
+      )
+
+      return Math.round(
+        mergedPrs.reduce(
+          (prev, current) =>
+            prev + (current.mergedAt.getTime() - current.createdAt.getTime()),
           0,
         ) /
-          props.Prs.filter((pr) => pr.merged).length /
+          mergedPrs.length /
           (1000 * 60 * 60),
-      ),
+      )
+    },
     meta: {
       isNumeric: true,
     },
@@ -75,6 +84,9 @@ const columns = [
   }),
 ]
 
+type RequiredNotNull<T> = {
+  [P in keyof T]: NonNullable<T[P]>
+}
 export const Table: FC<Props> = ({ usersWithPRs }) => (
   <DataTable columns={columns} data={usersWithPRs} />
 )
