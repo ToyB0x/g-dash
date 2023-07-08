@@ -2,12 +2,15 @@
 import 'client-only'
 
 import { useState } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { Button, Center, Input, Select, Stack } from '@chakra-ui/react'
 
-export default function Page() {
+export default function Page({
+  params,
+}: {
+  params: { mode: 'personal' | 'organization' }
+}) {
   const router = useRouter()
-  const pathname = usePathname()
   const [organizationName, setOrganizationName] = useState('')
 
   return (
@@ -19,13 +22,13 @@ export default function Page() {
           onChange={(e) => setOrganizationName(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === 'Enter')
-              router.push(pathname + '/' + organizationName)
+              router.push(params.mode + '/' + organizationName)
           }}
         />
         <Button
           w="30%"
           marginLeft="auto"
-          onClick={() => router.push(pathname + '/' + organizationName)}
+          onClick={() => router.push(params.mode + '/' + organizationName)}
         >
           Submit
         </Button>
