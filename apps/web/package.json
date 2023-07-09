@@ -21,11 +21,9 @@
     "@g-dash/ui": "*",
     "@t3-oss/env-nextjs": "0.6.0",
     "@tanstack/react-table": "8.9.3",
-    "apexcharts": "3.41.0",
     "framer-motion": "10.12.18",
     "next": "13.4.9",
     "react": "18.2.0",
-    "react-apexcharts": "1.4.0",
     "react-dom": "18.2.0",
     "react-icons": "4.10.1",
     "zod": "3.21.4"
