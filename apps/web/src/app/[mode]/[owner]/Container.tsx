@@ -19,16 +19,18 @@ import { GoCommentDiscussion } from 'react-icons/go'
 import { SlSpeedometer } from 'react-icons/sl'
 import { BarChart, LineChart, PieChart } from './components'
 
-type Props = {}
+type Props = {
+  releaseCount: number
+}
 
-export const Container: FC<Props> = ({}) => (
+export const Container: FC<Props> = ({ releaseCount }) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
     <Box mt={4}>
       <SimpleGrid columns={{ base: 1, md: 6 }} spacing={8}>
         <StatCard
-          title="月間リリース数"
-          stat="9"
+          title="リリース数"
+          stat={releaseCount + '/month'}
           icon={<BsStar size="3rem" />}
         />
         <StatCard
