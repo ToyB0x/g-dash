@@ -10,6 +10,7 @@ import React from 'react'
 import { IoIosGitPullRequest } from 'react-icons/io'
 import { GoCommentDiscussion } from 'react-icons/go'
 import { SlSpeedometer } from 'react-icons/sl'
+import { ApexChart } from './components'
 
 export default function Page({
   params,
@@ -53,6 +54,7 @@ export default function Page({
           />
         </SimpleGrid>
       </Box>
+      <ApexChart />
     </Box>
   )
 }
