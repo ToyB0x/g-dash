@@ -2,24 +2,58 @@
 import 'client-only'
 import { ApexOptions } from 'apexcharts'
 
+import { FC } from 'react'
 // ref: https://github.com/apexcharts/react-apexcharts/issues/240
 import dynamic from 'next/dynamic'
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-export const LineChart = () => {
+type Props = {
+  lineChartSeries: {
+    [dateString: string]: {
+      open: number
+      merged: number
+      review: number
+    }
+  }
+}
+
+export const LineChart: FC<Props> = ({ lineChartSeries }) => {
+  // get last 30 days
+  const lastWeekDateStrings = Object.keys(lineChartSeries)
+    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
+    .slice(0, 31)
+    .reverse()
+
+  const getDates = () => {
+    return lastWeekDateStrings.map((dateString) => {
+      const date = new Date(dateString)
+      return date.getDate()
+    })
+  }
+
   const series = [
     {
-      name: 'Revenue',
-      data: [50, 64, 48, 66, 49, 68, 68],
+      name: 'PR: Open',
+      data: lastWeekDateStrings.map(
+        (dateString) => lineChartSeries[dateString].open,
+      ),
     },
     {
-      name: 'Profit',
-      data: [30, 40, 24, 46, 20, 46, 46],
+      name: 'PR: Merged',
+      data: lastWeekDateStrings.map(
+        (dateString) => lineChartSeries[dateString].merged,
+      ),
+    },
+    {
+      name: 'Review',
+      data: lastWeekDateStrings.map(
+        (dateString) => lineChartSeries[dateString].review,
+      ),
     },
   ]
 
   const options: ApexOptions = {
-    colors: ['#4318FF', '#39B8FF'],
+    colors: ['#4318FF', '#39a3de', '#21d908'],
     stroke: {
       curve: 'smooth',
     },
@@ -27,7 +61,7 @@ export const LineChart = () => {
       show: false,
     },
     xaxis: {
-      categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      categories: getDates(),
       axisBorder: {
         show: false,
       },
