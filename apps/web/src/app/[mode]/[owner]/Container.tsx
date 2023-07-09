@@ -35,14 +35,14 @@ export const Container: FC<Props> = ({ releaseCount, mergedCount }) => (
           icon={<BsStar size="3rem" />}
         />
         <StatCard
-          title="マージ速度"
-          stat="6/day"
-          icon={<SlSpeedometer size="3rem" />}
-        />
-        <StatCard
           title="マージ済みPR"
           stat={mergedCount + '/month'}
           icon={<IoIosGitPullRequest size="3rem" />}
+        />
+        <StatCard
+          title="マージ速度"
+          stat={Math.round(mergedCount / 30) + '/day'}
+          icon={<SlSpeedometer size="3rem" />}
         />
         <StatCard
           title="レビュー数"
