@@ -193,6 +193,7 @@ export const aggregatePRs = async (
               create: {
                 id: review.id,
                 organizationId,
+                prId: pr.id,
                 url: review.url,
                 createdAt: review.createdAt,
                 authorId: author.id,
