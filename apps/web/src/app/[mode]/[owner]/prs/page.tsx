@@ -3,6 +3,7 @@ import 'server-only'
 import { use } from 'react'
 import { Table } from './components'
 import { getSingleTenantPrismaClient } from '@/clients'
+import { Spans } from '@g-dash/utils'
 
 export default function Page({ params }: { params: { owner: string } }) {
   const prisma = getSingleTenantPrismaClient()
@@ -27,7 +28,7 @@ export default function Page({ params }: { params: { owner: string } }) {
           where: {
             organizationId: organization.id,
             createdAt: {
-              gte: new Date(Date.now() - 1000 * 60 * 60 * 24 * 30 * 6),
+              gte: new Date(Spans['6 month']),
             },
           },
           select: {
