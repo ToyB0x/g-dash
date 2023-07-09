@@ -93,6 +93,13 @@ export default function Page({
             createdAt: true,
           },
         },
+        Commits: {
+          where: {
+            committedDate: {
+              gte: new Date(Spans['1 month']),
+            },
+          },
+        },
       },
     }),
   )
@@ -122,18 +129,21 @@ export default function Page({
         (acc, cur) => acc + cur.vulnerabilityAlertsTotalCount,
         0,
       )}
-      lineChartSeries={convertToDailyCounts(
+      lineChartSeries={convertToActivityDailyCounts(
         organization.Prs.map((pr) => pr.createdAt),
         organization.Prs.filter((pr) => !!pr.mergedAt).map(
           (pr) => pr.mergedAt!,
         ),
-        organization.Reviews.map((pr) => pr.createdAt!),
+        organization.Reviews.map((pr) => pr.createdAt),
+      )}
+      barChartSeries={convertToCommitDailyCounts(
+        organization.Commits.map((pr) => pr.committedDate),
       )}
     />
   )
 }
 
-const convertToDailyCounts = (
+const convertToActivityDailyCounts = (
   openDates: Date[],
   mergedDates: Date[],
   reviewDates: Date[],
@@ -192,6 +202,49 @@ const convertToDailyCounts = (
   openDates.forEach((date) => updateCount(date, 'open'))
   mergedDates.forEach((date) => updateCount(date, 'merged'))
   reviewDates.forEach((date) => updateCount(date, 'review'))
+
+  return obj
+}
+
+const convertToCommitDailyCounts = (
+  committedDates: Date[],
+): {
+  [dateString: string]: number
+} => {
+  const obj: {
+    [dateString: string]: number
+  } = {}
+
+  // init obj
+  const period = 365
+  for (let i = 0; i <= period; i++) {
+    const date = new Date()
+    date.setDate(date.getDate() - i)
+    const dateString = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+    ).toDateString()
+
+    obj[dateString] = 0
+  }
+
+  const updateCount = (date: Date) => {
+    const dateString = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+    ).toDateString()
+
+    if (obj[dateString]) {
+      obj[dateString]++
+    } else {
+      obj[dateString] = 0
+      obj[dateString]++
+    }
+  }
+
+  committedDates.forEach((date) => updateCount(date))
 
   return obj
 }

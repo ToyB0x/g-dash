@@ -34,6 +34,9 @@ type Props = {
       review: number
     }
   }
+  barChartSeries: {
+    [dateString: string]: number
+  }
 }
 
 export const Container: FC<Props> = ({
@@ -43,6 +46,7 @@ export const Container: FC<Props> = ({
   waitingReviewCount,
   vulnerabilityAlertCount,
   lineChartSeries,
+  barChartSeries,
 }) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
@@ -84,8 +88,6 @@ export const Container: FC<Props> = ({
       <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
         <Heading as="h3" fontSize="xl">
           アクティビティ推移
-          {/*  3ヶ月の変動曲線グラフ(PRマージ数 / リリース数 / レビュー数 /*/}
-          {/*  レビュー待ちPR数)*/}
         </Heading>
         <Box p={4} h="32vh">
           <LineChart lineChartSeries={lineChartSeries} />
@@ -93,11 +95,10 @@ export const Container: FC<Props> = ({
       </Box>
       <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
         <Heading as="h3" fontSize="xl">
-          今週のアクティビティ推移
-          {/*<Box bg="skyblue">2週間分のコミット棒グラフ</Box>*/}
+          コミット推移
         </Heading>
         <Box p={4} h="32vh">
-          <BarChart />
+          <BarChart barChartSeries={barChartSeries} />
         </Box>
       </Box>
     </SimpleGrid>

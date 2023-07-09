@@ -18,14 +18,13 @@ type Props = {
 }
 
 export const LineChart: FC<Props> = ({ lineChartSeries }) => {
-  // get last 30 days
-  const lastWeekDateStrings = Object.keys(lineChartSeries)
+  const lastMonthDateStrings = Object.keys(lineChartSeries)
     .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
     .slice(0, 31)
     .reverse()
 
   const getDates = () => {
-    return lastWeekDateStrings.map((dateString) => {
+    return lastMonthDateStrings.map((dateString) => {
       const date = new Date(dateString)
       return date.getDate()
     })
@@ -34,19 +33,19 @@ export const LineChart: FC<Props> = ({ lineChartSeries }) => {
   const series = [
     {
       name: 'PR: Open',
-      data: lastWeekDateStrings.map(
+      data: lastMonthDateStrings.map(
         (dateString) => lineChartSeries[dateString].open,
       ),
     },
     {
       name: 'PR: Merged',
-      data: lastWeekDateStrings.map(
+      data: lastMonthDateStrings.map(
         (dateString) => lineChartSeries[dateString].merged,
       ),
     },
     {
       name: 'Review',
-      data: lastWeekDateStrings.map(
+      data: lastMonthDateStrings.map(
         (dateString) => lineChartSeries[dateString].review,
       ),
     },
@@ -67,6 +66,13 @@ export const LineChart: FC<Props> = ({ lineChartSeries }) => {
       },
       axisTicks: {
         show: false,
+      },
+      labels: {
+        style: {
+          colors: '#A3AED0',
+          fontSize: '14px',
+          fontWeight: '500',
+        },
       },
     },
     yaxis: {
