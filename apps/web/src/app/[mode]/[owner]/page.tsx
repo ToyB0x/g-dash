@@ -29,9 +29,24 @@ export default function Page({
             },
           },
         },
+        Prs: {
+          select: {
+            id: true,
+          },
+          where: {
+            mergedAt: {
+              gte: new Date(Spans['1 month']),
+            },
+          },
+        },
       },
     }),
   )
 
-  return <Container releaseCount={organization.Releases.length} />
+  return (
+    <Container
+      releaseCount={organization.Releases.length}
+      mergedCount={organization.Prs.length}
+    />
+  )
 }

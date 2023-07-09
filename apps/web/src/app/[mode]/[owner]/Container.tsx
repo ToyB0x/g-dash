@@ -21,9 +21,10 @@ import { BarChart, LineChart, PieChart } from './components'
 
 type Props = {
   releaseCount: number
+  mergedCount: number
 }
 
-export const Container: FC<Props> = ({ releaseCount }) => (
+export const Container: FC<Props> = ({ releaseCount, mergedCount }) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
     <Box mt={4}>
@@ -40,7 +41,7 @@ export const Container: FC<Props> = ({ releaseCount }) => (
         />
         <StatCard
           title="マージ済みPR"
-          stat="32"
+          stat={mergedCount + '/month'}
           icon={<IoIosGitPullRequest size="3rem" />}
         />
         <StatCard
