@@ -1,11 +1,12 @@
 'use client'
 import 'client-only'
 
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { DataTable } from '@g-dash/ui'
 import { PRsAccordion } from './PRsAccordion'
-import { Avatar, Box, Stack } from '@chakra-ui/react'
+import { Avatar, Box, Select, Stack } from '@chakra-ui/react'
 import { createColumnHelper } from '@tanstack/react-table'
+import { Spans } from '@g-dash/constants'
 
 export type UserWithPRs = {
   id: string
@@ -47,8 +48,8 @@ const columns = [
     ),
   }),
   columnHelper.accessor('Prs', {
-    header: 'PRs',
-    cell: (props) => props.row.original.Prs.length,
+    header: 'マージ済みPR',
+    cell: (props) => props.row.original.Prs.filter((pr) => pr.merged).length,
     meta: {
       isNumeric: true,
     },
@@ -87,6 +88,43 @@ const columns = [
 type RequiredNotNull<T> = {
   [P in keyof T]: NonNullable<T[P]>
 }
-export const Table: FC<Props> = ({ usersWithPRs }) => (
-  <DataTable columns={columns} data={usersWithPRs} />
-)
+export const Table: FC<Props> = ({ usersWithPRs }) => {
+  const [span, setSpan] = useState<number>(6)
+
+  return (
+    <>
+      <DataTable
+        columns={columns}
+        data={usersWithPRs
+          .map((u) => ({
+            ...u,
+            Prs: u.Prs.filter(
+              (pr) =>
+                pr.createdAt.getTime() >
+                Date.now() - 1000 * 60 * 60 * 24 * 30 * span,
+            ),
+          }))
+          .filter((u) => u.Prs.length > 0)}
+      />
+      <Select
+        position="fixed"
+        top={1}
+        right={1}
+        size="sm"
+        w="14rem"
+        onChange={(e) => {
+          setSpan(Number(e.target.value))
+        }}
+        variant="white"
+        fontWeight="bold"
+        value={span}
+      >
+        {Spans.map((span) => (
+          <option value={span} key={span}>
+            {span} Month
+          </option>
+        ))}
+      </Select>
+    </>
+  )
+}

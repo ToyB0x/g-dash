@@ -42,7 +42,7 @@ export const PRsAccordion: FC<Props> = ({ prs }) => {
             alignSelf={'right'}
             onClick={() => setHidePrs(!hidePrs)}
           >
-            {hidePrs ? 'more..' : 'less..'}
+            {hidePrs ? prs.length - 3 + ' more..' : 'less..'}
           </Button>
         </Box>
       )}

@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "dotenv -e .env.sample -- turbo run build",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --concurrency 12",
     "typecheck": "turbo run typecheck",
     "lint": "dotenv -e .env.sample -- turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

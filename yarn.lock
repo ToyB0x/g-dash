@@ -2482,6 +2482,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@g-dash/constants@*, @g-dash/constants@workspace:packages/constants":
+  version: 0.0.0-use.local
+  resolution: "@g-dash/constants@workspace:packages/constants"
+  dependencies:
+    "@g-dash/eslint-config-custom": "*"
+    "@g-dash/tsconfig": "*"
+    tsup: 7.1.0
+    typescript: 5.1.6
+  languageName: unknown
+  linkType: soft
+
 "@g-dash/database@*, @g-dash/database@workspace:packages/database":
   version: 0.0.0-use.local
   resolution: "@g-dash/database@workspace:packages/database"
@@ -2605,6 +2616,7 @@ __metadata:
     "@chakra-ui/react": 2.7.1
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
+    "@g-dash/constants": "*"
     "@g-dash/database": "*"
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
