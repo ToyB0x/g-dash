@@ -9,8 +9,6 @@ export const paginate = async (
   const paginateRepositoriesQuery = graphql(/* GraphQL */ `
     query paginateRepositories($organization: String!, $after: String) {
       organization(login: $organization) {
-        id
-        login
         repositories(
           orderBy: { field: PUSHED_AT, direction: DESC }
           after: $after

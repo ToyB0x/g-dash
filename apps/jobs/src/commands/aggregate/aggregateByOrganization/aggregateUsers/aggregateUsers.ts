@@ -5,7 +5,10 @@ import { getFirstPage } from './getFirstPage'
 import { getEnv, getSingleTenantPrismaClient } from '../../../../utils'
 import { maxOld } from '../aggregateByOrganization'
 
-export const aggregateUsers = async (orgName: string): Promise<void> => {
+export const aggregateUsers = async (
+  orgName: string,
+  organizationId: string,
+): Promise<void> => {
   const prismaSingleTenantClient = getSingleTenantPrismaClient()
 
   const githubClient = new GraphQLClient('https://api.github.com/graphql', {
@@ -46,16 +49,6 @@ export const aggregateUsers = async (orgName: string): Promise<void> => {
       hasNextPage = _hasNextPage
       cursor = _cursor
     }
-
-    const { id: organizationId } =
-      await prismaSingleTenantClient.organization.findUniqueOrThrow({
-        where: {
-          login: orgName,
-        },
-        select: {
-          id: true,
-        },
-      })
 
     // upsert repositories (because repository name can be changed)
     await Promise.all(

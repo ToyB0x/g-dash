@@ -7,6 +7,7 @@ import { maxOld } from '../aggregateByOrganization'
 
 export const aggregateRepositories = async (
   orgName: string,
+  organizationId: string,
 ): Promise<string[]> => {
   const prismaSingleTenantClient = getSingleTenantPrismaClient()
 
@@ -36,7 +37,6 @@ export const aggregateRepositories = async (
     // get first page
     let {
       repositories: firstPageResult,
-      organization: { id: organizationId, login },
       hasNextPage,
       cursor,
     } = await getFirstPage(githubClient, orgName)
@@ -63,20 +63,6 @@ export const aggregateRepositories = async (
       } else {
         return false
       }
-    })
-
-    // upsert org (because org name can be changed)
-    await prismaSingleTenantClient.organization.upsert({
-      where: {
-        id: organizationId,
-      },
-      create: {
-        id: organizationId,
-        login,
-      },
-      update: {
-        login,
-      },
     })
 
     // upsert repositories (because repository name can be changed)
