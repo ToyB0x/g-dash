@@ -81,7 +81,7 @@ export const aggregatePRs = async (
           },
         })
 
-        // 後続処理のため事前にcommit authorをUserテーブルに追加
+        // 後続処理のため事前にcommit authorをUserテーブルに追加(集計期間に退職者がいる場合はorgと紐づくmember取得だけではなく、PRから紐づくUser取得も必要)
         await Promise.all(
           pr.commits.nodes.map(
             async (n) =>
