@@ -54,7 +54,18 @@ export default function Page({
           />
         </SimpleGrid>
       </Box>
-      <ApexChart />
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} mt={8} h="34vh">
+        <Box bg="skyblue">
+          3ヶ月の変動曲線グラフ(PRマージ数 / リリース数 / レビュー数 /
+          レビュー待ちPR数)
+        </Box>
+        <Box bg="skyblue">2週間分のコミット棒グラフ</Box>
+      </SimpleGrid>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={8} h="34vh">
+        <Box bg="skyblue">PRランキンング</Box>
+        <Box bg="skyblue">レビューランキンング</Box>
+        <ApexChart />
+      </SimpleGrid>
     </Box>
   )
 }
