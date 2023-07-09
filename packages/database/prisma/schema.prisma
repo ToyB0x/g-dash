@@ -10,6 +10,24 @@ datasource db {
   url      = env("PACKAGES_DATABASE_DB_URL")
 }
 
+enum ClientType {
+  PERSONAL
+  GITHUB_APP
+}
+
+model Client {
+  id    String     @id
+  type  ClientType
+  token String // TODO: encrypt via KMS
+
+  // 上記idを元にRLSをかける
+  // Repositories Repository[]
+  // Prs          Pr[]
+  // Commits      Commit[]
+  // Reviews      Review[]
+  // Releases     Release[]
+}
+
 model Organization {
   id           String       @id // derived from the GitHub API
   login        String       @unique // The organization's login name (ensure uniqueness by github)
