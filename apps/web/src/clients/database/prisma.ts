@@ -2,7 +2,7 @@ import { env } from '@/env.mjs'
 import { PrismaClient, getDbUrl } from '@g-dash/database'
 
 let prismaClientInstance: PrismaClient | null = null
-export const getSingleTenantPrismaClient = () => {
+export const getSingleTenantPrismaClient = (): PrismaClient => {
   // 初期化済みの場合は初期化済みのクライアントを返す
   if (prismaClientInstance) return prismaClientInstance
 
