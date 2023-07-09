@@ -71,46 +71,6 @@ export const aggregatePRs = async (
     // upsert repositories (because repository name can be changed)
     await Promise.all(
       prs.map(async (pr) => {
-        await prismaSingleTenantClient.user.upsert({
-          where: {
-            id: pr.author.id,
-          },
-          create: {
-            id: pr.author.id,
-            login: pr.author.login,
-            name: pr.author.name,
-            avatarUrl: pr.author.avatarUrl,
-          },
-          update: {
-            login: pr.author.login,
-            name: pr.author.name,
-            avatarUrl: pr.author.avatarUrl,
-          },
-        })
-
-        // 後続処理のため事前にcommit authorをUserテーブルに追加
-        await Promise.all(
-          pr.commits.nodes.map(
-            async (n) =>
-              await prismaSingleTenantClient.user.upsert({
-                where: {
-                  id: n.commit.author.user.id,
-                },
-                create: {
-                  id: n.commit.author.user.id,
-                  login: n.commit.author.user.login,
-                  name: n.commit.author.user.name,
-                  avatarUrl: n.commit.author.user.avatarUrl,
-                },
-                update: {
-                  login: n.commit.author.user.login,
-                  name: n.commit.author.user.name,
-                  avatarUrl: n.commit.author.user.avatarUrl,
-                },
-              }),
-          ),
-        )
-
         await prismaSingleTenantClient.pr.upsert({
           where: {
             id: pr.id,
