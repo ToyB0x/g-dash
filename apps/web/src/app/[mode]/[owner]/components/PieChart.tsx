@@ -36,7 +36,7 @@ export const PieChart = () => {
       series={series}
       type="pie"
       width={'100%'}
-      height={350}
+      height={280}
     />
   )
 }
