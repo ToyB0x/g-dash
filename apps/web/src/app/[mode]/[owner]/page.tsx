@@ -19,6 +19,21 @@ export default function Page({
       },
       select: {
         id: true,
+        Users: {
+          select: {
+            id: true,
+            Reviews: {
+              select: {
+                id: true,
+              },
+              where: {
+                createdAt: {
+                  gte: new Date(Spans['1 month']),
+                },
+              },
+            },
+          },
+        },
         Releases: {
           select: {
             id: true,
@@ -32,20 +47,19 @@ export default function Page({
         Prs: {
           select: {
             id: true,
+            merged: true,
+            closed: true,
             mergedAt: true,
+            Reviews: {
+              select: {
+                id: true,
+                authorId: true,
+                createdAt: true,
+              },
+            },
           },
           where: {
             mergedAt: {
-              gte: new Date(Spans['1 month']),
-            },
-          },
-        },
-        Reviews: {
-          select: {
-            id: true,
-          },
-          where: {
-            createdAt: {
               gte: new Date(Spans['1 month']),
             },
           },
@@ -67,7 +81,15 @@ export default function Page({
           (pr) => pr.mergedAt && Date.now() > pr.mergedAt.getTime(),
         ).length
       }
-      reviewCount={organization.Reviews.length}
+      reviewCount={organization.Users.reduce(
+        (acc, cur) => acc + cur.Reviews.length,
+        0,
+      )}
+      waitingReviewCount={
+        organization.Prs.filter(
+          (pr) => !pr.merged && !pr.closed && pr.Reviews.length === 0,
+        ).length
+      }
       vulnerabilityAlertCount={organization.Repositories.reduce(
         (acc, cur) => acc + cur.vulnerabilityAlertsTotalCount,
         0,

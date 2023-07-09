@@ -23,6 +23,7 @@ type Props = {
   releaseCount: number
   mergedCount: number
   reviewCount: number
+  waitingReviewCount: number
   vulnerabilityAlertCount: number
 }
 
@@ -30,6 +31,7 @@ export const Container: FC<Props> = ({
   releaseCount,
   mergedCount,
   reviewCount,
+  waitingReviewCount,
   vulnerabilityAlertCount,
 }) => (
   <Box pt={4} px={8}>
@@ -58,7 +60,7 @@ export const Container: FC<Props> = ({
         />
         <StatCard
           title="レビュー待ちPR"
-          stat="9"
+          stat={waitingReviewCount.toString()}
           icon={<GiSandsOfTime size="3rem" />}
         />
         <StatCard
