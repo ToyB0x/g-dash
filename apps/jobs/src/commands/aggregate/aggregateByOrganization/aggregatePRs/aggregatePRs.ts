@@ -194,10 +194,12 @@ export const aggregatePRs = async (
                 id: review.id,
                 organizationId,
                 url: review.url,
+                createdAt: review.createdAt,
                 authorId: author.id,
               },
               update: {
                 url: review.url,
+                createdAt: review.createdAt,
                 authorId: author.id,
               },
             })
