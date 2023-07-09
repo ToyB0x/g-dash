@@ -2587,6 +2587,7 @@ __metadata:
     "@types/react-dom": 18.2.6
     eslint: 8.44.0
     react: 18.2.0
+    react-icons: ^4.10.1
     typescript: 5.1.6
   peerDependencies:
     "@chakra-ui/icons": 2.0.19
@@ -8912,6 +8913,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: f4c696bdbde5008560388622b994c00502d1faeeabff32b02964770c8c020208872f5f6b914b249a8bf3e97cc12e58bb0d227cd33460093654156b7b7f4c8d76
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.10.1":
+  version: 4.10.1
+  resolution: "react-icons@npm:4.10.1"
+  peerDependencies:
+    react: "*"
+  checksum: b6c8d4fe482b112e1041515d93ef7670a0af128855c926052a076b64d0b991cdd4391394b26467100f8da3859db1ebd8f9c6b7614fa5969fde83de45c71031a3
   languageName: node
   linkType: hard
 
