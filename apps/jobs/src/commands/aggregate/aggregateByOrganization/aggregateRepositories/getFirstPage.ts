@@ -8,8 +8,6 @@ export const getFirstPage = async (
   const repositoriesQuery = graphql(/* GraphQL */ `
     query repositories($organization: String!) {
       organization(login: $organization) {
-        id
-        login
         repositories(
           orderBy: { field: PUSHED_AT, direction: DESC }
           first: 100
@@ -92,10 +90,6 @@ export const getFirstPage = async (
 
   return {
     repositories,
-    organization: {
-      id: repositoriesResult.organization.id,
-      login: repositoriesResult.organization.login,
-    },
     hasNextPage:
       repositoriesResult.organization.repositories.pageInfo.hasNextPage,
     cursor: repositoriesResult.organization.repositories.pageInfo.endCursor,

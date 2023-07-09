@@ -18,16 +18,21 @@ model Organization {
   Commits      Commit[]
   Reviews      Review[]
   Releases     Release[]
+  Users        User[]
 }
 
 model User {
-  id        String   @id
-  login     String // not unique, because sync delays can cause duplicates login ids
-  name      String?
-  avatarUrl String
-  Prs       Pr[]
-  Commits   Commit[]
-  Reviews   Review[]
+  id             String   @id
+  // type        String // membersWithRole returns a list of real users (not bots)
+  organizationId String
+  login          String // not unique, because sync delays can cause duplicates login ids
+  name           String?
+  avatarUrl      String
+  Prs            Pr[]
+  Commits        Commit[]
+  Reviews        Review[]
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 }
 
 model Repository {
@@ -74,6 +79,7 @@ model Pr {
 
   user         User         @relation(fields: [authorId], references: [id])
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  Reviews      Review[]
 
   @@index([organizationId, createdAt])
 }
@@ -92,13 +98,16 @@ model Commit {
 }
 
 model Review {
-  id             String @id
+  id             String   @id
   organizationId String
+  prId           String
   url            String
   authorId       String
+  createdAt      DateTime
 
   user         User         @relation(fields: [authorId], references: [id])
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  pr           Pr           @relation(fields: [prId], references: [id], onDelete: Cascade)
 
   @@index([organizationId, authorId])
 }

@@ -54,6 +54,7 @@ export const paginate = async (
                 nodes {
                   id
                   url
+                  createdAt
                   author {
                     login
                   }
@@ -154,6 +155,7 @@ export const paginate = async (
             .map((n) => ({
               id: n.id,
               url: n.url,
+              createdAt: n.createdAt,
               author: {
                 login: n.author.login,
               },

@@ -19,41 +19,53 @@ import { GoCommentDiscussion } from 'react-icons/go'
 import { SlSpeedometer } from 'react-icons/sl'
 import { BarChart, LineChart, PieChart } from './components'
 
-type Props = {}
+type Props = {
+  releaseCount: number
+  mergedCount: number
+  reviewCount: number
+  waitingReviewCount: number
+  vulnerabilityAlertCount: number
+}
 
-export const Container: FC<Props> = ({}) => (
+export const Container: FC<Props> = ({
+  releaseCount,
+  mergedCount,
+  reviewCount,
+  waitingReviewCount,
+  vulnerabilityAlertCount,
+}) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
     <Box mt={4}>
       <SimpleGrid columns={{ base: 1, md: 6 }} spacing={8}>
         <StatCard
-          title="月間リリース数"
-          stat="9"
+          title="リリース数"
+          stat={releaseCount + '/month'}
           icon={<BsStar size="3rem" />}
         />
         <StatCard
-          title="マージ速度"
-          stat="6/day"
-          icon={<SlSpeedometer size="3rem" />}
-        />
-        <StatCard
           title="マージ済みPR"
-          stat="32"
+          stat={mergedCount + '/month'}
           icon={<IoIosGitPullRequest size="3rem" />}
         />
         <StatCard
+          title="マージ速度"
+          stat={Math.round(mergedCount / 30) + '/day'}
+          icon={<SlSpeedometer size="3rem" />}
+        />
+        <StatCard
           title="レビュー数"
-          stat="12"
+          stat={reviewCount + '/month'}
           icon={<GoCommentDiscussion size="3rem" />}
         />
         <StatCard
           title="レビュー待ちPR"
-          stat="9"
+          stat={waitingReviewCount.toString()}
           icon={<GiSandsOfTime size="3rem" />}
         />
         <StatCard
           title="脆弱なパッケージ"
-          stat="126"
+          stat={vulnerabilityAlertCount.toString()}
           icon={<GiBiohazard size="3rem" />}
         />
       </SimpleGrid>

@@ -20,6 +20,7 @@ export type UserPR = {
     nodes: {
       id: string
       url: string
+      createdAt: string
       author: {
         login: string
       }
@@ -92,6 +93,7 @@ export const getFirstPage = async (
                 nodes {
                   id
                   url
+                  createdAt
                   author {
                     login
                   }
@@ -186,6 +188,7 @@ export const getFirstPage = async (
             .map((n) => ({
               id: n.id,
               url: n.url,
+              createdAt: n.createdAt,
               author: {
                 login: n.author.login,
               },

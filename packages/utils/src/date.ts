@@ -1,4 +1,4 @@
-import { subMonths, subWeeks } from 'date-fns'
+import { subMonths, subWeeks, startOfMonth } from 'date-fns'
 
 const today = new Date()
 
@@ -8,4 +8,5 @@ export const Spans = {
   '1 month': subMonths(today, 1).getTime(),
   '3 month': subMonths(today, 3).getTime(),
   '6 month': subMonths(today, 6).getTime(),
+  'start of month': startOfMonth(today).getTime(),
 } as const

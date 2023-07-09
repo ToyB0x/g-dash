@@ -7,6 +7,7 @@ import { maxOld } from '../aggregateByOrganization'
 
 export const aggregatePRs = async (
   orgName: string,
+  organizationId: string,
   repositoryName: string,
 ): Promise<void> => {
   const prismaSingleTenantClient = getSingleTenantPrismaClient()
@@ -58,19 +59,10 @@ export const aggregatePRs = async (
       cursor = _cursor
     }
 
-    const { id: organizationId } =
-      await prismaSingleTenantClient.organization.findUniqueOrThrow({
-        where: {
-          login: orgName,
-        },
-        select: {
-          id: true,
-        },
-      })
-
     // upsert repositories (because repository name can be changed)
     await Promise.all(
       prs.map(async (pr) => {
+        // 後続処理のため事前にpr authorをUserテーブルに追加
         await prismaSingleTenantClient.user.upsert({
           where: {
             id: pr.author.id,
@@ -80,6 +72,7 @@ export const aggregatePRs = async (
             login: pr.author.login,
             name: pr.author.name,
             avatarUrl: pr.author.avatarUrl,
+            organizationId,
           },
           update: {
             login: pr.author.login,
@@ -88,7 +81,7 @@ export const aggregatePRs = async (
           },
         })
 
-        // 後続処理のため事前にcommit authorをUserテーブルに追加
+        // 後続処理のため事前にcommit authorをUserテーブルに追加(集計期間に退職者がいる場合はorgと紐づくmember取得だけではなく、PRから紐づくUser取得も必要)
         await Promise.all(
           pr.commits.nodes.map(
             async (n) =>
@@ -101,6 +94,7 @@ export const aggregatePRs = async (
                   login: n.commit.author.user.login,
                   name: n.commit.author.user.name,
                   avatarUrl: n.commit.author.user.avatarUrl,
+                  organizationId,
                 },
                 update: {
                   login: n.commit.author.user.login,
@@ -193,11 +187,14 @@ export const aggregatePRs = async (
               create: {
                 id: review.id,
                 organizationId,
+                prId: pr.id,
                 url: review.url,
+                createdAt: review.createdAt,
                 authorId: author.id,
               },
               update: {
                 url: review.url,
+                createdAt: review.createdAt,
                 authorId: author.id,
               },
             })
