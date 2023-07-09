@@ -49,6 +49,11 @@ export default function Page({
             },
           },
         },
+        Repositories: {
+          select: {
+            vulnerabilityAlertsTotalCount: true,
+          },
+        },
       },
     }),
   )
@@ -58,6 +63,10 @@ export default function Page({
       releaseCount={organization.Releases.length}
       mergedCount={organization.Prs.length}
       reviewCount={organization.Reviews.length}
+      vulnerabilityAlertCount={organization.Repositories.reduce(
+        (acc, cur) => acc + cur.vulnerabilityAlertsTotalCount,
+        0,
+      )}
     />
   )
 }

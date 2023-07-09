@@ -23,12 +23,14 @@ type Props = {
   releaseCount: number
   mergedCount: number
   reviewCount: number
+  vulnerabilityAlertCount: number
 }
 
 export const Container: FC<Props> = ({
   releaseCount,
   mergedCount,
   reviewCount,
+  vulnerabilityAlertCount,
 }) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
@@ -61,7 +63,7 @@ export const Container: FC<Props> = ({
         />
         <StatCard
           title="脆弱なパッケージ"
-          stat="126"
+          stat={vulnerabilityAlertCount.toString()}
           icon={<GiBiohazard size="3rem" />}
         />
       </SimpleGrid>
