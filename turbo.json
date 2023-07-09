@@ -4,8 +4,7 @@
   "pipeline": {
     "build-db": {
       "dependsOn": ["^build-db"],
-      "outputs": ["dist/**"],
-      "cache": false
+      "outputs": ["dist/**"]
     },
     "typecheck": {
       "dependsOn": ["build-db"]
