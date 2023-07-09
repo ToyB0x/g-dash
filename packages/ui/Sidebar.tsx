@@ -25,6 +25,7 @@ type Props = {
 export const Sidebar: FC<Props> = ({ mode, owner }) => {
   return (
     <Box
+      w="12rem"
       pos="sticky"
       py={2}
       px={4}
