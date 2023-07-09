@@ -10,9 +10,6 @@ import React from 'react'
 import { IoIosGitPullRequest } from 'react-icons/io'
 import { GoCommentDiscussion } from 'react-icons/go'
 import { SlSpeedometer } from 'react-icons/sl'
-import Example from '@/app/[mode]/[owner]/components/PieChart'
-import ParentSize from '@visx/responsive/lib/components/ParentSize'
-import { BarChart } from '@/app/[mode]/[owner]/components'
 
 export default function Page({
   params,
@@ -55,14 +52,6 @@ export default function Page({
             icon={<GiBiohazard size="3rem" />}
           />
         </SimpleGrid>
-        <Box h="1000px" mt={6}>
-          <ParentSize>
-            {({ width, height }) => <Example width={width} height={height} />}
-          </ParentSize>
-        </Box>
-        <Box mt={6}>
-          <BarChart />
-        </Box>
       </Box>
     </Box>
   )
