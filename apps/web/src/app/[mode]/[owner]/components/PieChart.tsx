@@ -6,7 +6,7 @@ import { ApexOptions } from 'apexcharts'
 import dynamic from 'next/dynamic'
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-export const ApexChart = () => {
+export const PieChart = () => {
   const series = [44, 55, 13, 43, 22]
 
   const options: ApexOptions = {

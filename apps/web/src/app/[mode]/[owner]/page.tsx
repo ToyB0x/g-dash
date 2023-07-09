@@ -10,7 +10,7 @@ import React from 'react'
 import { IoIosGitPullRequest } from 'react-icons/io'
 import { GoCommentDiscussion } from 'react-icons/go'
 import { SlSpeedometer } from 'react-icons/sl'
-import { ApexChart } from './components'
+import { PieChart } from './components'
 
 export default function Page({
   params,
@@ -64,7 +64,7 @@ export default function Page({
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={8} h="34vh">
         <Box bg="skyblue">PRランキンング</Box>
         <Box bg="skyblue">レビューランキンング</Box>
-        <ApexChart />
+        <PieChart />
       </SimpleGrid>
     </Box>
   )
