@@ -20,6 +20,6 @@
     "typescript": "5.1.6"
   },
   "dependencies": {
-    "date-fns": "^2.30.0"
+    "date-fns": "2.30.0"
   }
 }
