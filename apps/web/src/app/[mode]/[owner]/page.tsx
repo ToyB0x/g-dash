@@ -32,6 +32,7 @@ export default function Page({
         Prs: {
           select: {
             id: true,
+            mergedAt: true,
           },
           where: {
             mergedAt: {
@@ -61,7 +62,11 @@ export default function Page({
   return (
     <Container
       releaseCount={organization.Releases.length}
-      mergedCount={organization.Prs.length}
+      mergedCount={
+        organization.Prs.filter(
+          (pr) => pr.mergedAt && Date.now() > pr.mergedAt.getTime(),
+        ).length
+      }
       reviewCount={organization.Reviews.length}
       vulnerabilityAlertCount={organization.Repositories.reduce(
         (acc, cur) => acc + cur.vulnerabilityAlertsTotalCount,
