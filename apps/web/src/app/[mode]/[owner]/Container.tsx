@@ -20,11 +20,20 @@ import { SlSpeedometer } from 'react-icons/sl'
 import { BarChart, LineChart, PieChart } from './components'
 
 type Props = {
+  // Cards
   releaseCount: number
   mergedCount: number
   reviewCount: number
   waitingReviewCount: number
   vulnerabilityAlertCount: number
+  // Charts
+  lineChartSeries: {
+    [dateString: string]: {
+      open: number
+      merged: number
+      review: number
+    }
+  }
 }
 
 export const Container: FC<Props> = ({
@@ -33,6 +42,7 @@ export const Container: FC<Props> = ({
   reviewCount,
   waitingReviewCount,
   vulnerabilityAlertCount,
+  lineChartSeries,
 }) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
@@ -50,7 +60,7 @@ export const Container: FC<Props> = ({
         />
         <StatCard
           title="マージ速度"
-          stat={Math.round(mergedCount / 30) + '/day'}
+          stat={Math.round(mergedCount / (30 - 8)) + '/day'}
           icon={<SlSpeedometer size="3rem" />}
         />
         <StatCard
@@ -73,12 +83,12 @@ export const Container: FC<Props> = ({
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} mt={8} h="35vh">
       <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
         <Heading as="h3" fontSize="xl">
-          今週のPRマージ / レビュー活動の推移
+          アクティビティ推移
           {/*  3ヶ月の変動曲線グラフ(PRマージ数 / リリース数 / レビュー数 /*/}
           {/*  レビュー待ちPR数)*/}
         </Heading>
         <Box p={4} h="32vh">
-          <LineChart />
+          <LineChart lineChartSeries={lineChartSeries} />
         </Box>
       </Box>
       <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
