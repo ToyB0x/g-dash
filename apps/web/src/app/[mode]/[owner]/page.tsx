@@ -20,6 +20,11 @@ export default function Page({
       select: {
         id: true,
         Users: {
+          where: {
+            id: {
+              not: 'BOT_kgDOAbying', // renovate id
+            },
+          },
           select: {
             id: true,
             Reviews: {
@@ -58,11 +63,6 @@ export default function Page({
               },
             },
           },
-          where: {
-            mergedAt: {
-              gte: new Date(Spans['1 month']),
-            },
-          },
         },
         Repositories: {
           select: {
@@ -78,13 +78,17 @@ export default function Page({
       releaseCount={organization.Releases.length}
       mergedCount={
         organization.Prs.filter(
-          (pr) => pr.mergedAt && Date.now() > pr.mergedAt.getTime(),
+          (pr) =>
+            pr.mergedAt &&
+            Date.now() > pr.mergedAt.getTime() &&
+            pr.mergedAt.getTime() >= new Date(Spans['1 month']).getTime(),
         ).length
       }
       reviewCount={organization.Users.reduce(
         (acc, cur) => acc + cur.Reviews.length,
         0,
       )}
+      // TODO: レビューリクエストを送られたユーザとの比較
       waitingReviewCount={
         organization.Prs.filter(
           (pr) => !pr.merged && !pr.closed && pr.Reviews.length === 0,
