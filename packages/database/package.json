@@ -8,8 +8,7 @@
     "dist/**"
   ],
   "scripts": {
-    "predev": "yarn run generate",
-    "build": "tsup",
+    "build-db": "yarn generate && tsup",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
     "db:push": "prisma db push",
@@ -18,6 +17,7 @@
     "format": "prisma format",
     "generate": "prisma generate",
     "lint": "eslint \"src/**/*.ts\"",
+    "predev": "npm run generate",
     "studio": "prisma studio"
   },
   "dependencies": {
