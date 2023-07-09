@@ -6,7 +6,7 @@ import { DataTable } from '@g-dash/ui'
 import { PRsAccordion } from './PRsAccordion'
 import { Avatar, Box, Select, Stack } from '@chakra-ui/react'
 import { createColumnHelper } from '@tanstack/react-table'
-import { Spans } from '@g-dash/constants'
+import { Spans } from '@g-dash/utils'
 
 export type UserWithPRs = {
   id: string
@@ -89,7 +89,7 @@ type RequiredNotNull<T> = {
   [P in keyof T]: NonNullable<T[P]>
 }
 export const Table: FC<Props> = ({ usersWithPRs }) => {
-  const [span, setSpan] = useState<number>(6)
+  const [span, setSpan] = useState<number>(Spans['6 month'])
 
   return (
     <>
@@ -98,11 +98,7 @@ export const Table: FC<Props> = ({ usersWithPRs }) => {
         data={usersWithPRs
           .map((u) => ({
             ...u,
-            Prs: u.Prs.filter(
-              (pr) =>
-                pr.createdAt.getTime() >
-                Date.now() - 1000 * 60 * 60 * 24 * 30 * span,
-            ),
+            Prs: u.Prs.filter((pr) => pr.createdAt.getTime() > span),
           }))
           .filter((u) => u.Prs.length > 0)}
       />
@@ -119,9 +115,9 @@ export const Table: FC<Props> = ({ usersWithPRs }) => {
         fontWeight="bold"
         value={span}
       >
-        {Spans.map((span) => (
-          <option value={span} key={span}>
-            {span} Month
+        {Object.entries(Spans).map(([k, v]) => (
+          <option value={v} key={v}>
+            {k}
           </option>
         ))}
       </Select>
