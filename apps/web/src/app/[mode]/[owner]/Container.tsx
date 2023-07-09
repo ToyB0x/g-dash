@@ -22,9 +22,14 @@ import { BarChart, LineChart, PieChart } from './components'
 type Props = {
   releaseCount: number
   mergedCount: number
+  reviewCount: number
 }
 
-export const Container: FC<Props> = ({ releaseCount, mergedCount }) => (
+export const Container: FC<Props> = ({
+  releaseCount,
+  mergedCount,
+  reviewCount,
+}) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
     <Box mt={4}>
@@ -46,7 +51,7 @@ export const Container: FC<Props> = ({ releaseCount, mergedCount }) => (
         />
         <StatCard
           title="レビュー数"
-          stat="12"
+          stat={reviewCount + '/month'}
           icon={<GoCommentDiscussion size="3rem" />}
         />
         <StatCard

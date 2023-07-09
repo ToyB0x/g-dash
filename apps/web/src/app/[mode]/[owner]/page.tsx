@@ -39,6 +39,16 @@ export default function Page({
             },
           },
         },
+        Reviews: {
+          select: {
+            id: true,
+          },
+          where: {
+            createdAt: {
+              gte: new Date(Spans['1 month']),
+            },
+          },
+        },
       },
     }),
   )
@@ -47,6 +57,7 @@ export default function Page({
     <Container
       releaseCount={organization.Releases.length}
       mergedCount={organization.Prs.length}
+      reviewCount={organization.Reviews.length}
     />
   )
 }
