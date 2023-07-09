@@ -1,7 +1,7 @@
 name: Monorepo test
 on: push
 env:
-  CACHE_VERSION: 1
+  CACHE_VERSION: 2
 
 jobs:
   test:
