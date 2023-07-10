@@ -35,11 +35,21 @@ export default function Page({ params }: { params: { owner: string } }) {
             id: true,
             url: true,
             createdAt: true,
+            user: {
+              select: {
+                id: true,
+              },
+            },
             pr: {
               select: {
                 title: true,
                 url: true,
                 changedFiles: true,
+                user: {
+                  select: {
+                    id: true,
+                  },
+                },
               },
             },
           },
@@ -50,7 +60,17 @@ export default function Page({ params }: { params: { owner: string } }) {
 
   return (
     <Table
-      userWithReviews={usersWithPRs.filter((user) => user.Reviews.length > 0)}
+      userWithReviews={usersWithPRs
+        .filter((user) => user.Reviews.length > 0)
+        // セルフレビューは除外
+        .map((user) => {
+          return {
+            ...user,
+            Reviews: user.Reviews.filter(
+              (review) => review.pr.user.id !== review.user.id,
+            ),
+          }
+        })}
     />
   )
 }

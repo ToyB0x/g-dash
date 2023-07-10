@@ -100,8 +100,15 @@ export default function Page({
             createdAt: true,
             user: {
               select: {
+                id: true,
                 login: true,
                 avatarUrl: true,
+              },
+            },
+            pr: {
+              select: {
+                id: true,
+                authorId: true,
               },
             },
           },
@@ -201,29 +208,33 @@ export default function Page({
             avatarUrl: string
           }[],
         )}
-      reviewRankings={organization.Reviews.map((review) => ({
-        login: review.user.login,
-        avatarUrl: review.user.avatarUrl,
-      })).reduce(
-        (acc, cur) => {
-          const foundIndex = acc.findIndex((a) => a.login === cur.login)
-          if (foundIndex != -1) {
-            acc[foundIndex].count += 1
-          } else {
-            acc.push({
-              login: cur.login,
-              avatarUrl: cur.avatarUrl,
-              count: 1,
-            })
-          }
-          return acc
-        },
-        [] as {
-          login: string
-          count: number
-          avatarUrl: string
-        }[],
-      )}
+      reviewRankings={organization.Reviews
+        // セルフレビューは除外
+        .filter((review) => review.user.id !== review.pr.authorId)
+        .map((review) => ({
+          login: review.user.login,
+          avatarUrl: review.user.avatarUrl,
+        }))
+        .reduce(
+          (acc, cur) => {
+            const foundIndex = acc.findIndex((a) => a.login === cur.login)
+            if (foundIndex != -1) {
+              acc[foundIndex].count += 1
+            } else {
+              acc.push({
+                login: cur.login,
+                avatarUrl: cur.avatarUrl,
+                count: 1,
+              })
+            }
+            return acc
+          },
+          [] as {
+            login: string
+            count: number
+            avatarUrl: string
+          }[],
+        )}
     />
   )
 }
