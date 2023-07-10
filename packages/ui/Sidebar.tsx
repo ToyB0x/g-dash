@@ -12,9 +12,10 @@ type LinkItem = {
 }
 
 const linkItems: LinkItem[] = [
+  { name: 'Dashboard', href: '/' },
   { name: 'PRs', href: 'prs' },
   { name: 'Reviews', href: 'reviews' },
-  { name: 'Comments', href: 'comments' },
+  // { name: 'Comments', href: 'comments' },
 ]
 
 type Props = {
