@@ -18,7 +18,6 @@ type Props = {
 export const BarChart: FC<Props> = ({ barChartSeries }) => {
   // TODO: refactor
   const someLoginName = Object.keys(barChartSeries)[0]
-  console.log({ someLoginName })
   const _lastMonthDateStrings = Object.keys(barChartSeries[someLoginName])
   const lastMonthDateStrings = _lastMonthDateStrings
     .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
