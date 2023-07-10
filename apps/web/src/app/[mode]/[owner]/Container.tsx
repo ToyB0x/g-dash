@@ -40,6 +40,12 @@ type Props = {
     }
   }
   pieChartSeries: string[]
+  // ranking
+  prRankings: {
+    login: string
+    avatarUrl: string
+    prCount: number
+  }[]
 }
 
 export const Container: FC<Props> = ({
@@ -51,6 +57,7 @@ export const Container: FC<Props> = ({
   lineChartSeries,
   barChartSeries,
   pieChartSeries,
+  prRankings,
 }) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
@@ -113,16 +120,20 @@ export const Container: FC<Props> = ({
         </Heading>
         <Box p={4} h="28vh">
           <List>
-            {[1, 2, 3, 4, 5].map((key) => (
-              <ListItem key={key}>
-                <HStack mb={5}>
-                  {/*<Box>{key}</Box>*/}
-                  <Avatar name="avatar" size="sm" />
-                  <Box> user name</Box>
-                  <Box> 3</Box>
-                </HStack>
-              </ListItem>
-            ))}
+            {prRankings
+              .sort((a, b) => b.prCount - a.prCount)
+              .slice(0, 5)
+              .map((item) => (
+                <ListItem key={item.login}>
+                  <HStack mb={5} justifyContent="space-between">
+                    <HStack spacing={6}>
+                      <Avatar name="avatar" size="sm" src={item.avatarUrl} />
+                      <Box>{item.login}</Box>
+                    </HStack>
+                    <Box>{item.prCount}</Box>
+                  </HStack>
+                </ListItem>
+              ))}
           </List>
         </Box>
       </Box>

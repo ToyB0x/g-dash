@@ -66,6 +66,12 @@ export default function Page({
             closed: true,
             createdAt: true,
             mergedAt: true,
+            user: {
+              select: {
+                login: true,
+                avatarUrl: true,
+              },
+            },
             Reviews: {
               select: {
                 id: true,
@@ -158,6 +164,37 @@ export default function Page({
           Date.now() > pr.mergedAt.getTime() &&
           pr.mergedAt.getTime() >= new Date(Spans['1 month']).getTime(),
       ).map((pr) => pr.title)}
+      prRankings={organization.Prs.filter((pr) => pr.merged)
+        .filter(
+          (pr) =>
+            pr.mergedAt &&
+            Date.now() > pr.mergedAt.getTime() &&
+            pr.mergedAt.getTime() >= new Date(Spans['1 month']).getTime(),
+        )
+        .map((pr) => ({
+          login: pr.user.login,
+          avatarUrl: pr.user.avatarUrl,
+        }))
+        .reduce(
+          (acc, cur) => {
+            const foundIndex = acc.findIndex((a) => a.login === cur.login)
+            if (foundIndex != -1) {
+              acc[foundIndex].prCount += 1
+            } else {
+              acc.push({
+                login: cur.login,
+                avatarUrl: cur.avatarUrl,
+                prCount: 1,
+              })
+            }
+            return acc
+          },
+          [] as {
+            login: string
+            prCount: number
+            avatarUrl: string
+          }[],
+        )}
     />
   )
 }
