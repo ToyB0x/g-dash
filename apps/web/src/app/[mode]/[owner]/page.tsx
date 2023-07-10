@@ -61,6 +61,7 @@ export default function Page({
           // },
           select: {
             id: true,
+            title: true,
             merged: true,
             closed: true,
             createdAt: true,
@@ -151,6 +152,12 @@ export default function Page({
           login: commit.user.login,
         })),
       )}
+      pieChartSeries={organization.Prs.filter(
+        (pr) =>
+          pr.mergedAt &&
+          Date.now() > pr.mergedAt.getTime() &&
+          pr.mergedAt.getTime() >= new Date(Spans['1 month']).getTime(),
+      ).map((pr) => pr.title)}
     />
   )
 }
