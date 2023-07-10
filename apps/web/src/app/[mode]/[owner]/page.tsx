@@ -99,6 +99,15 @@ export default function Page({
               gte: new Date(Spans['1 month']),
             },
           },
+          select: {
+            committedDate: true,
+            user: {
+              select: {
+                login: true,
+                avatarUrl: true,
+              },
+            },
+          },
         },
       },
     }),
@@ -137,7 +146,10 @@ export default function Page({
         organization.Reviews.map((pr) => pr.createdAt),
       )}
       barChartSeries={convertToCommitDailyCounts(
-        organization.Commits.map((pr) => pr.committedDate),
+        organization.Commits.map((commit) => ({
+          committedDate: commit.committedDate,
+          login: commit.user.login,
+        })),
       )}
     />
   )
@@ -207,44 +219,53 @@ const convertToActivityDailyCounts = (
 }
 
 const convertToCommitDailyCounts = (
-  committedDates: Date[],
+  commits: { committedDate: Date; login: string }[],
 ): {
-  [dateString: string]: number
+  [login: string]: {
+    [dateString: string]: number
+  }
 } => {
   const obj: {
-    [dateString: string]: number
+    [login: string]: {
+      [dateString: string]: number
+    }
   } = {}
 
+  const users = Array.from(new Set(commits.map((commit) => commit.login)))
+
   // init obj
-  const period = 365
-  for (let i = 0; i <= period; i++) {
+  const dateStrings = Array.from(Array(365).keys()).map((i) => {
     const date = new Date()
     date.setDate(date.getDate() - i)
-    const dateString = new Date(
+    return new Date(
       date.getFullYear(),
       date.getMonth(),
       date.getDate(),
     ).toDateString()
+  })
 
-    obj[dateString] = 0
-  }
+  users.forEach((user) => {
+    obj[user] = {}
+    dateStrings.forEach((dateString) => {
+      obj[user][dateString] = 0
+    })
+  })
 
-  const updateCount = (date: Date) => {
+  const updateCount = (login: string, committedDate: Date) => {
     const dateString = new Date(
-      date.getFullYear(),
-      date.getMonth(),
-      date.getDate(),
+      committedDate.getFullYear(),
+      committedDate.getMonth(),
+      committedDate.getDate(),
     ).toDateString()
 
-    if (obj[dateString]) {
-      obj[dateString]++
+    if (obj[login][dateString]) {
+      obj[login][dateString]++
     } else {
-      obj[dateString] = 0
-      obj[dateString]++
+      obj[login][dateString] = 1
     }
   }
 
-  committedDates.forEach((date) => updateCount(date))
+  commits.forEach((commit) => updateCount(commit.login, commit.committedDate))
 
   return obj
 }

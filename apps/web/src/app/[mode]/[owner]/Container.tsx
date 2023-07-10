@@ -35,7 +35,9 @@ type Props = {
     }
   }
   barChartSeries: {
-    [dateString: string]: number
+    [login: string]: {
+      [dateString: string]: number
+    }
   }
 }
 

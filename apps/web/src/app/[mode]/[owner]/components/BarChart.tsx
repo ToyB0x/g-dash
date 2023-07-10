@@ -9,12 +9,18 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 type Props = {
   barChartSeries: {
-    [dateString: string]: number
+    [login: string]: {
+      [dateString: string]: number
+    }
   }
 }
 
 export const BarChart: FC<Props> = ({ barChartSeries }) => {
-  const lastMonthDateStrings = Object.keys(barChartSeries)
+  // TODO: refactor
+  const someLoginName = Object.keys(barChartSeries)[0]
+  console.log({ someLoginName })
+  const _lastMonthDateStrings = Object.keys(barChartSeries[someLoginName])
+  const lastMonthDateStrings = _lastMonthDateStrings
     .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
     .slice(0, 31)
     .reverse()
@@ -26,22 +32,14 @@ export const BarChart: FC<Props> = ({ barChartSeries }) => {
     })
   }
 
-  const series = [
-    {
-      name: 'Commits',
-      data: lastMonthDateStrings.map(
-        (dateString) => barChartSeries[dateString],
-      ),
-    },
-    // {
-    //   name: 'PRODUCT B',
-    //   data: [400, 370, 330, 390, 320, 350, 360],
-    // },
-    // {
-    //   name: 'PRODUCT C',
-    //   data: [400, 370, 330, 390, 320, 350, 360],
-    // },
-  ]
+  const series = Object.keys(barChartSeries).map((login) => ({
+    name: login,
+    data: Object.keys(barChartSeries[login])
+      .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
+      .slice(0, 31)
+      .reverse()
+      .map((dateString) => barChartSeries[login][dateString]),
+  }))
 
   const options: ApexOptions = {
     chart: {
@@ -83,9 +81,11 @@ export const BarChart: FC<Props> = ({ barChartSeries }) => {
     },
     plotOptions: {
       bar: {
-        borderRadius: 5,
         columnWidth: '10px',
       },
+    },
+    theme: {
+      palette: 'palette2',
     },
   }
 
