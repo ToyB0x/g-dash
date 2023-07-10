@@ -93,6 +93,22 @@ export default function Page({
             createdAt: true,
           },
         },
+        Commits: {
+          where: {
+            committedDate: {
+              gte: new Date(Spans['1 month']),
+            },
+          },
+          select: {
+            committedDate: true,
+            user: {
+              select: {
+                login: true,
+                avatarUrl: true,
+              },
+            },
+          },
+        },
       },
     }),
   )
@@ -122,18 +138,24 @@ export default function Page({
         (acc, cur) => acc + cur.vulnerabilityAlertsTotalCount,
         0,
       )}
-      lineChartSeries={convertToDailyCounts(
+      lineChartSeries={convertToActivityDailyCounts(
         organization.Prs.map((pr) => pr.createdAt),
         organization.Prs.filter((pr) => !!pr.mergedAt).map(
           (pr) => pr.mergedAt!,
         ),
-        organization.Reviews.map((pr) => pr.createdAt!),
+        organization.Reviews.map((pr) => pr.createdAt),
+      )}
+      barChartSeries={convertToCommitDailyCounts(
+        organization.Commits.map((commit) => ({
+          committedDate: commit.committedDate,
+          login: commit.user.login,
+        })),
       )}
     />
   )
 }
 
-const convertToDailyCounts = (
+const convertToActivityDailyCounts = (
   openDates: Date[],
   mergedDates: Date[],
   reviewDates: Date[],
@@ -192,6 +214,58 @@ const convertToDailyCounts = (
   openDates.forEach((date) => updateCount(date, 'open'))
   mergedDates.forEach((date) => updateCount(date, 'merged'))
   reviewDates.forEach((date) => updateCount(date, 'review'))
+
+  return obj
+}
+
+const convertToCommitDailyCounts = (
+  commits: { committedDate: Date; login: string }[],
+): {
+  [login: string]: {
+    [dateString: string]: number
+  }
+} => {
+  const obj: {
+    [login: string]: {
+      [dateString: string]: number
+    }
+  } = {}
+
+  const users = Array.from(new Set(commits.map((commit) => commit.login)))
+
+  // init obj
+  const dateStrings = Array.from(Array(365).keys()).map((i) => {
+    const date = new Date()
+    date.setDate(date.getDate() - i)
+    return new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+    ).toDateString()
+  })
+
+  users.forEach((user) => {
+    obj[user] = {}
+    dateStrings.forEach((dateString) => {
+      obj[user][dateString] = 0
+    })
+  })
+
+  const updateCount = (login: string, committedDate: Date) => {
+    const dateString = new Date(
+      committedDate.getFullYear(),
+      committedDate.getMonth(),
+      committedDate.getDate(),
+    ).toDateString()
+
+    if (obj[login][dateString]) {
+      obj[login][dateString]++
+    } else {
+      obj[login][dateString] = 1
+    }
+  }
+
+  commits.forEach((commit) => updateCount(commit.login, commit.committedDate))
 
   return obj
 }
