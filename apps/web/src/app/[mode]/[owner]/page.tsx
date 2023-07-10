@@ -30,6 +30,11 @@ export default function Page({
             Reviews: {
               select: {
                 id: true,
+                pr: {
+                  select: {
+                    authorId: true,
+                  },
+                },
               },
               where: {
                 createdAt: {
@@ -144,10 +149,14 @@ export default function Page({
             pr.mergedAt.getTime() >= new Date(Spans['1 month']).getTime(),
         ).length
       }
-      reviewCount={organization.Users.reduce(
-        (acc, cur) => acc + cur.Reviews.length,
-        0,
-      )}
+      reviewCount={organization.Users
+        // セルフレビューは除外
+        .reduce((acc, cur) => {
+          const reviewsToAnother = cur.Reviews.filter(
+            (review) => cur.id !== review.pr.authorId,
+          )
+          return acc + reviewsToAnother.length
+        }, 0)}
       // TODO: レビューリクエストを送られたユーザとの比較
       waitingReviewCount={
         organization.Prs.filter(

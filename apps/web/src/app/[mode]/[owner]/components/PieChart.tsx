@@ -22,10 +22,6 @@ export const PieChart: FC<Props> = ({ prTitles }) => {
     { match: 'other', display: 'その他' },
   ]
 
-  prTitles.forEach((title) => {
-    console.log(title.slice(0, 10))
-  })
-
   const getSeries = (titles: string[]) => {
     const series = [0, 0, 0, 0, 0, 0, 0]
     titles.forEach((title) => {
