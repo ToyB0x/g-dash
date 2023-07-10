@@ -47,14 +47,14 @@ const columns = [
       isNumeric: true,
     },
   }),
-  columnHelper.accessor('Reviews', {
+  {
     header: 'レビューしたPR数',
-    cell: (props) =>
-      new Set(Array.from(props.row.original.Reviews.map((r) => r.pr.url))).size,
+    accessorFn: (props: UserWithReviews) =>
+      new Set(Array.from(props.Reviews.map((r) => r.pr.url))).size,
     meta: {
       isNumeric: true,
     },
-  }),
+  },
   columnHelper.display({
     header: '詳細',
     cell: (props) => <ReviewsAccordion reviews={props.row.original.Reviews} />,
