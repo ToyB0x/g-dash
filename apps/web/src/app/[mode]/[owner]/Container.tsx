@@ -44,7 +44,12 @@ type Props = {
   prRankings: {
     login: string
     avatarUrl: string
-    prCount: number
+    count: number
+  }[]
+  reviewRankings: {
+    login: string
+    avatarUrl: string
+    count: number
   }[]
 }
 
@@ -58,6 +63,7 @@ export const Container: FC<Props> = ({
   barChartSeries,
   pieChartSeries,
   prRankings,
+  reviewRankings,
 }) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
@@ -121,7 +127,7 @@ export const Container: FC<Props> = ({
         <Box p={4} h="28vh">
           <List>
             {prRankings
-              .sort((a, b) => b.prCount - a.prCount)
+              .sort((a, b) => b.count - a.count)
               .slice(0, 5)
               .map((item) => (
                 <ListItem key={item.login}>
@@ -130,7 +136,7 @@ export const Container: FC<Props> = ({
                       <Avatar name="avatar" size="sm" src={item.avatarUrl} />
                       <Box>{item.login}</Box>
                     </HStack>
-                    <Box>{item.prCount}</Box>
+                    <Box>{item.count}</Box>
                   </HStack>
                 </ListItem>
               ))}
@@ -144,16 +150,20 @@ export const Container: FC<Props> = ({
         </Heading>
         <Box p={4} h="28vh">
           <List>
-            {[1, 2, 3, 4, 5].map((key) => (
-              <ListItem key={key}>
-                <HStack mb={5}>
-                  {/*<Box>{key}</Box>*/}
-                  <Avatar name="avatar" size="sm" />
-                  <Box> user name</Box>
-                  <Box> 3</Box>
-                </HStack>
-              </ListItem>
-            ))}
+            {reviewRankings
+              .sort((a, b) => b.count - a.count)
+              .slice(0, 5)
+              .map((item) => (
+                <ListItem key={item.login}>
+                  <HStack mb={5} justifyContent="space-between">
+                    <HStack spacing={6}>
+                      <Avatar name="avatar" size="sm" src={item.avatarUrl} />
+                      <Box>{item.login}</Box>
+                    </HStack>
+                    <Box>{item.count}</Box>
+                  </HStack>
+                </ListItem>
+              ))}
           </List>
         </Box>
       </Box>

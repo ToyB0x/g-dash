@@ -98,6 +98,12 @@ export default function Page({
           select: {
             id: true,
             createdAt: true,
+            user: {
+              select: {
+                login: true,
+                avatarUrl: true,
+              },
+            },
           },
         },
         Commits: {
@@ -179,22 +185,45 @@ export default function Page({
           (acc, cur) => {
             const foundIndex = acc.findIndex((a) => a.login === cur.login)
             if (foundIndex != -1) {
-              acc[foundIndex].prCount += 1
+              acc[foundIndex].count += 1
             } else {
               acc.push({
                 login: cur.login,
                 avatarUrl: cur.avatarUrl,
-                prCount: 1,
+                count: 1,
               })
             }
             return acc
           },
           [] as {
             login: string
-            prCount: number
+            count: number
             avatarUrl: string
           }[],
         )}
+      reviewRankings={organization.Reviews.map((review) => ({
+        login: review.user.login,
+        avatarUrl: review.user.avatarUrl,
+      })).reduce(
+        (acc, cur) => {
+          const foundIndex = acc.findIndex((a) => a.login === cur.login)
+          if (foundIndex != -1) {
+            acc[foundIndex].count += 1
+          } else {
+            acc.push({
+              login: cur.login,
+              avatarUrl: cur.avatarUrl,
+              count: 1,
+            })
+          }
+          return acc
+        },
+        [] as {
+          login: string
+          count: number
+          avatarUrl: string
+        }[],
+      )}
     />
   )
 }
