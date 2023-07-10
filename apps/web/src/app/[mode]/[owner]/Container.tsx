@@ -39,6 +39,7 @@ type Props = {
       [dateString: string]: number
     }
   }
+  pieChartSeries: string[]
 }
 
 export const Container: FC<Props> = ({
@@ -49,6 +50,7 @@ export const Container: FC<Props> = ({
   vulnerabilityAlertCount,
   lineChartSeries,
   barChartSeries,
+  pieChartSeries,
 }) => (
   <Box pt={4} px={8}>
     <Heading>Main Dashboard</Heading>
@@ -148,7 +150,7 @@ export const Container: FC<Props> = ({
         <Heading as="h3" fontSize="xl">
           PR内訳
         </Heading>
-        <PieChart />
+        <PieChart prTitles={pieChartSeries} />
       </Box>
     </SimpleGrid>
   </Box>
