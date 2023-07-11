@@ -59,6 +59,15 @@ export const aggregatePRs = async (
       cursor = _cursor
     }
 
+    const repositories = await prismaSingleTenantClient.repository.findMany({
+      where: {
+        name: repositoryName,
+      },
+    })
+
+    if (repositories.length !== 1) throw Error('invalid repository')
+    const repositoryId = repositories[0].id
+
     // upsert repositories (because repository name can be changed)
     await Promise.all(
       prs.map(async (pr) => {
@@ -125,6 +134,7 @@ export const aggregatePRs = async (
             createdAt: pr.createdAt,
             closedAt: pr.closedAt,
             mergedAt: pr.mergedAt,
+            repositoryId: repositoryId,
           },
           update: {
             organizationId,
@@ -141,6 +151,7 @@ export const aggregatePRs = async (
             createdAt: pr.createdAt,
             closedAt: pr.closedAt,
             mergedAt: pr.mergedAt,
+            repositoryId: repositoryId,
           },
         })
 
