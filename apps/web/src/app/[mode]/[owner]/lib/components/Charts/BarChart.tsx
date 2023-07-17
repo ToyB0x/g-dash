@@ -36,7 +36,8 @@ export const BarChart: FC<Props> = ({ barChartSeriesArray }) => {
         s.commitsDates.filter(
           (commitDate) =>
             new Date(dateString).getDate() === commitDate.getDate() &&
-            new Date(dateString).getMonth() === commitDate.getMonth(),
+            new Date(dateString).getMonth() === commitDate.getMonth() &&
+            new Date(dateString).getFullYear() === commitDate.getFullYear(),
         ).length,
     ),
   }))
