@@ -16,7 +16,6 @@ const linkItems: LinkItem[] = [
   { name: 'Kaizen', href: 'kaizen' },
   { name: 'PRs', href: 'prs' },
   { name: 'Reviews', href: 'reviews' },
-  { name: 'Settings', href: 'settings' },
   // { name: 'Comments', href: 'comments' },
 ]
 
