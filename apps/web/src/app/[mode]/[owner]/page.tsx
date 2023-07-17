@@ -172,7 +172,7 @@ export default function Page({
         organization.Prs.filter((pr) => !!pr.mergedAt).map(
           (pr) => pr.mergedAt!,
         ),
-        organization.Reviews.map((pr) => pr.createdAt),
+        organization.Reviews.map((review) => review.createdAt),
       )}
       barChartSeries={convertToCommitDailyCounts(
         organization.Commits.map((commit) => ({
