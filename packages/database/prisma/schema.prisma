@@ -43,6 +43,8 @@ model Repository {
   pushedAt                      DateTime? // if no push has happened, this will be null
   organizationId                String
 
+  prs Pr[]
+
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 }
 
@@ -59,6 +61,7 @@ model Release {
 model Pr {
   id             String @id
   organizationId String
+  repositoryId   String
   authorId       String
   title          String
   url            String
@@ -77,8 +80,9 @@ model Pr {
   closedAt  DateTime?
   mergedAt  DateTime?
 
-  user         User         @relation(fields: [authorId], references: [id])
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  repository   Repository   @relation(fields: [repositoryId], references: [id])
+  user         User         @relation(fields: [authorId], references: [id])
   Reviews      Review[]
 
   @@index([organizationId, createdAt])
