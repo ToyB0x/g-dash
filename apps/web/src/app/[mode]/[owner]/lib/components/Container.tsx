@@ -17,7 +17,9 @@ import { GiBiohazard, GiSandsOfTime } from 'react-icons/gi'
 import { IoIosGitPullRequest } from 'react-icons/io'
 import { GoCommentDiscussion } from 'react-icons/go'
 import { SlSpeedometer } from 'react-icons/sl'
-import { BarChart, LineChart, PieChart } from './components'
+import { BarChart } from './BarChart'
+import { LineChart } from './LineChart'
+import { PieChart } from './PieChart'
 
 type Props = {
   // Cards
