@@ -1,7 +1,8 @@
 'use client'
 import 'client-only'
 
-import { FC, useState } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { Avatar, Box, Checkbox, HStack, Stack } from '@chakra-ui/react'
 
 type Props = {
@@ -12,18 +13,34 @@ type Props = {
   }[]
 }
 
+const queryName = 'login'
+const separater = ','
+
 export const CheckBoxes: FC<Props> = ({ users }) => {
-  const [checkedItems, setCheckedItems] = useState(
-    new Array(users.length).fill(false),
-  )
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
-  const allChecked = checkedItems.every(Boolean)
-  const isIndeterminate = checkedItems.some(Boolean) && !allChecked
+  // get checkedLoginSet from searchParams
+  const getCheckedLoginSet = useCallback(() => {
+    const params = new URLSearchParams(searchParams.toString())
+    const currentLogins = params.get(queryName)?.split(separater) ?? []
+    return new Set(currentLogins)
+  }, [searchParams])
 
-  const onClick = (isChecked: boolean, index: number) => {
-    const newCheckedItems = [...checkedItems]
-    newCheckedItems[index] = isChecked
-    setCheckedItems(newCheckedItems)
+  // update searchParams from checkedItems
+  const onClick = async (login: string, isChecked: boolean) => {
+    const checkedLoginSet = getCheckedLoginSet()
+    const params = new URLSearchParams(searchParams.toString())
+
+    if (isChecked) checkedLoginSet.add(login)
+    else checkedLoginSet.delete(login)
+
+    if (checkedLoginSet.size >= 1)
+      params.set(queryName, Array.from(checkedLoginSet).join(separater))
+    else params.delete(queryName)
+
+    router.replace(pathname + '?' + params.toString())
   }
 
   return (
@@ -35,8 +52,8 @@ export const CheckBoxes: FC<Props> = ({ users }) => {
         .map((user, i) => (
           <Checkbox
             key={user.id}
-            isChecked={checkedItems[i]}
-            onChange={(e) => onClick(e.target.checked, i)}
+            isChecked={getCheckedLoginSet().has(user.login)}
+            onChange={(e) => onClick(user.login, e.target.checked)}
           >
             <HStack pl={2} spacing={4}>
               <Avatar src={user.avatarUrl} size="sm" />
