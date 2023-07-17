@@ -26,13 +26,13 @@ Over the next few months to a year, we will be adding more practical implementat
   - pr merge count card (code writing health)
     - pie chart (merge lead time)
   - reviewer raking card (reviewer health)
-    - pie chart (reviewer ratio) 
+    - pie chart (reviewer ratio)
   - irregular commits card (2d panel / working time health)
   - active repositories card
   - top 10 contributors card
   - hot topic pr
     - https://chakra-ui.com/docs/components/card
-  - Stats up and down 
+  - Stats up and down
     - https://chakra-ui.com/docs/components/stat
   - Data table
     - https://chakra-ui.com/docs/components/table
