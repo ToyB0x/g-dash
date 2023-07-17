@@ -8,36 +8,37 @@ import dynamic from 'next/dynamic'
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 type Props = {
-  barChartSeries: {
-    [login: string]: {
-      [dateString: string]: number
-    }
-  }
+  barChartSeriesArray: {
+    login: string
+    commitsDates: Date[]
+  }[]
 }
 
-export const BarChart: FC<Props> = ({ barChartSeries }) => {
-  // TODO: refactor
-  const someLoginName = Object.keys(barChartSeries)[0]
-  const _lastMonthDateStrings = Object.keys(barChartSeries[someLoginName])
-  const lastMonthDateStrings = _lastMonthDateStrings
-    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
-    .slice(0, 31)
+export const BarChart: FC<Props> = ({ barChartSeriesArray }) => {
+  // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
+  const lastMonthDateStrings = Array.from(Array(31).keys())
+    .map((i) => {
+      const date = new Date()
+      date.setDate(date.getDate() - i)
+      return new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+      ).toDateString()
+    })
     .reverse()
 
-  const getDates = () => {
-    return lastMonthDateStrings.map((dateString) => {
-      const date = new Date(dateString)
-      return date.getDate()
-    })
-  }
-
-  const series = Object.keys(barChartSeries).map((login) => ({
-    name: login,
-    data: Object.keys(barChartSeries[login])
-      .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
-      .slice(0, 31)
-      .reverse()
-      .map((dateString) => barChartSeries[login][dateString]),
+  // NOTE: 以下はmap / filter部分が遅いので高速化が必要(1ユーザあたり1000コミット/月 * 100ユーザ * 31日 = 310万回のループ)
+  const series = barChartSeriesArray.map((s) => ({
+    name: s.login,
+    data: lastMonthDateStrings.map(
+      (dateString) =>
+        s.commitsDates.filter(
+          (commitDate) =>
+            new Date(dateString).getDate() === commitDate.getDate() &&
+            new Date(dateString).getMonth() === commitDate.getMonth(),
+        ).length,
+    ),
   }))
 
   const options: ApexOptions = {
@@ -52,7 +53,9 @@ export const BarChart: FC<Props> = ({ barChartSeries }) => {
     },
     xaxis: {
       // categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      categories: getDates(),
+      categories: lastMonthDateStrings.map((dateString) =>
+        new Date(dateString).getDate(),
+      ),
       labels: {
         // show: false,
         style: {
