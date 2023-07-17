@@ -3,7 +3,8 @@ import 'client-only'
 
 import { FC, useState } from 'react'
 import { UserWithReviews } from './Table'
-import { Box, HStack, List, ListItem, Link, Button } from '@chakra-ui/react'
+import { Box, List, Button, Collapse } from '@chakra-ui/react'
+import { ListItemCustom } from '@/app/[mode]/[owner]/reviews/components/ListItemCustom'
 
 type Props = {
   reviews: UserWithReviews['Reviews']
@@ -11,24 +12,22 @@ type Props = {
 
 export const ReviewsAccordion: FC<Props> = ({ reviews }) => {
   const [hidePrs, setHidePrs] = useState(true)
+  const sortedReviews = reviews.sort(
+    (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
+  )
 
   return (
     <List>
-      {reviews
-        .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
-        .slice(0, hidePrs ? 3 : reviews.length)
-        .map((review) => (
-          <ListItem key={review.url}>
-            <HStack justify="space-between">
-              <Box w="32rem" isTruncated>
-                <Link href={review.url} isExternal>
-                  {review.pr.title}
-                </Link>
-              </Box>
-              <Box>{review.pr.changedFiles} files</Box>
-            </HStack>
-          </ListItem>
-        ))}
+      {sortedReviews.slice(0, 3).map((review) => (
+        <ListItemCustom review={review} key={review.url} />
+      ))}
+      {reviews.length > 3 && (
+        <Collapse in={!hidePrs}>
+          {sortedReviews.slice(3).map((review) => (
+            <ListItemCustom review={review} key={review.url} />
+          ))}
+        </Collapse>
+      )}
       {reviews.length > 3 && (
         <Box textAlign="right">
           <Button
