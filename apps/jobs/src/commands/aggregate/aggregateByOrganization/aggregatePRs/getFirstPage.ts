@@ -70,7 +70,7 @@ export const getFirstPage = async (
         pullRequests(
           orderBy: { field: UPDATED_AT, direction: DESC }
           states: MERGED
-          first: 100
+          first: 50
         ) {
           edges {
             cursor

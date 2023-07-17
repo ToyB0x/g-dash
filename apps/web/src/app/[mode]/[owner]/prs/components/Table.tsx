@@ -22,7 +22,6 @@ export type UserWithPRs = {
     deletions: number
     changedFiles: number
     commentsTotalCount: number
-    commitsTotalCount: number
     merged: boolean
     closed: boolean
     createdAt: Date
