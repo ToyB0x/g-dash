@@ -15,7 +15,7 @@ type Props = {
 }
 
 export const CheckBoxes: FC<Props> = ({ users }) => {
-  const { onClick, getCheckedLoginSet } = useCheckBoxes()
+  const { onClick, checkedLoginSet } = useCheckBoxes()
 
   return (
     <Stack p={4} spacing={4}>
@@ -28,7 +28,7 @@ export const CheckBoxes: FC<Props> = ({ users }) => {
             key={user.id}
             login={user.login}
             avatarUrl={user.avatarUrl}
-            isChecked={getCheckedLoginSet().has(user.login)}
+            isChecked={checkedLoginSet.has(user.login)}
             onClick={onClick}
           />
         ))}

@@ -13,15 +13,12 @@ export const useCheckBoxes = () => {
   const searchParams = useSearchParams()
 
   // get checkedLoginSet from searchParams
-  const getCheckedLoginSet = useCallback(() => {
-    const params = new URLSearchParams(searchParams.toString())
-    const currentLogins = params.get(queryName)?.split(separater) ?? []
-    return new Set(currentLogins)
-  }, [searchParams])
+  const params = new URLSearchParams(searchParams.toString())
+  const currentLogins = params.get(queryName)?.split(separater) ?? []
+  const checkedLoginSet = new Set(currentLogins)
 
   // update searchParams from checkedItems
   const onClick = (login: string, isChecked: boolean) => {
-    const checkedLoginSet = getCheckedLoginSet()
     const params = new URLSearchParams(searchParams.toString())
 
     if (isChecked) checkedLoginSet.add(login)
@@ -36,6 +33,6 @@ export const useCheckBoxes = () => {
 
   return {
     onClick,
-    getCheckedLoginSet,
+    checkedLoginSet,
   }
 }
