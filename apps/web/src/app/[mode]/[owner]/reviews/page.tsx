@@ -1,7 +1,7 @@
 import 'server-only'
 
 import { use } from 'react'
-import { Table, UserWithReviews } from './components'
+import { Table } from './components'
 import { getSingleTenantPrismaClient } from '@/clients'
 import { Spans } from '@g-dash/utils'
 
