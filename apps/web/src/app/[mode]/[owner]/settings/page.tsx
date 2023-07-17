@@ -1,7 +1,7 @@
 import 'server-only'
 import { getSingleTenantPrismaClient } from '@/clients'
 import { use } from 'react'
-import { CheckBoxes } from '@/app/[mode]/[owner]/settings/components'
+import { CheckBoxes } from './components'
 
 export default function Page({ params }: { params: { owner: string } }) {
   const prisma = getSingleTenantPrismaClient()
