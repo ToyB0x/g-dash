@@ -31,7 +31,7 @@ export const paginate = async (
         pullRequests(
           orderBy: { field: CREATED_AT, direction: DESC }
           after: $after
-          first: 100
+          first: 50
         ) {
           edges {
             cursor
