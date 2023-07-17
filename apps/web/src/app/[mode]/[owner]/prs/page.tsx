@@ -47,6 +47,12 @@ export default function Page({ params }: { params: { owner: string } }) {
             createdAt: true,
             closedAt: true,
             mergedAt: true,
+            Reviews: {
+              select: {
+                id: true,
+                authorId: true,
+              },
+            },
           },
         },
       },
