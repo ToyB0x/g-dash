@@ -41,7 +41,6 @@ export default function Page({ params }: { params: { owner: string } }) {
             deletions: true,
             changedFiles: true,
             commentsTotalCount: true,
-            commitsTotalCount: true,
             merged: true,
             closed: true,
             createdAt: true,
