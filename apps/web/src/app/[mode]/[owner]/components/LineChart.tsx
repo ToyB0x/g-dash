@@ -79,6 +79,9 @@ export const LineChart: FC<Props> = ({ lineChartSeries }) => {
       show: false,
     },
     chart: {
+      animations: {
+        enabled: false,
+      },
       toolbar: {
         show: false,
       },
