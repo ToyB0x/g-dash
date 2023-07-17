@@ -17,15 +17,32 @@ export const ReviewsAccordion: FC<Props> = ({ reviews }) => {
   const sortedReviews = reviews.sort(
     (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
   )
+  const numberedReviews = sortedReviews.map((review, i) => {
+    const samePRs = sortedReviews.filter((r) => r.pr.url === review.pr.url)
+
+    if (samePRs.length === 1) return review
+
+    const numberInSameTitle = samePRs
+      .reverse()
+      .findIndex((r) => r.url === review.url)
+
+    return {
+      ...review,
+      pr: {
+        ...review.pr,
+        title: `${review.pr.title}(${numberInSameTitle + 1})`,
+      },
+    }
+  })
 
   return (
     <List>
-      {sortedReviews.slice(0, initialListSize).map((review) => (
+      {numberedReviews.slice(0, initialListSize).map((review) => (
         <ListItemCustom review={review} key={review.url} />
       ))}
       {reviews.length > initialListSize && (
         <Collapse in={!hidePrs}>
-          {sortedReviews.slice(initialListSize).map((review) => (
+          {numberedReviews.slice(initialListSize).map((review) => (
             <ListItemCustom review={review} key={review.url} />
           ))}
         </Collapse>
