@@ -28,6 +28,10 @@ export type UserWithPRs = {
     createdAt: Date
     closedAt: Date | null
     mergedAt: Date | null
+    Reviews: {
+      id: string
+      authorId: string
+    }[]
   }[]
 }
 
@@ -74,6 +78,42 @@ const columns = [
           mergedPrs.length /
           (1000 * 60 * 60),
       )
+    },
+    meta: {
+      isNumeric: true,
+    },
+  },
+  {
+    header: '被レビュー数が3以上のPR数',
+    accessorFn: (props: UserWithPRs) => {
+      return props.Prs.filter(
+        (pr) =>
+          pr.Reviews.filter((r) => pr.authorId !== r.authorId).length >= 3,
+      ).length
+    },
+    meta: {
+      isNumeric: true,
+    },
+  },
+  {
+    header: '被レビュー数が5以上のPR数',
+    accessorFn: (props: UserWithPRs) => {
+      return props.Prs.filter(
+        (pr) =>
+          pr.Reviews.filter((r) => pr.authorId !== r.authorId).length >= 5,
+      ).length
+    },
+    meta: {
+      isNumeric: true,
+    },
+  },
+  {
+    header: '被レビュー数が7以上のPR数',
+    accessorFn: (props: UserWithPRs) => {
+      return props.Prs.filter(
+        (pr) =>
+          pr.Reviews.filter((r) => pr.authorId !== r.authorId).length >= 7,
+      ).length
     },
     meta: {
       isNumeric: true,
