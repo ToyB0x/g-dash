@@ -10,6 +10,8 @@ type Props = {
   reviews: UserWithReviews['Reviews']
 }
 
+const initialListSize = 3
+
 export const ReviewsAccordion: FC<Props> = ({ reviews }) => {
   const [hidePrs, setHidePrs] = useState(true)
   const sortedReviews = reviews.sort(
@@ -18,17 +20,17 @@ export const ReviewsAccordion: FC<Props> = ({ reviews }) => {
 
   return (
     <List>
-      {sortedReviews.slice(0, 3).map((review) => (
+      {sortedReviews.slice(0, initialListSize).map((review) => (
         <ListItemCustom review={review} key={review.url} />
       ))}
-      {reviews.length > 3 && (
+      {reviews.length > initialListSize && (
         <Collapse in={!hidePrs}>
-          {sortedReviews.slice(3).map((review) => (
+          {sortedReviews.slice(initialListSize).map((review) => (
             <ListItemCustom review={review} key={review.url} />
           ))}
         </Collapse>
       )}
-      {reviews.length > 3 && (
+      {reviews.length > initialListSize && (
         <Box textAlign="right">
           <Button
             textColor="black"
@@ -38,7 +40,7 @@ export const ReviewsAccordion: FC<Props> = ({ reviews }) => {
             alignSelf={'right'}
             onClick={() => setHidePrs(!hidePrs)}
           >
-            {hidePrs ? reviews.length - 3 + ' more..' : 'less..'}
+            {hidePrs ? reviews.length - initialListSize + ' more..' : 'less..'}
           </Button>
         </Box>
       )}
