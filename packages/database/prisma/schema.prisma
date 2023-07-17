@@ -24,6 +24,8 @@ model Organization {
 model User {
   id             String   @id
   // type        String // membersWithRole returns a list of real users (not bots)
+  // TODO: userは複数組織に所属するため以下フィールドはRLS目的では使わない(代わりにClientId等でテナント分離)
+  // https://github.com/users/ToyB0x/projects/1?pane=issue&itemId=33405590
   organizationId String
   login          String // not unique, because sync delays can cause duplicates login ids
   name           String?
@@ -31,6 +33,7 @@ model User {
   Prs            Pr[]
   Commits        Commit[]
   Reviews        Review[]
+  // Comments       Comment[]
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 }
@@ -71,7 +74,6 @@ model Pr {
   changedFiles Int
 
   commentsTotalCount Int
-  commitsTotalCount  Int
 
   merged Boolean
   closed Boolean
@@ -115,3 +117,18 @@ model Review {
 
   @@index([organizationId, authorId])
 }
+
+// model Comment {
+//   id             String   @id
+//   organizationId String
+//   prId           String
+//   url            String
+//   authorId       String
+//   createdAt      DateTime
+//
+//   user         User         @relation(fields: [authorId], references: [id])
+//   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+//   pr           Pr           @relation(fields: [prId], references: [id], onDelete: Cascade)
+//
+//   @@index([organizationId, authorId])
+// }
