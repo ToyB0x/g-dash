@@ -18,17 +18,18 @@ type Props = {
 }
 
 export const LineChart: FC<Props> = ({ lineChartSeries }) => {
-  const lastMonthDateStrings = Object.keys(lineChartSeries)
-    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
-    .slice(0, 31)
-    .reverse()
-
-  const getDates = () => {
-    return lastMonthDateStrings.map((dateString) => {
-      const date = new Date(dateString)
-      return date.getDate()
+  // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
+  const lastMonthDateStrings = Array.from(Array(31).keys())
+    .map((i) => {
+      const date = new Date()
+      date.setDate(date.getDate() - i)
+      return new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+      ).toDateString()
     })
-  }
+    .reverse()
 
   const series = [
     {
@@ -60,7 +61,9 @@ export const LineChart: FC<Props> = ({ lineChartSeries }) => {
       show: false,
     },
     xaxis: {
-      categories: getDates(),
+      categories: lastMonthDateStrings.map((dateString) =>
+        new Date(dateString).getDate(),
+      ),
       axisBorder: {
         show: false,
       },
