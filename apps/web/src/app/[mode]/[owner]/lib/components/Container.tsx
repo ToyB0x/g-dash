@@ -10,6 +10,7 @@ import {
   List,
   ListItem,
   SimpleGrid,
+  Stack,
 } from '@chakra-ui/react'
 import { StatCard } from '@g-dash/ui'
 import { BsStar } from 'react-icons/bs'
@@ -18,8 +19,14 @@ import { IoIosGitPullRequest } from 'react-icons/io'
 import { GoCommentDiscussion } from 'react-icons/go'
 import { SlSpeedometer } from 'react-icons/sl'
 import { BarChart, LineChart, PieChart } from './Charts'
+import { Header } from '@/app/[mode]/[owner]/lib/components/Header'
 
 type Props = {
+  users: {
+    id: string
+    login: string
+    avatarUrl: string
+  }[]
   // Cards
   releaseCount: number
   mergedCount: number
@@ -34,11 +41,10 @@ type Props = {
       review: number
     }
   }
-  barChartSeries: {
-    [login: string]: {
-      [dateString: string]: number
-    }
-  }
+  barChartSeriesArray: {
+    login: string
+    commitsDates: Date[]
+  }[]
   pieChartSeries: string[]
   // ranking
   prRankings: {
@@ -54,125 +60,129 @@ type Props = {
 }
 
 export const Container: FC<Props> = ({
+  users,
   releaseCount,
   mergedCount,
   reviewCount,
   waitingReviewCount,
   vulnerabilityAlertCount,
   lineChartSeries,
-  barChartSeries,
+  barChartSeriesArray,
   pieChartSeries,
   prRankings,
   reviewRankings,
 }) => (
-  <Box pt={4} px={8}>
-    <Heading>Main Dashboard</Heading>
-    <Box mt={4}>
-      <SimpleGrid columns={{ base: 1, md: 6 }} spacing={8}>
-        <StatCard
-          title="リリース数"
-          stat={releaseCount + '/month'}
-          icon={<BsStar size="3rem" />}
-        />
-        <StatCard
-          title="マージ済みPR"
-          stat={mergedCount + '/month'}
-          icon={<IoIosGitPullRequest size="3rem" />}
-        />
-        <StatCard
-          title="マージ速度"
-          stat={Math.round(mergedCount / (30 - 8)) + '/day'}
-          icon={<SlSpeedometer size="3rem" />}
-        />
-        <StatCard
-          title="レビュー数"
-          stat={reviewCount + '/month'}
-          icon={<GoCommentDiscussion size="3rem" />}
-        />
-        <StatCard
-          title="レビュー待ちPR"
-          stat={waitingReviewCount.toString()}
-          icon={<GiSandsOfTime size="3rem" />}
-        />
-        <StatCard
-          title="脆弱なパッケージ"
-          stat={vulnerabilityAlertCount.toString()}
-          icon={<GiBiohazard size="3rem" />}
-        />
+  <Stack minH="100vh" bg="gray.50">
+    <Header users={users} />
+    <Box pt={4} px={8}>
+      <Heading>Main Dashboard</Heading>
+      <Box mt={4}>
+        <SimpleGrid columns={{ base: 1, md: 6 }} spacing={8}>
+          <StatCard
+            title="リリース数"
+            stat={releaseCount + '/month'}
+            icon={<BsStar size="3rem" />}
+          />
+          <StatCard
+            title="マージ済みPR"
+            stat={mergedCount + '/month'}
+            icon={<IoIosGitPullRequest size="3rem" />}
+          />
+          <StatCard
+            title="マージ速度"
+            stat={Math.round(mergedCount / (30 - 8)) + '/day'}
+            icon={<SlSpeedometer size="3rem" />}
+          />
+          <StatCard
+            title="レビュー数"
+            stat={reviewCount + '/month'}
+            icon={<GoCommentDiscussion size="3rem" />}
+          />
+          <StatCard
+            title="レビュー待ちPR"
+            stat={waitingReviewCount.toString()}
+            icon={<GiSandsOfTime size="3rem" />}
+          />
+          <StatCard
+            title="脆弱なパッケージ"
+            stat={vulnerabilityAlertCount.toString()}
+            icon={<GiBiohazard size="3rem" />}
+          />
+        </SimpleGrid>
+      </Box>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} mt={8} h="35vh">
+        <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
+          <Heading as="h3" fontSize="xl">
+            アクティビティ推移
+          </Heading>
+          <Box p={4} h="32vh">
+            <LineChart lineChartSeries={lineChartSeries} />
+          </Box>
+        </Box>
+        <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
+          <Heading as="h3" fontSize="xl">
+            コミット推移
+          </Heading>
+          <Box p={4} h="32vh">
+            <BarChart barChartSeriesArray={barChartSeriesArray} />
+          </Box>
+        </Box>
+      </SimpleGrid>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={16} h="28vh">
+        <Box bg="white" rounded="lg" p={4} shadow="xl">
+          <Heading as="h3" fontSize="xl">
+            PRランキンング
+          </Heading>
+          <Box p={4} h="28vh">
+            <List>
+              {prRankings
+                .sort((a, b) => b.count - a.count)
+                .slice(0, 5)
+                .map((item) => (
+                  <ListItem key={item.login}>
+                    <HStack mb={5} justifyContent="space-between">
+                      <HStack spacing={6}>
+                        <Avatar name="avatar" size="sm" src={item.avatarUrl} />
+                        <Box>{item.login}</Box>
+                      </HStack>
+                      <Box>{item.count}</Box>
+                    </HStack>
+                  </ListItem>
+                ))}
+            </List>
+          </Box>
+        </Box>
+
+        <Box bg="white" rounded="lg" p={4} shadow="xl">
+          <Heading as="h3" fontSize="xl">
+            レビューランキンング
+          </Heading>
+          <Box p={4} h="28vh">
+            <List>
+              {reviewRankings
+                .sort((a, b) => b.count - a.count)
+                .slice(0, 5)
+                .map((item) => (
+                  <ListItem key={item.login}>
+                    <HStack mb={5} justifyContent="space-between">
+                      <HStack spacing={6}>
+                        <Avatar name="avatar" size="sm" src={item.avatarUrl} />
+                        <Box>{item.login}</Box>
+                      </HStack>
+                      <Box>{item.count}</Box>
+                    </HStack>
+                  </ListItem>
+                ))}
+            </List>
+          </Box>
+        </Box>
+        <Box bg="white" rounded="lg" p={4} shadow="xl">
+          <Heading as="h3" fontSize="xl">
+            PR内訳
+          </Heading>
+          <PieChart prTitles={pieChartSeries} />
+        </Box>
       </SimpleGrid>
     </Box>
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} mt={8} h="35vh">
-      <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
-        <Heading as="h3" fontSize="xl">
-          アクティビティ推移
-        </Heading>
-        <Box p={4} h="32vh">
-          <LineChart lineChartSeries={lineChartSeries} />
-        </Box>
-      </Box>
-      <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
-        <Heading as="h3" fontSize="xl">
-          コミット推移
-        </Heading>
-        <Box p={4} h="32vh">
-          <BarChart barChartSeries={barChartSeries} />
-        </Box>
-      </Box>
-    </SimpleGrid>
-    <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={16} h="28vh">
-      <Box bg="white" rounded="lg" p={4} shadow="xl">
-        <Heading as="h3" fontSize="xl">
-          PRランキンング
-        </Heading>
-        <Box p={4} h="28vh">
-          <List>
-            {prRankings
-              .sort((a, b) => b.count - a.count)
-              .slice(0, 5)
-              .map((item) => (
-                <ListItem key={item.login}>
-                  <HStack mb={5} justifyContent="space-between">
-                    <HStack spacing={6}>
-                      <Avatar name="avatar" size="sm" src={item.avatarUrl} />
-                      <Box>{item.login}</Box>
-                    </HStack>
-                    <Box>{item.count}</Box>
-                  </HStack>
-                </ListItem>
-              ))}
-          </List>
-        </Box>
-      </Box>
-
-      <Box bg="white" rounded="lg" p={4} shadow="xl">
-        <Heading as="h3" fontSize="xl">
-          レビューランキンング
-        </Heading>
-        <Box p={4} h="28vh">
-          <List>
-            {reviewRankings
-              .sort((a, b) => b.count - a.count)
-              .slice(0, 5)
-              .map((item) => (
-                <ListItem key={item.login}>
-                  <HStack mb={5} justifyContent="space-between">
-                    <HStack spacing={6}>
-                      <Avatar name="avatar" size="sm" src={item.avatarUrl} />
-                      <Box>{item.login}</Box>
-                    </HStack>
-                    <Box>{item.count}</Box>
-                  </HStack>
-                </ListItem>
-              ))}
-          </List>
-        </Box>
-      </Box>
-      <Box bg="white" rounded="lg" p={4} shadow="xl">
-        <Heading as="h3" fontSize="xl">
-          PR内訳
-        </Heading>
-        <PieChart prTitles={pieChartSeries} />
-      </Box>
-    </SimpleGrid>
-  </Box>
+  </Stack>
 )
