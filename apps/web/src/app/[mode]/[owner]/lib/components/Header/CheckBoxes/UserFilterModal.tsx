@@ -27,7 +27,9 @@ export const UserFilterModal: FC<Props> = ({ users }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
+      <Button onClick={onOpen} size="sm">
+        Open Modal
+      </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
