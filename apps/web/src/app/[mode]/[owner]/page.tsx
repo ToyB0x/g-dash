@@ -18,6 +18,8 @@ export default function Page({
     login?: string
   }
 }) {
+  // NOTE: URLパラメータクエリが変わると以下が再実行されます
+  // ref: https://github.com/vercel/next.js/discussions/48110
   const loginParams = searchParams.login
   const logins = loginParams ? decodeURI(loginParams).split(',') : []
 
