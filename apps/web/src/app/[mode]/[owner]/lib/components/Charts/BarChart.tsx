@@ -1,8 +1,9 @@
 'use client'
 import 'client-only'
 
-import { ApexOptions } from 'apexcharts'
 import { FC } from 'react'
+import { ApexOptions } from 'apexcharts'
+
 // ref: https://github.com/apexcharts/react-apexcharts/issues/240
 import dynamic from 'next/dynamic'
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
@@ -33,12 +34,14 @@ export const BarChart: FC<Props> = ({ barChartSeriesArray }) => {
     name: s.login,
     data: lastMonthDateStrings.map(
       (dateString) =>
-        s.commitsDates.filter(
-          (commitDate) =>
-            new Date(dateString).getDate() === commitDate.getDate() &&
-            new Date(dateString).getMonth() === commitDate.getMonth() &&
-            new Date(dateString).getFullYear() === commitDate.getFullYear(),
-        ).length,
+        s.commitsDates.filter((commitDate) => {
+          const date = new Date(dateString)
+          return (
+            commitDate.getFullYear() === date.getFullYear() &&
+            commitDate.getMonth() === date.getMonth() &&
+            commitDate.getDate() === date.getDate()
+          )
+        }).length,
     ),
   }))
 
