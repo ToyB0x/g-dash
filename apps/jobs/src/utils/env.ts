@@ -4,6 +4,7 @@ const envSchema = z.object({
   // REQUIRED
   NODE_ENV: z.enum(['development', 'production', 'test']),
   APPS_DB_NAME: z.string(),
+  APPS_DB_PORT: z.coerce.number(),
   // RLS ENABLED
   APPS_JOBS_DB_USER_MIGRATION: z.string(),
   APPS_JOBS_DB_PASS_MIGRATION: z.string(),
