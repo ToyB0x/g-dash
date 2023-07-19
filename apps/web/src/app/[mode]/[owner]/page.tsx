@@ -56,19 +56,6 @@ export default function Page({
                 },
               },
             },
-            Commits: {
-              where: {
-                user: {
-                  login: {
-                    in: logins.length ? logins : undefined,
-                  },
-                },
-              },
-              select: {
-                id: true,
-                committedDate: true,
-              },
-            },
           },
         },
         Releases: {
