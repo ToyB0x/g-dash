@@ -36,21 +36,19 @@ export const UserFilterModalButton: FC<Props> = ({ users }) => {
         onClick={onOpen}
         aria-label="Select Users"
         icon={<SettingsIcon />}
-      >
-        Open Modal
-      </IconButton>
+      />
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} scrollBehavior="inside">
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Select Users</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <CheckBoxes users={users} />
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="brand" mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>
