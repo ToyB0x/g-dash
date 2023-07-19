@@ -1,16 +1,28 @@
 import 'server-only'
 
 import { Modes } from '@g-dash/types'
-import { Container } from './Container'
+import { Container } from './lib/components'
 import { getSingleTenantPrismaClient } from '@/clients'
 import { use } from 'react'
 import { Spans } from '@g-dash/utils'
 
 export default function Page({
   params,
+  searchParams,
 }: {
-  params: { mode: (typeof Modes)[keyof typeof Modes]; owner: string }
+  params: {
+    mode: (typeof Modes)[keyof typeof Modes]
+    owner: string
+  }
+  searchParams: {
+    login?: string
+  }
 }) {
+  // NOTE: URLパラメータクエリが変わると以下が再実行されます
+  // ref: https://github.com/vercel/next.js/discussions/48110
+  const loginParams = searchParams.login
+  const logins = loginParams ? decodeURI(loginParams).split(',') : []
+
   const prisma = getSingleTenantPrismaClient()
   const organization = use(
     prisma.organization.findUniqueOrThrow({
@@ -27,6 +39,8 @@ export default function Page({
           },
           select: {
             id: true,
+            login: true,
+            avatarUrl: true,
             Reviews: {
               select: {
                 id: true,
@@ -64,6 +78,13 @@ export default function Page({
           //     gte: new Date(Spans['1 month']),
           //   },
           // },
+          where: {
+            user: {
+              login: {
+                in: logins.length ? logins : undefined,
+              },
+            },
+          },
           select: {
             id: true,
             title: true,
@@ -99,6 +120,11 @@ export default function Page({
             createdAt: {
               gte: new Date(Spans['1 month']),
             },
+            user: {
+              login: {
+                in: logins.length ? logins : undefined,
+              },
+            },
           },
           select: {
             id: true,
@@ -123,6 +149,11 @@ export default function Page({
             committedDate: {
               gte: new Date(Spans['1 month']),
             },
+            user: {
+              login: {
+                in: logins.length ? logins : undefined,
+              },
+            },
           },
           select: {
             committedDate: true,
@@ -140,6 +171,7 @@ export default function Page({
 
   return (
     <Container
+      users={organization.Users}
       releaseCount={organization.Releases.length}
       mergedCount={
         organization.Prs.filter(
@@ -174,12 +206,10 @@ export default function Page({
         ),
         organization.Reviews.map((review) => review.createdAt),
       )}
-      barChartSeries={convertToCommitDailyCounts(
-        organization.Commits.map((commit) => ({
-          committedDate: commit.committedDate,
-          login: commit.user.login,
-        })),
-      )}
+      barChartSeries={organization.Commits.map((c) => ({
+        login: c.user.login,
+        committedDate: c.committedDate,
+      }))}
       pieChartSeries={organization.Prs.filter(
         (pr) =>
           pr.mergedAt &&
@@ -307,58 +337,6 @@ const convertToActivityDailyCounts = (
   openDates.forEach((date) => updateCount(date, 'open'))
   mergedDates.forEach((date) => updateCount(date, 'merged'))
   reviewDates.forEach((date) => updateCount(date, 'review'))
-
-  return obj
-}
-
-const convertToCommitDailyCounts = (
-  commits: { committedDate: Date; login: string }[],
-): {
-  [login: string]: {
-    [dateString: string]: number
-  }
-} => {
-  const obj: {
-    [login: string]: {
-      [dateString: string]: number
-    }
-  } = {}
-
-  const users = Array.from(new Set(commits.map((commit) => commit.login)))
-
-  // init obj
-  const dateStrings = Array.from(Array(365).keys()).map((i) => {
-    const date = new Date()
-    date.setDate(date.getDate() - i)
-    return new Date(
-      date.getFullYear(),
-      date.getMonth(),
-      date.getDate(),
-    ).toDateString()
-  })
-
-  users.forEach((user) => {
-    obj[user] = {}
-    dateStrings.forEach((dateString) => {
-      obj[user][dateString] = 0
-    })
-  })
-
-  const updateCount = (login: string, committedDate: Date) => {
-    const dateString = new Date(
-      committedDate.getFullYear(),
-      committedDate.getMonth(),
-      committedDate.getDate(),
-    ).toDateString()
-
-    if (obj[login][dateString]) {
-      obj[login][dateString]++
-    } else {
-      obj[login][dateString] = 1
-    }
-  }
-
-  commits.forEach((commit) => updateCount(commit.login, commit.committedDate))
 
   return obj
 }

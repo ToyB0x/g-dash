@@ -69,7 +69,6 @@ export const getFirstPage = async (
       repository(owner: $owner, name: $name) {
         pullRequests(
           orderBy: { field: UPDATED_AT, direction: DESC }
-          states: MERGED
           first: 50
         ) {
           edges {
