@@ -16,6 +16,19 @@ type Props = {
 }
 
 export const BarChart: FC<Props> = ({ barChartSeriesArray }) => {
+  // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
+  const lastMonthDateStrings = Array.from(Array(31).keys())
+    .map((i) => {
+      const date = new Date()
+      date.setDate(date.getDate() - i)
+      return new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+      ).toDateString()
+    })
+    .reverse()
+
   const convertToCommitDailyCounts = (
     commits: { committedDate: Date; login: string }[],
   ): { name: string; data: number[] }[] => {
@@ -26,21 +39,9 @@ export const BarChart: FC<Props> = ({ barChartSeriesArray }) => {
     } = {}
 
     const users = Array.from(new Set(commits.map((commit) => commit.login)))
-
-    // init obj
-    const dateStrings = Array.from(Array(365).keys()).map((i) => {
-      const date = new Date()
-      date.setDate(date.getDate() - i)
-      return new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        date.getDate(),
-      ).toDateString()
-    })
-
     users.forEach((user) => {
       obj[user] = {}
-      dateStrings.forEach((dateString) => {
+      lastMonthDateStrings.forEach((dateString) => {
         obj[user][dateString] = 0
       })
     })
@@ -65,26 +66,13 @@ export const BarChart: FC<Props> = ({ barChartSeriesArray }) => {
       name: login,
       data: Object.keys(obj[login])
         .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
-        .slice(0, 31)
+        .slice(0, lastMonthDateStrings.length)
         .reverse()
         .map((dateString) => obj[login][dateString]),
     }))
   }
 
   const series = convertToCommitDailyCounts(barChartSeriesArray)
-
-  // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
-  const lastMonthDateStrings = Array.from(Array(31).keys())
-    .map((i) => {
-      const date = new Date()
-      date.setDate(date.getDate() - i)
-      return new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        date.getDate(),
-      ).toDateString()
-    })
-    .reverse()
 
   // NOTE: 以下は負荷が高いためオブジェクト利用で高速化
   // // NOTE: 以下はmap / filter部分が遅いので高速化が必要(1ユーザあたり1000コミット/月 * 100ユーザ * 31日 = 310万回のループ)
