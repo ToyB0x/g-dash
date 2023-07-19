@@ -2530,7 +2530,7 @@ __metadata:
   dependencies:
     eslint-config-next: 13.4.10
     eslint-config-prettier: 8.8.0
-    eslint-config-turbo: 1.10.8
+    eslint-config-turbo: 1.10.9
     eslint-plugin-react: 7.32.2
   languageName: unknown
   linkType: soft
@@ -3818,9 +3818,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turbo/gen@npm:1.10.8":
-  version: 1.10.8
-  resolution: "@turbo/gen@npm:1.10.8"
+"@turbo/gen@npm:1.10.9":
+  version: 1.10.9
+  resolution: "@turbo/gen@npm:1.10.9"
   dependencies:
     chalk: 2.4.2
     commander: ^10.0.0
@@ -3834,7 +3834,7 @@ __metadata:
     validate-npm-package-name: ^5.0.0
   bin:
     gen: dist/cli.js
-  checksum: cf3a616695d41fca607af75ea76c46c5c3162e253bbfcee4809af9c18f8a5ff103ff3c5b4f96e3ee426ffbb2979aa64d05924f7b21acae8a0c067ed4242aa0bb
+  checksum: 6645baa0b70e559ea5d2aa17bdaa213c70149911889a4af0956ba44455ba67c203dc2ce3dcaca852d952c0dbee3799759485a951baccb035bd8b6e4d1f6a626e
   languageName: node
   linkType: hard
 
@@ -5823,14 +5823,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-turbo@npm:1.10.8":
-  version: 1.10.8
-  resolution: "eslint-config-turbo@npm:1.10.8"
+"eslint-config-turbo@npm:1.10.9":
+  version: 1.10.9
+  resolution: "eslint-config-turbo@npm:1.10.9"
   dependencies:
-    eslint-plugin-turbo: 1.10.8
+    eslint-plugin-turbo: 1.10.9
   peerDependencies:
     eslint: ">6.6.0"
-  checksum: a72f63c57101a26acb4780569a7b128b8e0636cc303e8eacd9c5d73caa22cf381f246ffeeff55f00653fc315580754263dcaff19a22f44b7b19309637d9e1c36
+  checksum: 068144dec8585a4d2e7f0a9d70f1c69d55e2bd9da11df4f59e4b062716911a16d2084dfa0d229a84d6a29d0e2b587e9c47b90ef0ee98521c72dcf23c8a4cc8e6
   languageName: node
   linkType: hard
 
@@ -5961,14 +5961,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-turbo@npm:1.10.8":
-  version: 1.10.8
-  resolution: "eslint-plugin-turbo@npm:1.10.8"
+"eslint-plugin-turbo@npm:1.10.9":
+  version: 1.10.9
+  resolution: "eslint-plugin-turbo@npm:1.10.9"
   dependencies:
     dotenv: 16.0.3
   peerDependencies:
     eslint: ">6.6.0"
-  checksum: 310af8f022f7cb9fb5b012fc349a5e234137780c6e2821b04632cca826564b2532a43821680b2bcbdd02a380193044f91b1e8cdde1e28b4775104f36f34bf440
+  checksum: ad71a1789d1a860738335a88ffeeb384c4722aeb5ccbfa63655fc64bba9e60b8998ca1a0a5e4dece322234dac3da2af2e21a45cbe4311fd124adde87743e0eb8
   languageName: node
   linkType: hard
 
@@ -6452,7 +6452,7 @@ __metadata:
   resolution: "g-dash@workspace:."
   dependencies:
     "@g-dash/eslint-config-custom": "*"
-    "@turbo/gen": 1.10.8
+    "@turbo/gen": 1.10.9
     dotenv-cli: 7.2.1
     eslint: 8.45.0
     prettier: 3.0.0
