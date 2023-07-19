@@ -11,9 +11,11 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
+  IconButton,
   useDisclosure,
 } from '@chakra-ui/react'
 import { CheckBoxes } from './CheckBoxes'
+import { SettingsIcon } from '@chakra-ui/icons'
 
 type Props = {
   users: {
@@ -23,13 +25,20 @@ type Props = {
   }[]
 }
 
-export const UserFilterModal: FC<Props> = ({ users }) => {
+export const UserFilterModalButton: FC<Props> = ({ users }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Button onClick={onOpen} size="sm">
+      <IconButton
+        bg="white"
+        shadow="xl"
+        rounded="lg"
+        onClick={onOpen}
+        aria-label="Select Users"
+        icon={<SettingsIcon />}
+      >
         Open Modal
-      </Button>
+      </IconButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
