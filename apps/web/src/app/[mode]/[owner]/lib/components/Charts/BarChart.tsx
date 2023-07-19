@@ -63,14 +63,17 @@ export const BarChart: FC<Props> = ({ barChartSeries }) => {
     },
     xaxis: {
       // categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      categories: lastMonthDateStrings.map((dateString) =>
-        new Date(dateString).getDate(),
-      ),
+      categories: lastMonthDateStrings.map((dateString) => {
+        const date = new Date(dateString)
+        if (date.getDay() === 0 || date.getDay() === 6)
+          return `(${date.getDate()})`
+        return date.getDate()
+      }),
       labels: {
         // show: false,
         style: {
           colors: '#A3AED0',
-          fontSize: '14px',
+          fontSize: '13px',
           fontWeight: '500',
         },
       },
