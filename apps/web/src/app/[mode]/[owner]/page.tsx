@@ -206,7 +206,7 @@ export default function Page({
         ),
         organization.Reviews.map((review) => review.createdAt),
       )}
-      barChartSeriesArray={organization.Commits.map((c) => ({
+      barChartSeries={organization.Commits.map((c) => ({
         login: c.user.login,
         committedDate: c.committedDate,
       }))}

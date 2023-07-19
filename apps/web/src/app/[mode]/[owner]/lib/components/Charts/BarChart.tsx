@@ -9,13 +9,13 @@ import dynamic from 'next/dynamic'
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 type Props = {
-  barChartSeriesArray: {
+  barChartSeries: {
     login: string
     committedDate: Date
   }[]
 }
 
-export const BarChart: FC<Props> = ({ barChartSeriesArray }) => {
+export const BarChart: FC<Props> = ({ barChartSeries }) => {
   // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
   const lastMonthDateStrings = Array.from(Array(31).keys())
     .map((i) => {
@@ -72,7 +72,7 @@ export const BarChart: FC<Props> = ({ barChartSeriesArray }) => {
     }))
   }
 
-  const series = convertToCommitDailyCounts(barChartSeriesArray)
+  const series = convertToCommitDailyCounts(barChartSeries)
 
   // NOTE: 以下は負荷が高いためオブジェクト利用で高速化
   // // NOTE: 以下はmap / filter部分が遅いので高速化が必要(1ユーザあたり1000コミット/月 * 100ユーザ * 31日 = 310万回のループ)

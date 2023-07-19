@@ -41,7 +41,7 @@ type Props = {
       review: number
     }
   }
-  barChartSeriesArray: {
+  barChartSeries: {
     login: string
     committedDate: Date
   }[]
@@ -67,7 +67,7 @@ export const Container: FC<Props> = ({
   waitingReviewCount,
   vulnerabilityAlertCount,
   lineChartSeries,
-  barChartSeriesArray,
+  barChartSeries,
   pieChartSeries,
   prRankings,
   reviewRankings,
@@ -124,7 +124,7 @@ export const Container: FC<Props> = ({
             コミット推移
           </Heading>
           <Box p={4} h="32vh">
-            <BarChart barChartSeriesArray={barChartSeriesArray} />
+            <BarChart barChartSeries={barChartSeries} />
           </Box>
         </Box>
       </SimpleGrid>
