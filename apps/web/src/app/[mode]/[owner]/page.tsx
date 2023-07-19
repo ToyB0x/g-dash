@@ -219,9 +219,9 @@ export default function Page({
         ),
         organization.Reviews.map((review) => review.createdAt),
       )}
-      barChartSeriesArray={organization.Users.map((user) => ({
-        login: user.login,
-        commitsDates: user.Commits.map((commit) => commit.committedDate),
+      barChartSeriesArray={organization.Commits.map((c) => ({
+        login: c.user.login,
+        committedDate: c.committedDate,
       }))}
       pieChartSeries={organization.Prs.filter(
         (pr) =>

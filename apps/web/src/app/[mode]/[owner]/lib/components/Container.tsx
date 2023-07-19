@@ -43,7 +43,7 @@ type Props = {
   }
   barChartSeriesArray: {
     login: string
-    commitsDates: Date[]
+    committedDate: Date
   }[]
   pieChartSeries: string[]
   // ranking

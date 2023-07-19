@@ -11,7 +11,7 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 type Props = {
   barChartSeriesArray: {
     login: string
-    commitsDates: Date[]
+    committedDate: Date
   }[]
 }
 
@@ -71,13 +71,7 @@ export const BarChart: FC<Props> = ({ barChartSeriesArray }) => {
     }))
   }
 
-  const series = convertToCommitDailyCounts(
-    barChartSeriesArray
-      .map((s) =>
-        s.commitsDates.map((date) => ({ committedDate: date, login: s.login })),
-      )
-      .flat(),
-  )
+  const series = convertToCommitDailyCounts(barChartSeriesArray)
 
   // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
   const lastMonthDateStrings = Array.from(Array(31).keys())
