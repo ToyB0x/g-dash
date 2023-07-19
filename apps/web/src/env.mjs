@@ -5,6 +5,7 @@ export const env = createEnv({
   server: {
     // REQUIRED
     APPS_DB_NAME: z.string(),
+    APPS_DB_PORT: z.coerce.number(),
     // RLS ENABLED
     APPS_DB_USER_RLS_ENABLED: z.string(),
     APPS_DB_PASS_RLS_ENABLED: z.string(),
