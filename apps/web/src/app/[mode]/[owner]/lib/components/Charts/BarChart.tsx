@@ -29,67 +29,27 @@ export const BarChart: FC<Props> = ({ barChartSeries }) => {
     })
     .reverse()
 
-  const convertToCommitDailyCounts = (
-    commits: { committedDate: Date; login: string }[],
-  ): { name: string; data: number[] }[] => {
-    const obj: {
-      [login: string]: {
-        [dateString: string]: number
-      }
-    } = {}
-
-    const users = Array.from(new Set(commits.map((commit) => commit.login)))
-    users.forEach((user) => {
-      obj[user] = {}
-      lastMonthDateStrings.forEach((dateString) => {
-        obj[user][dateString] = 0
-      })
-    })
-
-    const updateCount = (login: string, committedDate: Date) => {
-      const dateString = new Date(
-        committedDate.getFullYear(),
-        committedDate.getMonth(),
-        committedDate.getDate(),
-      ).toDateString()
-
-      if (obj[login][dateString]) {
-        obj[login][dateString]++
-      } else {
-        obj[login][dateString] = 1
-      }
-    }
-
-    commits.forEach((commit) => updateCount(commit.login, commit.committedDate))
-
-    return Object.keys(obj).map((login) => ({
-      name: login,
-      data: Object.keys(obj[login])
-        .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
-        .slice(0, lastMonthDateStrings.length)
-        .reverse()
-        .map((dateString) => obj[login][dateString]),
-    }))
-  }
-
-  const series = convertToCommitDailyCounts(barChartSeries)
-
-  // NOTE: 以下は負荷が高いためオブジェクト利用で高速化
-  // // NOTE: 以下はmap / filter部分が遅いので高速化が必要(1ユーザあたり1000コミット/月 * 100ユーザ * 31日 = 310万回のループ)
-  // const series = barChartSeriesArray.map((s) => ({
-  //   name: s.login,
-  //   data: lastMonthDateStrings.map(
-  //     (dateString) =>
-  //       s.commitsDates.filter((commitDate) => {
-  //         const date = new Date(dateString)
-  //         return (
-  //           commitDate.getFullYear() === date.getFullYear() &&
-  //           commitDate.getMonth() === date.getMonth() &&
-  //           commitDate.getDate() === date.getDate()
-  //         )
-  //       }).length,
-  //   ),
-  // }))
+  const users = Array.from(
+    new Set(barChartSeries.map((commit) => commit.login)),
+  )
+  const series = users.map((u) => ({
+    name: u,
+    data: barChartSeries
+      .filter((s) => s.login === u)
+      .reduce<number[]>(
+        (acc, cur) => {
+          const dateString = new Date(
+            cur.committedDate.getFullYear(),
+            cur.committedDate.getMonth(),
+            cur.committedDate.getDate(),
+          ).toDateString()
+          const index = lastMonthDateStrings.indexOf(dateString)
+          acc[index]++
+          return acc
+        },
+        Array.from(Array(lastMonthDateStrings.length).keys()).fill(0),
+      ),
+  }))
 
   const options: ApexOptions = {
     chart: {
