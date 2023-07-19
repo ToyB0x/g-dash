@@ -61,9 +61,12 @@ export const LineChart: FC<Props> = ({ lineChartSeries }) => {
       show: false,
     },
     xaxis: {
-      categories: lastMonthDateStrings.map((dateString) =>
-        new Date(dateString).getDate(),
-      ),
+      categories: lastMonthDateStrings.map((dateString) => {
+        const date = new Date(dateString)
+        if (date.getDay() === 0 || date.getDay() === 6)
+          return `(${date.getDate()})`
+        return date.getDate()
+      }),
       axisBorder: {
         show: false,
       },
@@ -73,7 +76,7 @@ export const LineChart: FC<Props> = ({ lineChartSeries }) => {
       labels: {
         style: {
           colors: '#A3AED0',
-          fontSize: '14px',
+          fontSize: '13px',
           fontWeight: '500',
         },
       },
