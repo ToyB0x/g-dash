@@ -1,7 +1,6 @@
 'use client'
 import 'client-only'
 
-import { useCallback } from 'react'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 
 const queryName = 'login'
