@@ -1,17 +1,21 @@
 'use client'
 import 'client-only'
 
-import { Flex } from '@chakra-ui/react'
+import { Flex, Stack } from '@chakra-ui/react'
 import { FC, ReactNode } from 'react'
 
 type Props = {
   Sidebar: ReactNode
-  Content: ReactNode
+  Contents: ReactNode[]
 }
 
-export const ChakraLayout: FC<Props> = ({ Sidebar, Content }) => (
+export const ChakraLayout: FC<Props> = ({ Sidebar, Contents }) => (
   <Flex>
     {Sidebar}
-    {Content}
+    <Stack minH="100vh" bg="gray.50" py={4} px={8} spacing={8}>
+      {Contents.map((Content) => (
+        <>{Content}</>
+      ))}
+    </Stack>
   </Flex>
 )

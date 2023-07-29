@@ -6,15 +6,19 @@ import { ChakraLayout } from './lib/components'
 
 export default function RootLayout({
   children,
+  heatmap,
   params,
 }: {
   children: React.ReactNode
+  heatmap: React.ReactNode
   params: { mode: (typeof Modes)[keyof typeof Modes]; owner: string }
 }) {
   return (
-    <ChakraLayout
-      Sidebar={<Sidebar mode={params.mode} owner={params.owner} />}
-      Content={children}
-    />
+    <>
+      <ChakraLayout
+        Sidebar={<Sidebar mode={params.mode} owner={params.owner} />}
+        Contents={[children, heatmap]}
+      />
+    </>
   )
 }
