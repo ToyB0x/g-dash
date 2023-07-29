@@ -12,8 +12,7 @@ export const useCheckBoxes = () => {
   const searchParams = useSearchParams()
 
   // get checkedLoginSet from searchParams
-  const params = new URLSearchParams(searchParams.toString())
-  const currentLogins = params.get(queryName)?.split(separater) ?? []
+  const currentLogins = searchParams.get(queryName)?.split(separater) ?? []
   const checkedLoginSet = new Set(currentLogins)
 
   // update searchParams from checkedItems
