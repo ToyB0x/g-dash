@@ -2,10 +2,12 @@
   "name": "g-dash",
   "private": true,
   "scripts": {
-    "build": "dotenv -e .env.sample -- turbo run build",
+    "build": "turbo run build",
+    "build:ci": "dotenv -e .env.sample -- turbo run build",
     "dev": "turbo run dev --concurrency 12",
     "typecheck": "turbo run typecheck",
-    "lint": "dotenv -e .env.sample -- turbo run lint",
+    "lint": "turbo run lint",
+    "lint:ci": "dotenv -e .env.sample -- turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,md}\""
   },
