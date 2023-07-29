@@ -189,13 +189,12 @@ export const HeatMap: FC<Props> = ({ committedDates, reviewedDates }) => {
   }
 
   return (
-    <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
+    <Box backgroundColor="white" rounded="lg" p={4} shadow="xl" width="1200px">
       <ReactApexChart
         options={options}
         series={series}
         type="heatmap"
         height="500px"
-        width="1200px"
       />
     </Box>
   )

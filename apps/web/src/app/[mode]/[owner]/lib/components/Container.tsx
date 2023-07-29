@@ -72,12 +72,12 @@ export const Container: FC<Props> = ({
   prRankings,
   reviewRankings,
 }) => (
-  <Box minH="100vh" bg="gray.50" pt={4} px={8}>
+  <Stack spacing={8}>
     <HStack justify="space-between">
       <Heading>Main Dashboard</Heading>
       <UserFilterModalButton users={users} />
     </HStack>
-    <Box mt={4}>
+    <Box>
       <SimpleGrid columns={{ base: 1, md: 6 }} spacing={8}>
         <StatCard
           title="リリース数"
@@ -111,7 +111,7 @@ export const Container: FC<Props> = ({
         />
       </SimpleGrid>
     </Box>
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} mt={8} h="35vh">
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
       <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
         <Heading as="h3" fontSize="xl">
           アクティビティ推移
@@ -129,7 +129,7 @@ export const Container: FC<Props> = ({
         </Box>
       </Box>
     </SimpleGrid>
-    <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={16} h="28vh">
+    <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
       <Box bg="white" rounded="lg" p={4} shadow="xl">
         <Heading as="h3" fontSize="xl">
           PRランキンング
@@ -184,5 +184,5 @@ export const Container: FC<Props> = ({
         <PieChart prTitles={pieChartSeries} />
       </Box>
     </SimpleGrid>
-  </Box>
+  </Stack>
 )
