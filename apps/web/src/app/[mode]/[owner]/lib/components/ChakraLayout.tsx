@@ -13,8 +13,8 @@ export const ChakraLayout: FC<Props> = ({ Sidebar, Contents }) => (
   <Flex>
     {Sidebar}
     <Stack minH="100vh" bg="gray.50" py={4} px={8} spacing={8}>
-      {Contents.map((Content) => (
-        <>{Content}</>
+      {Contents.map((Content, i) => (
+        <div key={i}>{Content}</div>
       ))}
     </Stack>
   </Flex>
