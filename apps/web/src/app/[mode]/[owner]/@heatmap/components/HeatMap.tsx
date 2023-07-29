@@ -189,23 +189,14 @@ export const HeatMap: FC<Props> = ({ committedDates, reviewedDates }) => {
   }
 
   return (
-    <SimpleGrid
-      px={8}
-      columns={{ base: 1, md: 2 }}
-      spacing={8}
-      mb={8}
-      h="50vh"
-      bg="gray.50"
-    >
-      <Box backgroundColor="white" rounded="lg" p={4} shadow="xl" mx="auto">
-        <ReactApexChart
-          options={options}
-          series={series}
-          type="heatmap"
-          height="500px"
-          width="1200px"
-        />
-      </Box>
-    </SimpleGrid>
+    <Box backgroundColor="white" rounded="lg" p={4} shadow="xl">
+      <ReactApexChart
+        options={options}
+        series={series}
+        type="heatmap"
+        height="500px"
+        width="1200px"
+      />
+    </Box>
   )
 }
