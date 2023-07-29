@@ -190,11 +190,16 @@ export const HeatMap: FC<Props> = ({ committedDates, reviewedDates }) => {
 
   return (
     <Box backgroundColor="white" rounded="lg" p={4} shadow="xl" width="1200px">
+      {/*
+        NOTE: specify width to avoid error
+        ref: https://github.com/apexcharts/apexcharts.js/issues/1898#issuecomment-1405848110
+       */}
       <ReactApexChart
         options={options}
         series={series}
         type="heatmap"
         height="500px"
+        width="100%"
       />
     </Box>
   )
