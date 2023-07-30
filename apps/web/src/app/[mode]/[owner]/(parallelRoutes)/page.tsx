@@ -1,7 +1,7 @@
 import 'server-only'
 
 import { Modes } from '@g-dash/types'
-import { Container } from './lib/components'
+import { Container } from './_components'
 import { getSingleTenantPrismaClient } from '@/clients'
 import { use } from 'react'
 import { Spans } from '@g-dash/utils'

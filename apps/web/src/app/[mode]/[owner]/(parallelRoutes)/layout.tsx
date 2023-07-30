@@ -2,7 +2,7 @@ import 'server-only'
 
 import { Sidebar } from '@g-dash/ui'
 import { Modes } from '@g-dash/types'
-import { ChakraLayout } from './lib/components'
+import { ChakraLayout } from './_components'
 
 export default function DashboardLayout({
   children,
