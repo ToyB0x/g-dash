@@ -41,10 +41,10 @@ type Props = {
 const columnHelper = createColumnHelper<UserWithPRs>()
 
 const columns = [
-  columnHelper.display({
-    id: 'Avatar',
+  columnHelper.accessor('login', {
+    header: 'Id',
     cell: (props) => (
-      <Stack alignItems="center" w={32}>
+      <Stack alignItems="center" w={28}>
         <Avatar src={props.row.original.avatarUrl} />
         <Box pt={1}> {props.row.original.login}</Box>
       </Stack>
