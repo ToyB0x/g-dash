@@ -4,7 +4,7 @@ import { Sidebar } from '@g-dash/ui'
 import { Modes } from '@g-dash/types'
 import { ChakraLayout } from './lib/components'
 
-export default function RootLayout({
+export default function DashboardLayout({
   children,
   heatmap,
   params,
