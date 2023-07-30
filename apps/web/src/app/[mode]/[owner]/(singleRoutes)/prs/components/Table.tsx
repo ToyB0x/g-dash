@@ -83,6 +83,19 @@ const columns = [
     },
   },
   {
+    header: '被レビュー数',
+    accessorFn: (props: UserWithPRs) => {
+      return props.Prs.reduce(
+        (acc, cur) =>
+          acc + cur.Reviews.filter((r) => cur.authorId !== r.authorId).length,
+        0,
+      )
+    },
+    meta: {
+      isNumeric: true,
+    },
+  },
+  {
     header: '被レビュー数が3以上のPR数',
     accessorFn: (props: UserWithPRs) => {
       return props.Prs.filter(
