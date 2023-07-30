@@ -4,7 +4,7 @@ import 'client-only'
 import { FC, useState } from 'react'
 import { DataTable } from '@g-dash/ui'
 import { PRsAccordion } from './PRsAccordion'
-import { Avatar, Box, Select, Stack } from '@chakra-ui/react'
+import { Avatar, Box, Select, Stack, Text } from '@chakra-ui/react'
 import { createColumnHelper } from '@tanstack/react-table'
 import { Spans } from '@g-dash/utils'
 
@@ -41,10 +41,14 @@ type Props = {
 const columnHelper = createColumnHelper<UserWithPRs>()
 
 const columns = [
-  columnHelper.display({
-    id: 'Avatar',
+  columnHelper.accessor('login', {
+    header: () => (
+      <Text display="inline" ml="2.4rem">
+        ID
+      </Text>
+    ),
     cell: (props) => (
-      <Stack alignItems="center" w={32}>
+      <Stack alignItems="center" w={28}>
         <Avatar src={props.row.original.avatarUrl} />
         <Box pt={1}> {props.row.original.login}</Box>
       </Stack>
@@ -83,41 +87,61 @@ const columns = [
     },
   },
   {
-    header: '被レビュー数が3以上のPR数',
+    header: '被レビュー数',
     accessorFn: (props: UserWithPRs) => {
-      return props.Prs.filter(
-        (pr) =>
-          pr.Reviews.filter((r) => pr.authorId !== r.authorId).length >= 3,
-      ).length
+      return props.Prs.reduce(
+        (acc, cur) =>
+          acc + cur.Reviews.filter((r) => cur.authorId !== r.authorId).length,
+        0,
+      )
     },
     meta: {
       isNumeric: true,
     },
   },
-  {
-    header: '被レビュー数が5以上のPR数',
-    accessorFn: (props: UserWithPRs) => {
-      return props.Prs.filter(
-        (pr) =>
-          pr.Reviews.filter((r) => pr.authorId !== r.authorId).length >= 5,
-      ).length
-    },
-    meta: {
-      isNumeric: true,
-    },
-  },
-  {
-    header: '被レビュー数が7以上のPR数',
-    accessorFn: (props: UserWithPRs) => {
-      return props.Prs.filter(
-        (pr) =>
-          pr.Reviews.filter((r) => pr.authorId !== r.authorId).length >= 7,
-      ).length
-    },
-    meta: {
-      isNumeric: true,
-    },
-  },
+  columnHelper.group({
+    id: 'reviewCount',
+    header: () => <Box textAlign="center">被レビュー数がN以上のPR数</Box>,
+    // footer: props => props.column.id,
+    columns: [
+      {
+        header: '3',
+        accessorFn: (props: UserWithPRs) => {
+          return props.Prs.filter(
+            (pr) =>
+              pr.Reviews.filter((r) => pr.authorId !== r.authorId).length >= 3,
+          ).length
+        },
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        header: '5',
+        accessorFn: (props: UserWithPRs) => {
+          return props.Prs.filter(
+            (pr) =>
+              pr.Reviews.filter((r) => pr.authorId !== r.authorId).length >= 5,
+          ).length
+        },
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        header: '7',
+        accessorFn: (props: UserWithPRs) => {
+          return props.Prs.filter(
+            (pr) =>
+              pr.Reviews.filter((r) => pr.authorId !== r.authorId).length >= 7,
+          ).length
+        },
+        meta: {
+          isNumeric: true,
+        },
+      },
+    ],
+  }),
   columnHelper.display({
     header: '詳細',
     cell: (props) => <PRsAccordion prs={props.row.original.Prs} />,

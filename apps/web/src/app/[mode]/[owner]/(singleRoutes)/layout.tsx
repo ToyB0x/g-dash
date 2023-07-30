@@ -2,11 +2,10 @@ import 'server-only'
 
 import { Sidebar } from '@g-dash/ui'
 import { Modes } from '@g-dash/types'
-import { ChakraLayout } from './lib/components'
+import { ChakraLayout } from './_components/ChakraLayout'
 
-export default function RootLayout({
+export default function DashboardLayout({
   children,
-  heatmap,
   params,
 }: {
   children: React.ReactNode
@@ -14,11 +13,9 @@ export default function RootLayout({
   params: { mode: (typeof Modes)[keyof typeof Modes]; owner: string }
 }) {
   return (
-    <>
-      <ChakraLayout
-        Sidebar={<Sidebar mode={params.mode} owner={params.owner} />}
-        Contents={[children, heatmap]}
-      />
-    </>
+    <ChakraLayout
+      Sidebar={<Sidebar mode={params.mode} owner={params.owner} />}
+      Content={children}
+    />
   )
 }
