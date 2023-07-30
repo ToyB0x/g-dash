@@ -13,11 +13,9 @@ export default function DashboardLayout({
   params: { mode: (typeof Modes)[keyof typeof Modes]; owner: string }
 }) {
   return (
-    <>
-      <ChakraLayout
-        Sidebar={<Sidebar mode={params.mode} owner={params.owner} />}
-        Content={children}
-      />
-    </>
+    <ChakraLayout
+      Sidebar={<Sidebar mode={params.mode} owner={params.owner} />}
+      Content={children}
+    />
   )
 }
