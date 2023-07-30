@@ -39,14 +39,13 @@ export const DataTable = <Data extends object>({
     <Table>
       <Thead>
         {table.getHeaderGroups().map((headerGroup) => (
-          <Tr h={2} key={headerGroup.id}>
+          <Tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => {
               // see https://tanstack.com/table/v8/docs/api/core/column-def#meta to type this correctly
               const meta: any = header.column.columnDef.meta
               return (
                 <Th
                   key={header.id}
-                  // p={header.depth === 1 ? 2 : 3}
                   colSpan={header.colSpan}
                   onClick={header.column.getToggleSortingHandler()}
                   isNumeric={meta?.isNumeric}
