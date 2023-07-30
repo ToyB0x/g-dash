@@ -39,32 +39,39 @@ export const DataTable = <Data extends object>({
     <Table>
       <Thead>
         {table.getHeaderGroups().map((headerGroup) => (
-          <Tr key={headerGroup.id}>
+          <Tr h={2} key={headerGroup.id}>
             {headerGroup.headers.map((header) => {
               // see https://tanstack.com/table/v8/docs/api/core/column-def#meta to type this correctly
               const meta: any = header.column.columnDef.meta
               return (
                 <Th
                   key={header.id}
+                  // p={header.depth === 1 ? 2 : 3}
+                  colSpan={header.colSpan}
                   onClick={header.column.getToggleSortingHandler()}
                   isNumeric={meta?.isNumeric}
                 >
-                  {flexRender(
-                    header.column.columnDef.header,
-                    header.getContext(),
-                  )}
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext(),
+                      )}
 
-                  <chakra.span pl="4">
-                    {header.column.getIsSorted() ? (
-                      header.column.getIsSorted() === 'desc' ? (
-                        <TriangleDownIcon aria-label="sorted descending" />
+                  {header.isPlaceholder ||
+                  !header.column.getCanSort() ? null : (
+                    <chakra.span pl="2">
+                      {header.column.getIsSorted() ? (
+                        header.column.getIsSorted() === 'desc' ? (
+                          <TriangleDownIcon aria-label="sorted descending" />
+                        ) : (
+                          <TriangleUpIcon aria-label="sorted ascending" />
+                        )
                       ) : (
-                        <TriangleUpIcon aria-label="sorted ascending" />
-                      )
-                    ) : header.column.getCanSort() ? (
-                      <UpDownIcon aria-label="not sorted" />
-                    ) : null}
-                  </chakra.span>
+                        <UpDownIcon aria-label="not sorted" />
+                      )}
+                    </chakra.span>
+                  )}
                 </Th>
               )
             })}
