@@ -4,7 +4,7 @@ import 'client-only'
 import { FC, useState } from 'react'
 import { UserWithReviews } from './Table'
 import { Box, List, Button, Collapse } from '@chakra-ui/react'
-import { ListItemCustom } from '@/app/[mode]/[owner]/reviews/components/ListItemCustom'
+import { ListItemCustom } from './ListItemCustom'
 
 type Props = {
   reviews: UserWithReviews['Reviews']
