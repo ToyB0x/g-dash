@@ -26,7 +26,7 @@
     "@graphql-codegen/client-preset": "4.1.0",
     "@graphql-codegen/introspection": "4.0.0",
     "@types/node": "18.17.1",
-    "tsup": "7.1.0",
+    "tsup": "7.2.0",
     "typescript": "5.1.6"
   }
 }
