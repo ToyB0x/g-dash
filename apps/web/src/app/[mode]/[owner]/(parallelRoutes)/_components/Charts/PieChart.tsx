@@ -43,6 +43,9 @@ export const PieChart: FC<Props> = ({ prTitles }) => {
     chart: {
       width: 380,
       type: 'pie',
+      animations: {
+        enabled: false,
+      },
     },
     labels: labelMaps.map((labelMap) => labelMap.display),
     responsive: [
