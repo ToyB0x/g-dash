@@ -2514,7 +2514,7 @@ __metadata:
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
     "@g-dash/ui": "*"
-    "@types/node": 18.17.4
+    "@types/node": 18.17.5
     "@types/react": 18.2.20
     "@types/react-dom": 18.2.7
     next: 13.4.13
@@ -2547,7 +2547,7 @@ __metadata:
     "@graphql-codegen/client-preset": 4.1.0
     "@graphql-codegen/introspection": 4.0.0
     "@sentry/node": 7.63.0
-    "@types/node": 18.17.4
+    "@types/node": 18.17.5
     commander: 11.0.0
     graphql: 16.7.1
     tsup: 7.2.0
@@ -2625,7 +2625,7 @@ __metadata:
     "@g-dash/ui": "*"
     "@t3-oss/env-nextjs": 0.6.0
     "@tanstack/react-table": 8.9.3
-    "@types/node": 18.17.4
+    "@types/node": 18.17.5
     "@types/react": 18.2.20
     "@types/react-dom": 18.2.7
     apexcharts: 3.41.1
@@ -3822,10 +3822,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.17.4":
-  version: 18.17.4
-  resolution: "@types/node@npm:18.17.4"
-  checksum: d4c458202d82c999f38d85ca9ae8a2d3e521645c7f1b908cd6a0303d0e13c7d5eb3f888c41f584ba029ecf802d0a0005b7816c149400371a3c035abc4bd9a4c5
+"@types/node@npm:18.17.5":
+  version: 18.17.5
+  resolution: "@types/node@npm:18.17.5"
+  checksum: b8c658a99234b99425243c324b641ed7b9ceb6bee6b06421fdc9bb7c58f9a5552e353225cc549e6982462ac384abe1985022ed76e2e4728797f59b21f659ca2b
   languageName: node
   linkType: hard
 
