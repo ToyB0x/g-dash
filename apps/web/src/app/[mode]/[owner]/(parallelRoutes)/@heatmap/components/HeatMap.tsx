@@ -68,6 +68,9 @@ export const HeatMap: FC<Props> = ({ committedDates, reviewedDates }) => {
       toolbar: {
         show: false,
       },
+      animations: {
+        enabled: false,
+      },
     },
     legend: {
       show: false,
@@ -76,8 +79,8 @@ export const HeatMap: FC<Props> = ({ committedDates, reviewedDates }) => {
       categories: lastMonthDateStrings.map((dateString) => {
         const date = new Date(dateString)
         if (date.getDay() === 0 || date.getDay() === 6)
-          return `(${date.getDate()})`
-        return date.getDate()
+          return `(${date.getMonth() + 1 + '/' + date.getDate()})`
+        return date.getMonth() + 1 + '/' + date.getDate()
       }),
       labels: {
         style: {
