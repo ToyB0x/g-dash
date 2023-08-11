@@ -53,6 +53,9 @@ export const BarChart: FC<Props> = ({ barChartSeries }) => {
 
   const options: ApexOptions = {
     chart: {
+      animations: {
+        enabled: false,
+      },
       stacked: true,
       toolbar: {
         show: false,
@@ -66,14 +69,14 @@ export const BarChart: FC<Props> = ({ barChartSeries }) => {
       categories: lastMonthDateStrings.map((dateString) => {
         const date = new Date(dateString)
         if (date.getDay() === 0 || date.getDay() === 6)
-          return `(${date.getDate()})`
-        return date.getDate()
+          return `(${date.getMonth() + 1 + '/' + date.getDate()})`
+        return date.getMonth() + 1 + '/' + date.getDate()
       }),
       labels: {
         // show: false,
         style: {
           colors: '#A3AED0',
-          fontSize: '13px',
+          fontSize: '10px',
           fontWeight: '500',
         },
       },
@@ -96,7 +99,7 @@ export const BarChart: FC<Props> = ({ barChartSeries }) => {
     },
     plotOptions: {
       bar: {
-        columnWidth: '10px',
+        columnWidth: '8px',
       },
     },
     theme: {
