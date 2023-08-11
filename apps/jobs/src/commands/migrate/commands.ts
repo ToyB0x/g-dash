@@ -9,12 +9,12 @@ export const makeMigrateCommand = () => {
   migrate
     .command('status')
     .description('show migrate status')
-    .action(async () => await status())
+    .action(() => status())
 
   migrate
     .command('deploy')
     .description('deploy migration')
-    .action(async () => await deploy())
+    .action(() => deploy())
 
   return migrate
 }
