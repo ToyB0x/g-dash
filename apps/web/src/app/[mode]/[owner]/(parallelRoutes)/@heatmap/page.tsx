@@ -1,12 +1,10 @@
 import 'server-only'
 
-import { use } from 'react'
 import { Modes } from '@g-dash/types'
 import { Spans } from '@g-dash/utils'
-import { HeatMap } from './components'
-import { getSingleTenantPrismaClient } from '@/clients'
+import ActivityMap from '@/graphs/activityMap'
 
-export default function Page({
+export default async function Page({
   params,
   searchParams,
 }: {
@@ -23,75 +21,11 @@ export default function Page({
   const loginParams = searchParams.login
   const logins = loginParams ? decodeURI(loginParams).split(',') : []
 
-  const prisma = getSingleTenantPrismaClient()
-  const organization = use(
-    prisma.organization.findUniqueOrThrow({
-      where: {
-        login: params.owner,
-      },
-      select: {
-        id: true,
-        Prs: {
-          where: {
-            createdAt: {
-              gte: new Date(Spans['1 month']),
-            },
-            user: {
-              login: {
-                in: logins.length ? logins : undefined,
-              },
-            },
-          },
-          select: {
-            id: true,
-            createdAt: true,
-          },
-        },
-        Reviews: {
-          where: {
-            authorId: {
-              not: 'BOT_kgDOAbying', // renovate id
-            },
-            user: {
-              login: {
-                in: logins.length ? logins : undefined,
-              },
-            },
-            createdAt: {
-              gte: new Date(Spans['1 month']),
-            },
-          },
-          select: {
-            id: true,
-            createdAt: true,
-          },
-        },
-        Commits: {
-          where: {
-            committedDate: {
-              gte: new Date(Spans['1 month']),
-            },
-            user: {
-              login: {
-                in: logins.length ? logins : undefined,
-              },
-            },
-          },
-          select: {
-            id: true,
-            committedDate: true,
-          },
-        },
-      },
-    }),
-  )
-
   return (
-    <HeatMap
-      committedDates={organization.Commits.map(
-        (commit) => commit.committedDate,
-      )}
-      reviewedDates={organization.Reviews.map((review) => review.createdAt)}
+    <ActivityMap
+      orgId={params.owner}
+      userIds={logins}
+      startDate={new Date(Spans['1 month'])}
     />
   )
 }
