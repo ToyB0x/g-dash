@@ -17,7 +17,8 @@ export default function DashboardLayout({
     <>
       <ChakraLayout
         Sidebar={<Sidebar mode={params.mode} owner={params.owner} />}
-        Contents={[children, heatmap]}
+        Content={children}
+        HeatMap={heatmap}
       />
     </>
   )
