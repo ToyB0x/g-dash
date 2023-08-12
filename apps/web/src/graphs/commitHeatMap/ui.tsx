@@ -14,7 +14,7 @@ type Props = {
   reviewedDates: Date[]
 }
 
-export const HeatMap: FC<Props> = ({ committedDates, reviewedDates }) => {
+export const Ui: FC<Props> = ({ committedDates, reviewedDates }) => {
   const activityDates = [...committedDates, ...reviewedDates]
 
   // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
