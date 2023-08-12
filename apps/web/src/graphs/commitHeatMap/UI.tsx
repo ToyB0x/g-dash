@@ -14,7 +14,7 @@ type Props = {
   reviewedDates: Date[]
 }
 
-export const Ui: FC<Props> = ({ committedDates, reviewedDates }) => {
+export const UI: FC<Props> = ({ committedDates, reviewedDates }) => {
   const activityDates = [...committedDates, ...reviewedDates]
 
   // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
@@ -192,7 +192,14 @@ export const Ui: FC<Props> = ({ committedDates, reviewedDates }) => {
   }
 
   return (
-    <Box backgroundColor="white" rounded="lg" p={4} shadow="xl" width="1200px">
+    <Box
+      backgroundColor="white"
+      rounded="lg"
+      p={4}
+      shadow="xl"
+      width="100%"
+      h="100%"
+    >
       {/*
         NOTE: specify width to avoid error
         ref: https://github.com/apexcharts/apexcharts.js/issues/1898#issuecomment-1405848110
@@ -201,7 +208,7 @@ export const Ui: FC<Props> = ({ committedDates, reviewedDates }) => {
         options={options}
         series={series}
         type="heatmap"
-        height="500px"
+        height="100%"
         width="100%"
       />
     </Box>
