@@ -3,15 +3,8 @@ import 'server-only'
 import { FC } from 'react'
 import { UI } from './UI'
 import { fetch } from './fetch'
-import { sleep } from '@g-dash/utils'
 
-export const Container: FC<GraphArgs> = async ({
-  orgId,
-  userIds,
-  startDate,
-}) => {
-  await sleep(2000)
-
+const Container: FC<GraphArgs> = async ({ orgId, userIds, startDate }) => {
   const { committedDates, reviewedDates } = await fetch(
     orgId,
     userIds,
@@ -20,3 +13,5 @@ export const Container: FC<GraphArgs> = async ({
 
   return <UI committedDates={committedDates} reviewedDates={reviewedDates} />
 }
+
+export default Container
