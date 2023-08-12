@@ -5,7 +5,7 @@ import { UI } from './UI'
 import { fetch } from './fetch'
 import { sleep } from '@g-dash/utils'
 
-export const ActivityMapContainer: FC<GraphArgs> = async ({
+export const Container: FC<GraphArgs> = async ({
   orgId,
   userIds,
   startDate,
