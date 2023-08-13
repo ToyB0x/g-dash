@@ -24,7 +24,6 @@ export const fetch = async (
           },
         },
         select: {
-          id: true,
           committedDate: true,
           user: {
             select: {
