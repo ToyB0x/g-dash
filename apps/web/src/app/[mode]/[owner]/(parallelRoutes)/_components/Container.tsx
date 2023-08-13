@@ -10,10 +10,10 @@ import PrRankings from '@/graphs/prRankings'
 import ReviewRankings from '@/graphs/reviewRankings'
 import { StatCard } from '@g-dash/ui'
 import { BsStar } from 'react-icons/bs'
-import { IoIosGitPullRequest } from 'react-icons/io'
 import { SlSpeedometer } from 'react-icons/sl'
 import { GoCommentDiscussion } from 'react-icons/go'
 import { GiBiohazard, GiSandsOfTime } from 'react-icons/gi'
+import StatCardMerged from '@/graphs/statCardMerged'
 
 type Props = {
   graphArgs: GraphArgs
@@ -29,15 +29,10 @@ export const Container: FC<Props> = ({ graphArgs }) => (
         height: '100px',
       }}
     >
-      <StatCard
-        title="リリース数"
-        stat={10 + '/month'}
-        icon={<BsStar size="3rem" />}
-      />
-      <StatCard
-        title="マージ済みPR"
-        stat={10 + '/month'}
-        icon={<IoIosGitPullRequest size="3rem" />}
+      <StatCardMerged
+        orgId={graphArgs.orgId}
+        userIds={graphArgs.userIds}
+        startDate={graphArgs.startDate}
       />
       <StatCard
         title="マージ速度"
@@ -53,6 +48,11 @@ export const Container: FC<Props> = ({ graphArgs }) => (
         title="レビュー待ちPR"
         stat={'20'}
         icon={<GiSandsOfTime size="3rem" />}
+      />
+      <StatCard
+        title="リリース数"
+        stat={10 + '/month'}
+        icon={<BsStar size="3rem" />}
       />
       <StatCard
         title="脆弱なパッケージ"
