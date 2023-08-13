@@ -3,7 +3,7 @@ import 'client-only'
 import { ApexOptions } from 'apexcharts'
 
 import { FC } from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, Heading, Stack } from '@chakra-ui/react'
 import ReactApexChart from 'react-apexcharts'
 
 // windowエラーを消したい場合は以下のワークアラウンドが使えるがDynamicImportのため表示が1秒ほど遅くなる
@@ -87,7 +87,7 @@ export const UI: FC<Props> = ({ lineChartSeries }) => {
       },
     },
     yaxis: {
-      show: false,
+      show: true,
     },
     chart: {
       animations: {
@@ -100,7 +100,7 @@ export const UI: FC<Props> = ({ lineChartSeries }) => {
   }
 
   return (
-    <Box
+    <Stack
       backgroundColor="white"
       rounded="lg"
       p={4}
@@ -108,17 +108,22 @@ export const UI: FC<Props> = ({ lineChartSeries }) => {
       width="100%"
       h="100%"
     >
-      {/*
+      <Heading as="h3" fontSize="xl">
+        アクティビティ推移
+      </Heading>
+      <Box h="100%">
+        {/*
         NOTE: specify width to avoid error
         ref: https://github.com/apexcharts/apexcharts.js/issues/1898#issuecomment-1405848110
        */}
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="line"
-        height="100%"
-        width="100%"
-      />
-    </Box>
+        <ReactApexChart
+          options={options}
+          series={series}
+          type="line"
+          height="100%"
+          width="100%"
+        />
+      </Box>
+    </Stack>
   )
 }

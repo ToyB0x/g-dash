@@ -2,7 +2,7 @@
 import 'client-only'
 
 import { FC } from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, Heading, Stack } from '@chakra-ui/react'
 import { ApexOptions } from 'apexcharts'
 import ReactApexChart from 'react-apexcharts'
 
@@ -91,7 +91,7 @@ export const UI: FC<Props> = ({ barChartSeries }) => {
       },
     },
     yaxis: {
-      show: false,
+      show: true,
     },
     grid: {
       show: false,
@@ -111,7 +111,7 @@ export const UI: FC<Props> = ({ barChartSeries }) => {
   }
 
   return (
-    <Box
+    <Stack
       backgroundColor="white"
       rounded="lg"
       p={4}
@@ -119,17 +119,22 @@ export const UI: FC<Props> = ({ barChartSeries }) => {
       width="100%"
       h="100%"
     >
-      {/*
+      <Heading as="h3" fontSize="xl">
+        コミット推移
+      </Heading>
+      <Box h="100%">
+        {/*
         NOTE: specify width to avoid error
         ref: https://github.com/apexcharts/apexcharts.js/issues/1898#issuecomment-1405848110
        */}
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="bar"
-        height="100%"
-        width="100%"
-      />
-    </Box>
+        <ReactApexChart
+          options={options}
+          series={series}
+          type="bar"
+          height="100%"
+          width="100%"
+        />
+      </Box>
+    </Stack>
   )
 }
