@@ -4,7 +4,7 @@ import { Modes } from '@g-dash/types'
 import { Spans } from '@g-dash/utils'
 import ActivityMap from '@/graphs/activityMap'
 
-export default async function Page({
+export default function Page({
   params,
   searchParams,
 }: {
