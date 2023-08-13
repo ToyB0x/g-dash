@@ -1,11 +1,15 @@
 'use client'
 import 'client-only'
-import { ApexOptions } from 'apexcharts'
 
 import { FC } from 'react'
+import { ApexOptions } from 'apexcharts'
+import ReactApexChart from 'react-apexcharts'
+import { Box } from '@chakra-ui/react'
+
+// windowエラーを消したい場合は以下のワークアラウンドが使えるがDynamicImportのため表示が1秒ほど遅くなる
 // ref: https://github.com/apexcharts/react-apexcharts/issues/240
-import dynamic from 'next/dynamic'
-const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
+// import dynamic from 'next/dynamic'
+// const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 type Props = {
   prTitles: string[]
@@ -64,12 +68,25 @@ export const UI: FC<Props> = ({ prTitles }) => {
   }
 
   return (
-    <ReactApexChart
-      options={options}
-      series={series}
-      type="pie"
+    <Box
+      backgroundColor="white"
+      rounded="lg"
+      p={4}
+      shadow="xl"
       width="100%"
-      height={280}
-    />
+      h="100%"
+    >
+      {/*
+        NOTE: specify width to avoid error
+        ref: https://github.com/apexcharts/apexcharts.js/issues/1898#issuecomment-1405848110
+       */}
+      <ReactApexChart
+        options={options}
+        series={series}
+        type="pie"
+        width="100%"
+        height="100%"
+      />
+    </Box>
   )
 }
