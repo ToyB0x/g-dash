@@ -2,11 +2,14 @@
 import 'client-only'
 
 import { FC } from 'react'
+import { Box } from '@chakra-ui/react'
 import { ApexOptions } from 'apexcharts'
+import ReactApexChart from 'react-apexcharts'
 
+// windowエラーを消したい場合は以下のワークアラウンドが使えるがDynamicImportのため表示が1秒ほど遅くなる
 // ref: https://github.com/apexcharts/react-apexcharts/issues/240
-import dynamic from 'next/dynamic'
-const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
+// import dynamic from 'next/dynamic'
+// const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 type Props = {
   barChartSeries: {
@@ -108,12 +111,25 @@ export const UI: FC<Props> = ({ barChartSeries }) => {
   }
 
   return (
-    <ReactApexChart
-      options={options}
-      series={series}
-      type="bar"
-      height="100%"
+    <Box
+      backgroundColor="white"
+      rounded="lg"
+      p={4}
+      shadow="xl"
       width="100%"
-    />
+      h="100%"
+    >
+      {/*
+        NOTE: specify width to avoid error
+        ref: https://github.com/apexcharts/apexcharts.js/issues/1898#issuecomment-1405848110
+       */}
+      <ReactApexChart
+        options={options}
+        series={series}
+        type="bar"
+        height="100%"
+        width="100%"
+      />
+    </Box>
   )
 }
