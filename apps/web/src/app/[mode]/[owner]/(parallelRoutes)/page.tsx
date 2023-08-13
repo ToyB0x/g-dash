@@ -2,7 +2,6 @@ import 'server-only'
 
 import { Modes } from '@g-dash/types'
 import { Container } from './_components/Container'
-import { Spans } from '@g-dash/utils'
 
 export default function Page({
   params,
@@ -26,7 +25,7 @@ export default function Page({
       graphArgs={{
         orgId: params.owner,
         userIds: logins,
-        startDate: new Date(Spans['1 month']),
+        days: 31,
       }}
     />
   )

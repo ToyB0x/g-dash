@@ -5,8 +5,8 @@ import { UI } from './UI'
 import { fetch } from './fetch'
 import { GraphArgs } from '@/graphs'
 
-const Container: FC<GraphArgs> = async ({ orgId, userIds, startDate }) => {
-  const { lineChartSeries } = await fetch(orgId, userIds, startDate)
+const Container: FC<GraphArgs> = async ({ orgId, userIds, days }) => {
+  const { lineChartSeries } = await fetch(orgId, userIds, days)
 
   return <UI lineChartSeries={lineChartSeries} />
 }

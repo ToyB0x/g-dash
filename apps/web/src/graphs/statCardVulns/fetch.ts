@@ -1,10 +1,6 @@
 import { getSingleTenantPrismaClient } from '@/clients'
 
-export const fetch = async (
-  orgId: string,
-  userIds: string[],
-  startDate: Date,
-) => {
+export const fetch = async (orgId: string, userIds: string[], days: number) => {
   const prisma = getSingleTenantPrismaClient()
   const organization = await prisma.organization.findUniqueOrThrow({
     where: {

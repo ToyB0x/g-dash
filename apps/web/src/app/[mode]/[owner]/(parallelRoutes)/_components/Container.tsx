@@ -34,32 +34,32 @@ export const Container: FC<Props> = ({ graphArgs }) => (
       <StatCardMerged
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardMergedSpeed
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardReviews
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardWaitingReviews
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardReleases
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardVulns
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
     </div>
     <div
@@ -73,12 +73,12 @@ export const Container: FC<Props> = ({ graphArgs }) => (
       <PrChart
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <CommitBar
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
     </div>
 
@@ -93,17 +93,17 @@ export const Container: FC<Props> = ({ graphArgs }) => (
         <PrRankings
           orgId={graphArgs.orgId}
           userIds={graphArgs.userIds}
-          startDate={graphArgs.startDate}
+          days={graphArgs.days}
         />
         <ReviewRankings
           orgId={graphArgs.orgId}
           userIds={graphArgs.userIds}
-          startDate={graphArgs.startDate}
+          days={graphArgs.days}
         />
         <CategoryPieChart
           orgId={graphArgs.orgId}
           userIds={graphArgs.userIds}
-          startDate={graphArgs.startDate}
+          days={graphArgs.days}
         />
       </div>
     </div>
@@ -111,7 +111,7 @@ export const Container: FC<Props> = ({ graphArgs }) => (
       <ActivityMap
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
     </div>
   </>
