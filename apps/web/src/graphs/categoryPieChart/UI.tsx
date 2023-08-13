@@ -11,7 +11,7 @@ type Props = {
   prTitles: string[]
 }
 
-export const PieChart: FC<Props> = ({ prTitles }) => {
+export const UI: FC<Props> = ({ prTitles }) => {
   const labelMaps = [
     { match: 'feat', display: '新機能' },
     { match: 'fix', display: 'バグ修正' },
