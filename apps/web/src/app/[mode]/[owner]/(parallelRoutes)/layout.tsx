@@ -1,25 +1,23 @@
-import 'server-only'
+'use client'
+import 'client-only'
 
 import { Sidebar } from '@g-dash/ui'
 import { Modes } from '@g-dash/types'
-import { ChakraLayout } from './_components'
+import { Flex, Stack } from '@chakra-ui/react'
 
 export default function DashboardLayout({
   children,
-  heatmap,
   params,
 }: {
   children: React.ReactNode
-  heatmap: React.ReactNode
   params: { mode: (typeof Modes)[keyof typeof Modes]; owner: string }
 }) {
   return (
-    <>
-      <ChakraLayout
-        Sidebar={<Sidebar mode={params.mode} owner={params.owner} />}
-        Content={children}
-        HeatMap={heatmap}
-      />
-    </>
+    <Flex>
+      <Sidebar mode={params.mode} owner={params.owner} />
+      <Stack minH="100vh" bg="gray.50" py={4} px={8} spacing={8}>
+        {children}
+      </Stack>
+    </Flex>
   )
 }
