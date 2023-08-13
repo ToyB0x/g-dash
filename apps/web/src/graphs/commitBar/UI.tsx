@@ -103,7 +103,7 @@ export const UI: FC<Props> = ({ barChartSeries, days }) => {
     },
     plotOptions: {
       bar: {
-        columnWidth: '8px',
+        columnWidth: 300 / days + 'px',
       },
     },
     theme: {

@@ -54,13 +54,14 @@ const columns = [
       </Stack>
     ),
   }),
-  columnHelper.accessor('Prs', {
+  {
     header: 'マージ済みPR',
-    cell: (props) => props.row.original.Prs.filter((pr) => pr.merged).length,
+    accessorFn: (props: UserWithPRs) =>
+      props.Prs.filter((pr) => pr.merged && !!pr.mergedAt).length,
     meta: {
       isNumeric: true,
     },
-  }),
+  },
   {
     header: 'リードタイム',
     accessorFn: (props: UserWithPRs) => {
