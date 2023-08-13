@@ -2,12 +2,14 @@
 import 'client-only'
 
 import { FC } from 'react'
+import { Box } from '@chakra-ui/react'
 import { ApexOptions } from 'apexcharts'
+import ReactApexChart from 'react-apexcharts'
 
+// windowエラーを消したい場合は以下のワークアラウンドが使えるがDynamicImportのため表示が1秒ほど遅くなる
 // ref: https://github.com/apexcharts/react-apexcharts/issues/240
-import dynamic from 'next/dynamic'
-import { Box, SimpleGrid } from '@chakra-ui/react'
-const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
+// import dynamic from 'next/dynamic'
+// const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 type Props = {
   committedDates: Date[]
