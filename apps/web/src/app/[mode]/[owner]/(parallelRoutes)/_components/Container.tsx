@@ -107,7 +107,7 @@ export const Container: FC<Props> = ({ graphArgs }) => (
         />
       </div>
     </div>
-    <div style={{ height: '600px', width: '1200px' }}>
+    <div style={{ height: '600px', width: 'full' }}>
       <ActivityMap
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}

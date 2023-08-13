@@ -14,13 +14,14 @@ import ReactApexChart from 'react-apexcharts'
 type Props = {
   committedDates: Date[]
   reviewedDates: Date[]
+  days: number
 }
 
-export const UI: FC<Props> = ({ committedDates, reviewedDates }) => {
+export const UI: FC<Props> = ({ committedDates, reviewedDates, days }) => {
   const activityDates = [...committedDates, ...reviewedDates]
 
   // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
-  const lastMonthDateStrings = Array.from(Array(31).keys())
+  const lastMonthDateStrings = Array.from(Array(days).keys())
     .map((i) => {
       const date = new Date()
       date.setDate(date.getDate() - i)
