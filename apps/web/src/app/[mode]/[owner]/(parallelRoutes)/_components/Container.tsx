@@ -34,32 +34,32 @@ export const Container: FC<Props> = ({ graphArgs }) => (
       <StatCardMerged
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardMergedSpeed
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardReviews
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardWaitingReviews
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardReleases
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <StatCardVulns
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
     </div>
     <div
@@ -67,49 +67,51 @@ export const Container: FC<Props> = ({ graphArgs }) => (
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         gap: '1%',
-        height: '450px',
+        height: '420px',
       }}
     >
       <PrChart
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
       <CommitBar
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
     </div>
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr',
-        gap: '1%',
-        height: '300px',
-      }}
-    >
-      <PrRankings
-        orgId={graphArgs.orgId}
-        userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
-      />
-      <ReviewRankings
-        orgId={graphArgs.orgId}
-        userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
-      />
-      <CategoryPieChart
-        orgId={graphArgs.orgId}
-        userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
-      />
+
+    <div>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          gap: '1%',
+        }}
+      >
+        <PrRankings
+          orgId={graphArgs.orgId}
+          userIds={graphArgs.userIds}
+          days={graphArgs.days}
+        />
+        <ReviewRankings
+          orgId={graphArgs.orgId}
+          userIds={graphArgs.userIds}
+          days={graphArgs.days}
+        />
+        <CategoryPieChart
+          orgId={graphArgs.orgId}
+          userIds={graphArgs.userIds}
+          days={graphArgs.days}
+        />
+      </div>
     </div>
-    <div style={{ height: '600px', width: '1200px' }}>
+    <div style={{ height: '600px', width: 'full' }}>
       <ActivityMap
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
-        startDate={graphArgs.startDate}
+        days={graphArgs.days}
       />
     </div>
   </>

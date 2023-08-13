@@ -1,11 +1,8 @@
 import { getSingleTenantPrismaClient } from '@/clients'
 import { Spans } from '@g-dash/utils'
+import { subDays } from 'date-fns'
 
-export const fetch = async (
-  orgId: string,
-  userIds: string[],
-  startDate: Date,
-) => {
+export const fetch = async (orgId: string, userIds: string[], days: number) => {
   const prisma = getSingleTenantPrismaClient()
   const organization = await prisma.organization.findUniqueOrThrow({
     where: {
@@ -16,7 +13,7 @@ export const fetch = async (
       Prs: {
         where: {
           mergedAt: {
-            gte: startDate,
+            gte: subDays(new Date(), days),
           },
           user: {
             login: {

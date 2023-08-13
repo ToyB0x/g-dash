@@ -2,7 +2,7 @@
 import 'client-only'
 
 import { FC } from 'react'
-import { Avatar, Box, HStack, List, ListItem } from '@chakra-ui/react'
+import { Avatar, Box, Heading, HStack, List, ListItem } from '@chakra-ui/react'
 
 type Props = {
   prRankings: {
@@ -21,7 +21,11 @@ export const UI: FC<Props> = ({ prRankings }) => (
     width="100%"
     h="100%"
   >
-    <List>
+    <Heading as="h3" fontSize="xl">
+      PRランキンング
+    </Heading>
+
+    <List p={4}>
       {prRankings
         .sort((a, b) => b.count - a.count)
         .slice(0, 5)

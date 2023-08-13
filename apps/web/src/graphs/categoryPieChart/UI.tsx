@@ -4,7 +4,7 @@ import 'client-only'
 import { FC } from 'react'
 import { ApexOptions } from 'apexcharts'
 import ReactApexChart from 'react-apexcharts'
-import { Box } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 
 // windowエラーを消したい場合は以下のワークアラウンドが使えるがDynamicImportのため表示が1秒ほど遅くなる
 // ref: https://github.com/apexcharts/react-apexcharts/issues/240
@@ -76,6 +76,9 @@ export const UI: FC<Props> = ({ prTitles }) => {
       width="100%"
       h="100%"
     >
+      <Heading as="h3" fontSize="xl">
+        PR内訳
+      </Heading>
       {/*
         NOTE: specify width to avoid error
         ref: https://github.com/apexcharts/apexcharts.js/issues/1898#issuecomment-1405848110

@@ -5,10 +5,10 @@ import { UI } from './UI'
 import { fetch } from './fetch'
 import { GraphArgs } from '@/graphs'
 
-const Container: FC<GraphArgs> = async ({ orgId, userIds, startDate }) => {
-  const { barChartSeries } = await fetch(orgId, userIds, startDate)
+const Container: FC<GraphArgs> = async ({ orgId, userIds, days }) => {
+  const { barChartSeries } = await fetch(orgId, userIds, days)
 
-  return <UI barChartSeries={barChartSeries} />
+  return <UI barChartSeries={barChartSeries} days={days} />
 }
 
 export default Container
