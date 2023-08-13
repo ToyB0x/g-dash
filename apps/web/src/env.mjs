@@ -4,6 +4,7 @@ import { createEnv } from '@t3-oss/env-nextjs'
 export const env = createEnv({
   server: {
     // REQUIRED
+    NODE_ENV: z.enum(['development', 'production', 'test']),
     APPS_DB_NAME: z.string(),
     APPS_DB_PORT: z.coerce.number(),
     // RLS ENABLED
