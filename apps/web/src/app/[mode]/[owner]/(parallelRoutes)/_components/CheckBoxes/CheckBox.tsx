@@ -1,3 +1,5 @@
+import 'client-only'
+
 import { FC } from 'react'
 import {
   Avatar,

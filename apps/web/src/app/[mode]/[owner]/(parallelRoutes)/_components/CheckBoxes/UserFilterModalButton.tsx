@@ -13,6 +13,8 @@ import {
   Button,
   IconButton,
   useDisclosure,
+  HStack,
+  Heading,
 } from '@chakra-ui/react'
 import { CheckBoxes } from './CheckBoxes'
 import { SettingsIcon } from '@chakra-ui/icons'
@@ -29,14 +31,17 @@ export const UserFilterModalButton: FC<Props> = ({ users }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <IconButton
-        bg="white"
-        shadow="xl"
-        rounded="lg"
-        onClick={onOpen}
-        aria-label="Select Users"
-        icon={<SettingsIcon />}
-      />
+      <HStack justify="space-between">
+        <Heading>Main Dashboard</Heading>
+        <IconButton
+          bg="white"
+          shadow="xl"
+          rounded="lg"
+          onClick={onOpen}
+          aria-label="Select Users"
+          icon={<SettingsIcon />}
+        />
+      </HStack>
 
       <Modal isOpen={isOpen} onClose={onClose} scrollBehavior="inside">
         <ModalOverlay />
