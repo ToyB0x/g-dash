@@ -15,7 +15,7 @@ export default function DashboardLayout({
   return (
     <Flex>
       <Sidebar mode={params.mode} owner={params.owner} />
-      <Stack minH="100vh" bg="gray.50" py={4} px={8} spacing={8}>
+      <Stack minH="100vh" bg="gray.50" py={4} px={8} spacing={8} w="full">
         {children}
       </Stack>
     </Flex>
