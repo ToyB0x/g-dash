@@ -17,7 +17,7 @@ type Props = {
   }
 }
 
-export const LineChart: FC<Props> = ({ lineChartSeries }) => {
+export const UI: FC<Props> = ({ lineChartSeries }) => {
   // NOTE: gedDateでは1/1と2/1が重複してカウントされてしまうため0時の時点の日付文字を利用
   const lastMonthDateStrings = Array.from(Array(31).keys())
     .map((i) => {
