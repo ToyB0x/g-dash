@@ -50,6 +50,17 @@ export default function Page({ params }: { params: { owner: string } }) {
                     id: true,
                   },
                 },
+                reviewRequests: {
+                  select: {
+                    id: true,
+                    createdAt: true,
+                    requestedUser: {
+                      select: {
+                        id: true,
+                      },
+                    },
+                  },
+                },
               },
             },
           },
