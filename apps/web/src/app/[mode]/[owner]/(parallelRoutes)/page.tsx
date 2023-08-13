@@ -1,7 +1,7 @@
 import 'server-only'
 
 import { Modes } from '@g-dash/types'
-import { Container } from './_components'
+import { Container } from './_components/Container'
 import { Spans } from '@g-dash/utils'
 
 export default function Page({

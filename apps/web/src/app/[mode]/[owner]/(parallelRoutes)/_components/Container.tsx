@@ -14,6 +14,7 @@ import StatCardReviews from '@/graphs/statCardReviews'
 import StatCardWaitingReviews from '@/graphs/statCardWaitingReviews'
 import StatCardReleases from '@/graphs/statCardReleases'
 import StatCardVulns from '@/graphs/statCardVulns'
+import CheckBoxes from './CheckBoxes'
 
 type Props = {
   graphArgs: GraphArgs
@@ -21,6 +22,7 @@ type Props = {
 
 export const Container: FC<Props> = ({ graphArgs }) => (
   <>
+    <CheckBoxes orgId={graphArgs.orgId} />
     <div
       style={{
         display: 'grid',
