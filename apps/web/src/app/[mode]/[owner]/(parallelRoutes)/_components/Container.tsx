@@ -8,12 +8,12 @@ import PrChart from '@/graphs/prChart'
 import CategoryPieChart from '@/graphs/categoryPieChart'
 import PrRankings from '@/graphs/prRankings'
 import ReviewRankings from '@/graphs/reviewRankings'
-import { StatCard } from '@g-dash/ui'
-import { BsStar } from 'react-icons/bs'
-import { SlSpeedometer } from 'react-icons/sl'
-import { GoCommentDiscussion } from 'react-icons/go'
-import { GiBiohazard, GiSandsOfTime } from 'react-icons/gi'
 import StatCardMerged from '@/graphs/statCardMerged'
+import StatCardMergedSpeed from '@/graphs/statCardMergedSpeed'
+import StatCardReviews from '@/graphs/statCardReviews'
+import StatCardWaitingReviews from '@/graphs/statCardWaitingReviews'
+import StatCardReleases from '@/graphs/statCardReleases'
+import StatCardVulns from '@/graphs/statCardVulns'
 
 type Props = {
   graphArgs: GraphArgs
@@ -34,30 +34,30 @@ export const Container: FC<Props> = ({ graphArgs }) => (
         userIds={graphArgs.userIds}
         startDate={graphArgs.startDate}
       />
-      <StatCard
-        title="マージ速度"
-        stat={Math.round(20 / (30 - 8)) + '/day'}
-        icon={<SlSpeedometer size="3rem" />}
+      <StatCardMergedSpeed
+        orgId={graphArgs.orgId}
+        userIds={graphArgs.userIds}
+        startDate={graphArgs.startDate}
       />
-      <StatCard
-        title="レビュー数"
-        stat={20 + '/month'}
-        icon={<GoCommentDiscussion size="3rem" />}
+      <StatCardReviews
+        orgId={graphArgs.orgId}
+        userIds={graphArgs.userIds}
+        startDate={graphArgs.startDate}
       />
-      <StatCard
-        title="レビュー待ちPR"
-        stat={'20'}
-        icon={<GiSandsOfTime size="3rem" />}
+      <StatCardWaitingReviews
+        orgId={graphArgs.orgId}
+        userIds={graphArgs.userIds}
+        startDate={graphArgs.startDate}
       />
-      <StatCard
-        title="リリース数"
-        stat={10 + '/month'}
-        icon={<BsStar size="3rem" />}
+      <StatCardReleases
+        orgId={graphArgs.orgId}
+        userIds={graphArgs.userIds}
+        startDate={graphArgs.startDate}
       />
-      <StatCard
-        title="脆弱なパッケージ"
-        stat={'20'}
-        icon={<GiBiohazard size="3rem" />}
+      <StatCardVulns
+        orgId={graphArgs.orgId}
+        userIds={graphArgs.userIds}
+        startDate={graphArgs.startDate}
       />
     </div>
     <div
