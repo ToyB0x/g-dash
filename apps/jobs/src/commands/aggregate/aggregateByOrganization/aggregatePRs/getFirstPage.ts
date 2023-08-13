@@ -26,6 +26,18 @@ export type UserPR = {
       }
     }[]
   }
+  timelineItems: {
+    nodes: {
+      id: string
+      actor: {
+        id: string
+      }
+      createdAt: string
+      requestedReviewer: {
+        id: string
+      }
+    }[]
+  }
   commits: {
     totalCount: number
     nodes: {
@@ -87,7 +99,24 @@ export const getFirstPage = async (
               comments {
                 totalCount
               }
-              # TODO: pagination
+              timelineItems(first: 100, itemTypes: REVIEW_REQUESTED_EVENT) {
+                nodes {
+                  ... on ReviewRequestedEvent {
+                    id
+                    actor {
+                      ... on User {
+                        id
+                      }
+                    }
+                    createdAt
+                    requestedReviewer {
+                      ... on User {
+                        id
+                      }
+                    }
+                  }
+                }
+              } # TODO: pagination
               reviews(first: 100) {
                 nodes {
                   id
@@ -179,6 +208,7 @@ export const getFirstPage = async (
         comments: {
           totalCount: userPr.comments.totalCount,
         },
+        timelineItems: userPr.timelineItems,
         reviews: {
           nodes: userPr.reviews.nodes
             .filter<UserPR['reviews']['nodes'][0]>(
