@@ -63,7 +63,7 @@ const columns = [
     },
   },
   {
-    header: 'レビューまでの平均リードタイム(hour)',
+    header: 'β版: 返信迄のリードタイム(hour)',
     accessorFn: (props: UserWithReviews) =>
       Math.floor(
         // 該当ユーザに対してレビューリクエストされたものでフィルタ
@@ -96,6 +96,7 @@ const columns = [
       ) || 0,
     meta: {
       isNumeric: true,
+      textTransform: 'capitalize',
     },
   },
   columnHelper.display({
