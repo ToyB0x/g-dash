@@ -20,6 +20,13 @@ export type UserWithReviews = {
       title: string
       url: string
       changedFiles: number
+      reviewRequests: {
+        id: string
+        createdAt: Date
+        requestedUser: {
+          id: string
+        }
+      }[]
     }
   }[]
 }
@@ -53,6 +60,43 @@ const columns = [
       new Set(Array.from(props.Reviews.map((r) => r.pr.url))).size,
     meta: {
       isNumeric: true,
+    },
+  },
+  {
+    header: 'β版: 返信迄のリードタイム(hour)',
+    accessorFn: (props: UserWithReviews) =>
+      Math.floor(
+        // 該当ユーザに対してレビューリクエストされたものでフィルタ
+        props.Reviews.filter((r) =>
+          r.pr.reviewRequests
+            .map((rr) => rr.requestedUser.id)
+            .includes(props.id),
+        ).reduce((acc, cur) => {
+          const reviewRequestedDates = cur.pr.reviewRequests
+            .filter((rr) => rr.requestedUser.id === props.id)
+            .map((rr) => rr.createdAt)
+            .filter((d) => d.getUTCHours() < 9) // jst 18時以降のレビューリクエストは除外
+          // .filter((d) => d.getDay() < 5 && d.getUTCHours() < 8) // 金曜のjst 17時以降のレビューリクエストは除外
+
+          const reviewedDatesIfAnswered = reviewRequestedDates.filter(
+            (rrd) => cur.createdAt.getTime() > rrd.getTime(),
+          )
+
+          if (reviewedDatesIfAnswered.length === 0) return acc
+
+          const mostRecentReviewedDate = reviewedDatesIfAnswered.sort(
+            (a, b) => b.getTime() - a.getTime(),
+          )[0]
+
+          const diffHour =
+            (cur.createdAt.getTime() - mostRecentReviewedDate.getTime()) /
+            (1000 * 60 * 60)
+          return acc + diffHour
+        }, 0) / props.Reviews.length,
+      ) || 0,
+    meta: {
+      isNumeric: true,
+      textTransform: 'capitalize',
     },
   },
   columnHelper.display({

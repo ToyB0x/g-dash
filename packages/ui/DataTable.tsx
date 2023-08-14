@@ -49,6 +49,7 @@ export const DataTable = <Data extends object>({
                   colSpan={header.colSpan}
                   onClick={header.column.getToggleSortingHandler()}
                   isNumeric={meta?.isNumeric}
+                  textTransform={meta?.textTransform}
                 >
                   {header.isPlaceholder
                     ? null

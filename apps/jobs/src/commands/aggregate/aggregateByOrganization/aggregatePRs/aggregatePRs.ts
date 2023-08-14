@@ -176,6 +176,38 @@ export const aggregatePRs = async (
           }),
         )
 
+        // upsert review requests
+        await Promise.all(
+          pr.timelineItems.nodes
+            // TODO: team対応(teamの場合は...onで絞っているためIDがundefinedになる)
+            .filter((t) => !!t.actor)
+            .filter((t) => !!t.requestedReviewer && !!t.requestedReviewer.id)
+            .map(async (t) => {
+              await prismaSingleTenantClient.reviewRequest.upsert({
+                where: {
+                  id: t.id,
+                },
+                create: {
+                  id: t.id,
+                  organizationId,
+                  prId: pr.id,
+                  createdAt: t.createdAt,
+                  requestUserId: t.actor.id,
+                  // TODO: team対応(teamの場合は...onで絞っているためIDがundefinedになる)
+                  requestedUserId: t.requestedReviewer.id,
+                },
+                update: {
+                  organizationId,
+                  prId: pr.id,
+                  createdAt: t.createdAt,
+                  requestUserId: t.actor.id,
+                  // TODO: team対応(teamの場合は...onで絞っているためIDがundefinedになる)
+                  requestedUserId: t.requestedReviewer.id,
+                },
+              })
+            }),
+        )
+
         // upsert reviews
         await Promise.all(
           pr.reviews.nodes.map(async (review) => {

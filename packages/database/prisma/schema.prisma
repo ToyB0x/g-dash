@@ -11,14 +11,15 @@ datasource db {
 }
 
 model Organization {
-  id           String       @id // derived from the GitHub API
-  login        String       @unique // The organization's login name (ensure uniqueness by github)
-  Repositories Repository[]
-  Prs          Pr[]
-  Commits      Commit[]
-  Reviews      Review[]
-  Releases     Release[]
-  Users        User[]
+  id             String          @id // derived from the GitHub API
+  login          String          @unique // The organization's login name (ensure uniqueness by github)
+  Repositories   Repository[]
+  Prs            Pr[]
+  Commits        Commit[]
+  Reviews        Review[]
+  Releases       Release[]
+  Users          User[]
+  ReviewRequests ReviewRequest[]
 }
 
 model User {
@@ -35,7 +36,9 @@ model User {
   Reviews        Review[]
   // Comments       Comment[]
 
-  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  organization   Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  RequestUsers   ReviewRequest[] @relation("RequestUser")
+  RequestedUsers ReviewRequest[] @relation("RequestedUser")
 }
 
 model Repository {
@@ -82,10 +85,11 @@ model Pr {
   closedAt  DateTime?
   mergedAt  DateTime?
 
-  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  repository   Repository   @relation(fields: [repositoryId], references: [id])
-  user         User         @relation(fields: [authorId], references: [id])
-  Reviews      Review[]
+  organization   Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  repository     Repository      @relation(fields: [repositoryId], references: [id])
+  user           User            @relation(fields: [authorId], references: [id])
+  Reviews        Review[]
+  reviewRequests ReviewRequest[]
 
   @@index([organizationId, createdAt])
 }
@@ -116,6 +120,22 @@ model Review {
   pr           Pr           @relation(fields: [prId], references: [id], onDelete: Cascade)
 
   @@index([organizationId, authorId])
+}
+
+model ReviewRequest {
+  id              String   @id
+  organizationId  String
+  prId            String
+  requestUserId   String
+  requestedUserId String
+  createdAt       DateTime
+
+  requestUser   User         @relation(fields: [requestUserId], references: [id], name: "RequestUser")
+  requestedUser User         @relation(fields: [requestedUserId], references: [id], name: "RequestedUser")
+  organization  Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  pr            Pr           @relation(fields: [prId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, requestedUserId])
 }
 
 // model Comment {

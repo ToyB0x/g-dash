@@ -49,6 +49,24 @@ export const paginate = async (
               comments {
                 totalCount
               }
+              timelineItems(first: 100, itemTypes: REVIEW_REQUESTED_EVENT) {
+                nodes {
+                  ... on ReviewRequestedEvent {
+                    id
+                    createdAt
+                    actor {
+                      ... on User {
+                        id
+                      }
+                    }
+                    requestedReviewer {
+                      ... on User {
+                        id
+                      }
+                    }
+                  }
+                }
+              }
               # TODO: pagination
               reviews(first: 100) {
                 nodes {
@@ -147,6 +165,7 @@ export const paginate = async (
         comments: {
           totalCount: userPr.comments.totalCount,
         },
+        timelineItems: userPr.timelineItems,
         reviews: {
           nodes: userPr.reviews.nodes
             .filter<UserPR['reviews']['nodes'][0]>(
