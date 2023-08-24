@@ -28,7 +28,7 @@
     "react-apexcharts": "1.4.1",
     "react-dom": "18.2.0",
     "react-icons": "4.10.1",
-    "zod": "3.21.4"
+    "zod": "3.22.2"
   },
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
