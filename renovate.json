@@ -2,8 +2,17 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base", ":semanticCommits"],
   "separateMinorPatch": true,
-  "patch": {
-    "groupName": "all patch updates"
-  },
+  "packageRules": [
+    {
+      "groupName": "all patch dependencies",
+      "groupSlug": "all-patch",
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ]
+    }
+  ],
   "rangeStrategy": "pin"
 }
