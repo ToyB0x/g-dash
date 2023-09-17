@@ -4,6 +4,10 @@
   "separateMinorPatch": true,
   "packageRules": [
     {
+      "automerge": true,
+      "matchUpdateTypes": ["minor", "patch", "pin"]
+    },
+    {
       "groupName": "all patch dependencies",
       "groupSlug": "all-patch",
       "matchPackagePatterns": [
@@ -14,5 +18,6 @@
       ]
     }
   ],
-  "rangeStrategy": "pin"
+  "rangeStrategy": "pin",
+  "reviewers": ["ToyB0x"]
 }
