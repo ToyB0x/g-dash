@@ -9,18 +9,18 @@
     "generate:component": "turbo gen react-component"
   },
   "peerDependencies": {
-    "@chakra-ui/icons": "2.1.0",
-    "@chakra-ui/react": "2.8.0",
+    "@chakra-ui/icons": "2.1.1",
+    "@chakra-ui/react": "2.8.1",
     "react": "18.2.0",
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@chakra-ui/icons": "2.1.0",
-    "@chakra-ui/react": "2.8.0",
+    "@chakra-ui/icons": "2.1.1",
+    "@chakra-ui/react": "2.8.1",
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
     "@g-dash/types": "*",
-    "@tanstack/react-table": "8.9.3",
+    "@tanstack/react-table": "8.9.11",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "eslint": "8.49.0",

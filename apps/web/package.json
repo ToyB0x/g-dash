@@ -10,9 +10,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/icons": "2.1.0",
+    "@chakra-ui/icons": "2.1.1",
     "@chakra-ui/next-js": "2.1.5",
-    "@chakra-ui/react": "2.8.0",
+    "@chakra-ui/react": "2.8.1",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
     "@g-dash/constants": "*",
@@ -20,9 +20,9 @@
     "@g-dash/types": "*",
     "@g-dash/ui": "*",
     "@t3-oss/env-nextjs": "0.6.1",
-    "@tanstack/react-table": "8.9.3",
+    "@tanstack/react-table": "8.9.11",
     "apexcharts": "3.42.0",
-    "framer-motion": "10.16.1",
+    "framer-motion": "10.16.4",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-apexcharts": "1.4.1",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
-    "@types/node": "18.17.9",
+    "@types/node": "18.17.17",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "typescript": "5.2.2"
