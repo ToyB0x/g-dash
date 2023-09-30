@@ -21,7 +21,7 @@
     "@g-dash/ui": "*",
     "@t3-oss/env-nextjs": "0.6.1",
     "@tanstack/react-table": "8.10.3",
-    "apexcharts": "3.42.0",
+    "apexcharts": "3.43.0",
     "framer-motion": "10.16.4",
     "next": "13.5.3",
     "react": "18.2.0",
