@@ -23,7 +23,7 @@
     "@tanstack/react-table": "8.10.3",
     "apexcharts": "3.43.0",
     "framer-motion": "10.16.4",
-    "next": "13.5.3",
+    "next": "13.5.4",
     "react": "18.2.0",
     "react-apexcharts": "1.4.1",
     "react-dom": "18.2.0",
