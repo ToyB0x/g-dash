@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
-    "@turbo/gen": "1.10.14",
+    "@turbo/gen": "1.10.15",
     "dotenv-cli": "7.3.0",
     "eslint": "8.50.0",
     "prettier": "3.0.3",
