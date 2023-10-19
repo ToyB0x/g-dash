@@ -34,7 +34,7 @@
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
     "@types/node": "18.18.6",
-    "@types/react": "18.2.29",
+    "@types/react": "18.2.30",
     "@types/react-dom": "18.2.14",
     "typescript": "5.2.2"
   }
