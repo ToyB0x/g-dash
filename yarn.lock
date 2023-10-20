@@ -2485,7 +2485,7 @@ __metadata:
     "@g-dash/tsconfig": "*"
     "@g-dash/ui": "*"
     "@types/node": 18.18.6
-    "@types/react": 18.2.30
+    "@types/react": 18.2.31
     "@types/react-dom": 18.2.14
     next: 13.5.6
     react: 18.2.0
@@ -2553,7 +2553,7 @@ __metadata:
     "@g-dash/tsconfig": "*"
     "@g-dash/types": "*"
     "@tanstack/react-table": 8.10.7
-    "@types/react": 18.2.30
+    "@types/react": 18.2.31
     "@types/react-dom": 18.2.14
     eslint: 8.51.0
     react: 18.2.0
@@ -2596,7 +2596,7 @@ __metadata:
     "@t3-oss/env-nextjs": 0.7.1
     "@tanstack/react-table": 8.10.7
     "@types/node": 18.18.6
-    "@types/react": 18.2.30
+    "@types/react": 18.2.31
     "@types/react-dom": 18.2.14
     apexcharts: 3.44.0
     framer-motion: 10.16.4
@@ -3861,14 +3861,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.30":
-  version: 18.2.30
-  resolution: "@types/react@npm:18.2.30"
+"@types/react@npm:18.2.31":
+  version: 18.2.31
+  resolution: "@types/react@npm:18.2.31"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 962fa67e4ff439a2eb621ad74e58cb975d2882afa06bb7c9e9823606f6dcc3cd37d5cce143ec3c95b3856549f48ee0382e8c4628267cdcc5c5343d979ad9d92f
+  checksum: b11be8e39174d3303e308461400889e353e422d22b01d09795b2c35b7b99d5351716503d9ec5c58e4c2c871249603fa52840d45a34fb5901dd7a26e06129c716
   languageName: node
   linkType: hard
 
