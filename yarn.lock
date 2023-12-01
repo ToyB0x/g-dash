@@ -2599,7 +2599,7 @@ __metadata:
     "@types/react": 18.2.39
     "@types/react-dom": 18.2.17
     apexcharts: 3.44.0
-    framer-motion: 10.16.10
+    framer-motion: 10.16.12
     next: 13.5.6
     react: 18.2.0
     react-apexcharts: 1.4.1
@@ -6615,9 +6615,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:10.16.10":
-  version: 10.16.10
-  resolution: "framer-motion@npm:10.16.10"
+"framer-motion@npm:10.16.12":
+  version: 10.16.12
+  resolution: "framer-motion@npm:10.16.12"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     tslib: ^2.4.0
@@ -6632,7 +6632,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 9a1f4a803be577996374aaa97d31518da46daa90b29ef48e4453aa27e18a70487ccf8c2159b99c807e4083e3308b57de53ede08478891ce47abb6b506634e5f7
+  checksum: 164f80bc5a93162f2211d1e88ee5808342c96d6bb734d63878505ffa88f480bad3c29c257dd4dd13d8267f901ddaf13082c0688f80880db8f1a4efb2ee8a4edf
   languageName: node
   linkType: hard
 
