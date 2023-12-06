@@ -27,6 +27,6 @@
     "@graphql-codegen/introspection": "4.0.0",
     "@types/node": "18.19.2",
     "tsup": "7.3.0",
-    "typescript": "5.3.2"
+    "typescript": "5.3.3"
   }
 }
