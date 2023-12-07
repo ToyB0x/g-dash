@@ -2484,7 +2484,7 @@ __metadata:
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
     "@g-dash/ui": "*"
-    "@types/node": 18.19.2
+    "@types/node": 18.19.3
     "@types/react": 18.2.42
     "@types/react-dom": 18.2.17
     next: 13.5.6
@@ -2517,7 +2517,7 @@ __metadata:
     "@graphql-codegen/client-preset": 4.1.0
     "@graphql-codegen/introspection": 4.0.0
     "@sentry/node": 7.70.0
-    "@types/node": 18.19.2
+    "@types/node": 18.19.3
     commander: 11.1.0
     graphql: 16.8.1
     tsup: 7.3.0
@@ -2595,11 +2595,11 @@ __metadata:
     "@g-dash/ui": "*"
     "@t3-oss/env-nextjs": 0.7.1
     "@tanstack/react-table": 8.10.7
-    "@types/node": 18.19.2
+    "@types/node": 18.19.3
     "@types/react": 18.2.42
     "@types/react-dom": 18.2.17
     apexcharts: 3.44.2
-    framer-motion: 10.16.14
+    framer-motion: 10.16.15
     next: 13.5.6
     react: 18.2.0
     react-apexcharts: 1.4.1
@@ -3904,12 +3904,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.19.2":
-  version: 18.19.2
-  resolution: "@types/node@npm:18.19.2"
+"@types/node@npm:18.19.3":
+  version: 18.19.3
+  resolution: "@types/node@npm:18.19.3"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 6ae1e456f469bd50cac55d01ec17cddca3e60a1ae8cf6a95c8f2c49668ac358fd68d53af32076e37418f3b07cf6d2b245a48e3b77998ac51cc6a797d9d1a4367
+  checksum: 58c4fa45a78fcec75c78182a4b266395905957633654eb0311c5f9c30ac15c179ea2287ab1af034e46c2db7bb0589ef0000ee64c1de8f568a0aad29eaadb100c
   languageName: node
   linkType: hard
 
@@ -6615,9 +6615,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:10.16.14":
-  version: 10.16.14
-  resolution: "framer-motion@npm:10.16.14"
+"framer-motion@npm:10.16.15":
+  version: 10.16.15
+  resolution: "framer-motion@npm:10.16.15"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     tslib: ^2.4.0
@@ -6632,7 +6632,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 3b04e763d8af2fe5622de750e00655724e5dacbf60017e107fa9fc428bca7e9b42824d2d6d8fcd644bbb5cfdbef86ec9876c6ae4ae9c0f5784b7e75b56d26083
+  checksum: f7c00695bbc20c32c37047f64588a0274d7ffd3713c6acf45aba03707424757c2e329c85e2ec872ebb47ee6dec293fc581c803d3f19207857aa5f388a329eb8f
   languageName: node
   linkType: hard
 
