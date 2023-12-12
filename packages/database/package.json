@@ -27,7 +27,7 @@
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
     "prisma": "5.4.2",
-    "tsup": "7.3.0",
+    "tsup": "8.0.1",
     "tsx": "3.14.0",
     "typescript": "5.3.3"
   }
