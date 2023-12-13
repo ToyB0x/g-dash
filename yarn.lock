@@ -2485,7 +2485,7 @@ __metadata:
     "@g-dash/tsconfig": "*"
     "@g-dash/ui": "*"
     "@types/node": 18.19.3
-    "@types/react": 18.2.43
+    "@types/react": 18.2.45
     "@types/react-dom": 18.2.17
     next: 13.5.6
     react: 18.2.0
@@ -2500,7 +2500,7 @@ __metadata:
   dependencies:
     eslint-config-next: 13.5.6
     eslint-config-prettier: 9.1.0
-    eslint-config-turbo: 1.11.1
+    eslint-config-turbo: 1.11.2
     eslint-plugin-react: 7.33.2
   languageName: unknown
   linkType: soft
@@ -2553,7 +2553,7 @@ __metadata:
     "@g-dash/tsconfig": "*"
     "@g-dash/types": "*"
     "@tanstack/react-table": 8.10.7
-    "@types/react": 18.2.43
+    "@types/react": 18.2.45
     "@types/react-dom": 18.2.17
     eslint: 8.55.0
     react: 18.2.0
@@ -2596,7 +2596,7 @@ __metadata:
     "@t3-oss/env-nextjs": 0.7.1
     "@tanstack/react-table": 8.10.7
     "@types/node": 18.19.3
-    "@types/react": 18.2.43
+    "@types/react": 18.2.45
     "@types/react-dom": 18.2.17
     apexcharts: 3.44.2
     framer-motion: 10.16.16
@@ -3784,11 +3784,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turbo/gen@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@turbo/gen@npm:1.11.1"
+"@turbo/gen@npm:1.11.2":
+  version: 1.11.2
+  resolution: "@turbo/gen@npm:1.11.2"
   dependencies:
-    "@turbo/workspaces": 1.11.1
+    "@turbo/workspaces": 1.11.2
     chalk: 2.4.2
     commander: ^10.0.0
     fs-extra: ^10.1.0
@@ -3801,13 +3801,13 @@ __metadata:
     validate-npm-package-name: ^5.0.0
   bin:
     gen: dist/cli.js
-  checksum: a6f8e351c129904917ae35e6ed017988c23ad41af00343cc86d236a90a2913beb664586ace9a16e037d380706f1fd096af4bcfa0415d21b25bb521e9a36c2c73
+  checksum: 119513d05172e5d682a0488d30e09bd2b883006bc225c0706e274daf36a77e39f926c21c689c5b22ac3186b80c9974a92e42e9445384b82cb12317ca5897a8d2
   languageName: node
   linkType: hard
 
-"@turbo/workspaces@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@turbo/workspaces@npm:1.11.1"
+"@turbo/workspaces@npm:1.11.2":
+  version: 1.11.2
+  resolution: "@turbo/workspaces@npm:1.11.2"
   dependencies:
     chalk: 2.4.2
     commander: ^10.0.0
@@ -3823,7 +3823,7 @@ __metadata:
     update-check: ^1.5.4
   bin:
     workspaces: dist/cli.js
-  checksum: cb7c3c73793c43f4b0abdc120813267674d6019d25ac57a65f19c20c3427e1219706566c69de7c636de9f36ec85999ffd899eb3f7c937a8a020de899c2429fbe
+  checksum: 1bddbe0414dd20575d3a506db8605b56714eed36d1837881f3922adc7a911069e6b2d0dd68542bc8adcdcfdee08bcdf24d32329d35b83b00efaf9e9438a2a2b4
   languageName: node
   linkType: hard
 
@@ -3941,14 +3941,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.43":
-  version: 18.2.43
-  resolution: "@types/react@npm:18.2.43"
+"@types/react@npm:18.2.45":
+  version: 18.2.45
+  resolution: "@types/react@npm:18.2.45"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: e7e4da18c7b14e4b8b1ea630d1d8224835698f2bb2485766455bfb9dea93b8ee6cc549a9fe1cb10c984e62685db44fcfb61e8fac913b008cd30a92087f25b9df
+  checksum: 40b256bdce67b026348022b4f8616a693afdad88cf493b77f7b4e6c5f4b0e4ba13a6068e690b9b94572920840ff30d501ea3d8518e1f21cc8fb8204d4b140c8a
   languageName: node
   linkType: hard
 
@@ -6057,14 +6057,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-turbo@npm:1.11.1":
-  version: 1.11.1
-  resolution: "eslint-config-turbo@npm:1.11.1"
+"eslint-config-turbo@npm:1.11.2":
+  version: 1.11.2
+  resolution: "eslint-config-turbo@npm:1.11.2"
   dependencies:
-    eslint-plugin-turbo: 1.11.1
+    eslint-plugin-turbo: 1.11.2
   peerDependencies:
     eslint: ">6.6.0"
-  checksum: 9aec48606eb1d07c2ebaee6a2a5555c9182812e8b5beea5b18fd7009d2cc046fd0c76c427335bd5329e32bce7636958fe7caa1654eb1a8d9fd6ff26c01f11fcd
+  checksum: 759e8b97fe3cc3add3863a52445b72c319490c9eaed40b1bae12e25c54815b9ed7fd8a1b2ac0a6eaaaf17d3aa876a78a170273e564a37d792c5f7d819f8eb2bd
   languageName: node
   linkType: hard
 
@@ -6198,14 +6198,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-turbo@npm:1.11.1":
-  version: 1.11.1
-  resolution: "eslint-plugin-turbo@npm:1.11.1"
+"eslint-plugin-turbo@npm:1.11.2":
+  version: 1.11.2
+  resolution: "eslint-plugin-turbo@npm:1.11.2"
   dependencies:
     dotenv: 16.0.3
   peerDependencies:
     eslint: ">6.6.0"
-  checksum: ef7415a5271597117289098d3897d2d6c06152e537fcd26af6eaba269a8b0028b9c829ad15a5cb9866f3aef093c71d8a654a9506f6a5652adb2ae179ec94f535
+  checksum: efb9199063dc5f972a005134e38217b95c4e74b732b58d43fd40d2467ac45128df75710621bd7e27e2fe86c4a966230f2e6e7ac94a390ade253779ac30705cdb
   languageName: node
   linkType: hard
 
@@ -6760,7 +6760,7 @@ __metadata:
   resolution: "g-dash@workspace:."
   dependencies:
     "@g-dash/eslint-config-custom": "*"
-    "@turbo/gen": 1.11.1
+    "@turbo/gen": 1.11.2
     dotenv-cli: 7.3.0
     eslint: 8.55.0
     prettier: 3.1.1
