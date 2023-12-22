@@ -664,7 +664,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.21.0":
+"@babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3":
   version: 7.22.6
   resolution: "@babel/runtime@npm:7.22.6"
   dependencies:
@@ -2572,7 +2572,7 @@ __metadata:
   dependencies:
     "@g-dash/eslint-config-custom": "*"
     "@g-dash/tsconfig": "*"
-    date-fns: 2.30.0
+    date-fns: 3.0.6
     tsup: 8.0.1
     typescript: 5.3.3
   languageName: unknown
@@ -5294,12 +5294,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:2.30.0":
-  version: 2.30.0
-  resolution: "date-fns@npm:2.30.0"
-  dependencies:
-    "@babel/runtime": ^7.21.0
-  checksum: f7be01523282e9bb06c0cd2693d34f245247a29098527d4420628966a2d9aad154bd0e90a6b1cf66d37adcb769cd108cf8a7bd49d76db0fb119af5cdd13644f4
+"date-fns@npm:3.0.6":
+  version: 3.0.6
+  resolution: "date-fns@npm:3.0.6"
+  checksum: ee62b8e764e4c11c418d342f401d3e85adb4a631b196746e49ac89099c8d34cb141f10ae953c4a72bd3c76fe4d8740ec89564c8599a31256c82adbbed56c0014
   languageName: node
   linkType: hard
 
