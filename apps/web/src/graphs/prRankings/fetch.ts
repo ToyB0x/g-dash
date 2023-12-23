@@ -1,6 +1,6 @@
 import { getSingleTenantPrismaClient } from '@/clients'
 import { Spans } from '@g-dash/utils'
-import { subDays } from 'date-fns'
+import { subDays } from 'date-fns/subDays'
 
 export const fetch = async (orgId: string, userIds: string[], days: number) => {
   const prisma = getSingleTenantPrismaClient()
