@@ -1,4 +1,6 @@
-import { subMonths, subWeeks, startOfMonth } from 'date-fns'
+import { subMonths } from 'date-fns/subMonths'
+import { subWeeks } from 'date-fns/subWeeks'
+import { startOfMonth } from 'date-fns/startOfMonth'
 
 const today = new Date()
 
