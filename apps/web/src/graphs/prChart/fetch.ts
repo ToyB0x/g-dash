@@ -10,20 +10,18 @@ export const fetch = async (orgId: string, userIds: string[], days: number) => {
     select: {
       id: true,
       Prs: {
-        // TODO: 以下の条件追加を検討
-        // where: {
-        //   authorId: {
-        //     not: 'BOT_kgDOAbying', // renovate id
-        //   },
-        //   createdAt: {
-        //     gte: new Date(Spans['1 month']),
-        //   },
-        // },
         where: {
           user: {
             login: {
               in: userIds.length ? userIds : undefined,
             },
+            // TODO: 以下の条件追加を検討
+            //   authorId: {
+            //     not: 'BOT_kgDOAbying', // renovate id
+            //   },
+          },
+          createdAt: {
+            gte: subDays(new Date(), days),
           },
         },
         select: {
