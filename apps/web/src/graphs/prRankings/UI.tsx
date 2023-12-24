@@ -22,7 +22,7 @@ export const UI: FC<Props> = ({ prRankings }) => (
     h="100%"
   >
     <Heading as="h3" fontSize="xl">
-      PRランキンング
+      PR数
     </Heading>
 
     <List p={4}>
