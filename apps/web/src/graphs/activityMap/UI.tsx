@@ -205,7 +205,7 @@ export const UI: FC<Props> = ({ committedDates, reviewedDates, days }) => {
       h="100%"
     >
       <Heading as="h3" fontSize="xl">
-        HeatMap
+        コミット日時別のHeatMap
       </Heading>
 
       {/*
