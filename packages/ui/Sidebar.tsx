@@ -13,7 +13,6 @@ type LinkItem = {
 
 const linkItems: LinkItem[] = [
   { name: 'Dashboard', href: '/' },
-  { name: 'Kaizen', href: 'kaizen' },
   { name: 'PRs', href: 'prs' },
   { name: 'Reviews', href: 'reviews' },
   // { name: 'Comments', href: 'comments' },
