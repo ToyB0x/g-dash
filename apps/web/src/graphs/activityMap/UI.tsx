@@ -2,7 +2,7 @@
 import 'client-only'
 
 import { FC } from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import { ApexOptions } from 'apexcharts'
 import ReactApexChart from 'react-apexcharts'
 
@@ -199,10 +199,15 @@ export const UI: FC<Props> = ({ committedDates, reviewedDates, days }) => {
       backgroundColor="white"
       rounded="lg"
       p={4}
+      pb={8}
       shadow="xl"
       width="100%"
       h="100%"
     >
+      <Heading as="h3" fontSize="xl">
+        HeatMap
+      </Heading>
+
       {/*
         NOTE: specify width to avoid error
         ref: https://github.com/apexcharts/apexcharts.js/issues/1898#issuecomment-1405848110
