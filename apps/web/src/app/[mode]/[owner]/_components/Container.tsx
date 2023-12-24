@@ -4,8 +4,8 @@ import { FC } from 'react'
 import ActivityMap from '@/graphs/activityMap'
 import { GraphArgs } from '@/graphs'
 import CommitBar from '@/graphs/commitBar'
-import PrBar from '@/graphs/prBar'
-import ReviewBar from '@/graphs/reviewBar'
+// import PrBar from '@/graphs/prBar'
+// import ReviewBar from '@/graphs/reviewBar'
 import PrChart from '@/graphs/prChart'
 import CategoryPieChart from '@/graphs/categoryPieChart'
 import PrRankings from '@/graphs/prRankings'
@@ -85,20 +85,28 @@ export const Container: FC<Props> = ({ graphArgs }) => (
       />
     </div>
 
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '1%',
-        height: '420px',
-      }}
-    >
-      <PrBar
-        orgId={graphArgs.orgId}
-        userIds={graphArgs.userIds}
-        days={graphArgs.days}
-      />
-      <ReviewBar
+    {/*<div*/}
+    {/*  style={{*/}
+    {/*    display: 'grid',*/}
+    {/*    gridTemplateColumns: '1fr 1fr',*/}
+    {/*    gap: '1%',*/}
+    {/*    height: '420px',*/}
+    {/*  }}*/}
+    {/*>*/}
+    {/*  <PrBar*/}
+    {/*    orgId={graphArgs.orgId}*/}
+    {/*    userIds={graphArgs.userIds}*/}
+    {/*    days={graphArgs.days}*/}
+    {/*  />*/}
+    {/*  <ReviewBar*/}
+    {/*    orgId={graphArgs.orgId}*/}
+    {/*    userIds={graphArgs.userIds}*/}
+    {/*    days={graphArgs.days}*/}
+    {/*  />*/}
+    {/*</div>*/}
+
+    <div style={{ height: '620px', width: 'full' }}>
+      <ActivityMap
         orgId={graphArgs.orgId}
         userIds={graphArgs.userIds}
         days={graphArgs.days}
@@ -129,13 +137,6 @@ export const Container: FC<Props> = ({ graphArgs }) => (
           days={graphArgs.days}
         />
       </div>
-    </div>
-    <div style={{ height: '600px', width: 'full' }}>
-      <ActivityMap
-        orgId={graphArgs.orgId}
-        userIds={graphArgs.userIds}
-        days={graphArgs.days}
-      />
     </div>
   </>
 )
