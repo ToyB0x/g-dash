@@ -12,9 +12,11 @@ type Props = {
 export const PRsAccordion: FC<Props> = ({ prs }) => {
   const [hidePrs, setHidePrs] = useState(true)
 
+  const filteredPrs = prs.filter((pr) => pr.merged && !!pr.mergedAt)
+
   return (
     <List>
-      {prs
+      {filteredPrs
         .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
         .slice(0, hidePrs ? 3 : prs.length)
         .map((pr) => (
@@ -32,7 +34,7 @@ export const PRsAccordion: FC<Props> = ({ prs }) => {
             </HStack>
           </ListItem>
         ))}
-      {prs.length > 3 && (
+      {filteredPrs.length > 3 && (
         <Box textAlign="right">
           <Button
             textColor="black"
@@ -42,7 +44,7 @@ export const PRsAccordion: FC<Props> = ({ prs }) => {
             alignSelf={'right'}
             onClick={() => setHidePrs(!hidePrs)}
           >
-            {hidePrs ? prs.length - 3 + ' more..' : 'less..'}
+            {hidePrs ? filteredPrs.length - 3 + ' more..' : 'less..'}
           </Button>
         </Box>
       )}
