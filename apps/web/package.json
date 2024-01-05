@@ -22,7 +22,7 @@
     "@t3-oss/env-nextjs": "0.7.1",
     "@tanstack/react-table": "8.11.3",
     "apexcharts": "3.45.1",
-    "framer-motion": "10.17.6",
+    "framer-motion": "10.17.9",
     "next": "14.0.4",
     "react": "18.2.0",
     "react-apexcharts": "1.4.1",
