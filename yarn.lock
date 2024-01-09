@@ -2504,7 +2504,7 @@ __metadata:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
     "@g-dash/ui": "npm:*"
-    "@types/node": "npm:20.10.7"
+    "@types/node": "npm:20.10.8"
     "@types/react": "npm:18.2.47"
     "@types/react-dom": "npm:18.2.18"
     next: "npm:14.0.4"
@@ -2537,7 +2537,7 @@ __metadata:
     "@graphql-codegen/client-preset": "npm:4.1.0"
     "@graphql-codegen/introspection": "npm:4.0.0"
     "@sentry/node": "npm:7.92.0"
-    "@types/node": "npm:20.10.7"
+    "@types/node": "npm:20.10.8"
     commander: "npm:11.1.0"
     graphql: "npm:16.8.1"
     tsup: "npm:8.0.1"
@@ -2615,11 +2615,11 @@ __metadata:
     "@g-dash/ui": "npm:*"
     "@t3-oss/env-nextjs": "npm:0.7.1"
     "@tanstack/react-table": "npm:8.11.3"
-    "@types/node": "npm:20.10.7"
+    "@types/node": "npm:20.10.8"
     "@types/react": "npm:18.2.47"
     "@types/react-dom": "npm:18.2.18"
     apexcharts: "npm:3.45.1"
-    framer-motion: "npm:10.17.9"
+    framer-motion: "npm:10.17.12"
     next: "npm:14.0.4"
     react: "npm:18.2.0"
     react-apexcharts: "npm:1.4.1"
@@ -3948,12 +3948,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.10.7":
-  version: 20.10.7
-  resolution: "@types/node@npm:20.10.7"
+"@types/node@npm:20.10.8":
+  version: 20.10.8
+  resolution: "@types/node@npm:20.10.8"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: d626cea1b7da4784ee7b335dcc54e64adba9725dab7ca51a690167de502ef89fec07b05ad8e25845d188d7ad7f72c192ec92964d456321ed5b9452113bf9351f
+  checksum: 93268c33c3bf0194427d696658160c77ab8661aa57107df5b248ff952898a372bf92cf0ba7fc07788fa35e59c69b6619cce63d45e4e67fca806e37da7ea42512
   languageName: node
   linkType: hard
 
@@ -6646,9 +6646,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:10.17.9":
-  version: 10.17.9
-  resolution: "framer-motion@npm:10.17.9"
+"framer-motion@npm:10.17.12":
+  version: 10.17.12
+  resolution: "framer-motion@npm:10.17.12"
   dependencies:
     "@emotion/is-prop-valid": "npm:^0.8.2"
     tslib: "npm:^2.4.0"
@@ -6663,7 +6663,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: c27932b62c2d1971ba1117d54946b3bdafdd2b7fff5e932753ad130c7de8d5c746cd5b2eadb260f0a2718af52f0faed6dc55161b22202b26712a79d13e223a3f
+  checksum: a110a921f1b8a61acf5292a9fac4236f846cc8b6eb1dd832668fdd5b87dd67c462ec29d661e1e7a826e82ff2552527f98ae94daeeafd17ba16b414ed3fa6e6f2
   languageName: node
   linkType: hard
 
