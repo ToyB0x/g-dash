@@ -20,7 +20,7 @@
     "@g-dash/types": "*",
     "@g-dash/ui": "*",
     "@t3-oss/env-nextjs": "0.7.1",
-    "@tanstack/react-table": "8.11.3",
+    "@tanstack/react-table": "8.11.4",
     "apexcharts": "3.45.1",
     "framer-motion": "10.18.0",
     "next": "14.0.4",
