@@ -2504,7 +2504,7 @@ __metadata:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
     "@g-dash/ui": "npm:*"
-    "@types/node": "npm:20.11.3"
+    "@types/node": "npm:20.11.4"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
     next: "npm:14.0.4"
@@ -2537,7 +2537,7 @@ __metadata:
     "@graphql-codegen/client-preset": "npm:4.1.0"
     "@graphql-codegen/introspection": "npm:4.0.0"
     "@sentry/node": "npm:7.93.0"
-    "@types/node": "npm:20.11.3"
+    "@types/node": "npm:20.11.4"
     commander: "npm:11.1.0"
     graphql: "npm:16.8.1"
     tsup: "npm:8.0.1"
@@ -2615,7 +2615,7 @@ __metadata:
     "@g-dash/ui": "npm:*"
     "@t3-oss/env-nextjs": "npm:0.7.3"
     "@tanstack/react-table": "npm:8.11.6"
-    "@types/node": "npm:20.11.3"
+    "@types/node": "npm:20.11.4"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
     apexcharts: "npm:3.45.1"
@@ -3948,12 +3948,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.3":
-  version: 20.11.3
-  resolution: "@types/node@npm:20.11.3"
+"@types/node@npm:20.11.4":
+  version: 20.11.4
+  resolution: "@types/node@npm:20.11.4"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10e58b526efc73ac6e6a54466ec9e8f39a6a24aba902abc91cc2f85dbbe2bf1b4c84d941106036275b335a867d664009679136345c491dd642b953217d859ebb
+  checksum: af6e1ad4d8f210d06d6db6c85b9aba25b022b493a4f2289e5ac693b418de746db812ab1537096e10e7cb7b78f1d835a06e61f31d93ebe36ef116bfbbf8f04c97
   languageName: node
   linkType: hard
 
