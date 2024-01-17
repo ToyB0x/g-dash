@@ -25,7 +25,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Turborepo Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules/.cache/turbo
           key:
