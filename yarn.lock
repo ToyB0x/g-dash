@@ -2497,23 +2497,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@g-dash/docs@workspace:apps/docs":
-  version: 0.0.0-use.local
-  resolution: "@g-dash/docs@workspace:apps/docs"
-  dependencies:
-    "@g-dash/eslint-config-custom": "npm:*"
-    "@g-dash/tsconfig": "npm:*"
-    "@g-dash/ui": "npm:*"
-    "@types/node": "npm:20.11.5"
-    "@types/react": "npm:18.2.48"
-    "@types/react-dom": "npm:18.2.18"
-    next: "npm:14.1.0"
-    react: "npm:18.2.0"
-    react-dom: "npm:18.2.0"
-    typescript: "npm:5.3.3"
-  languageName: unknown
-  linkType: soft
-
 "@g-dash/eslint-config-custom@npm:*, @g-dash/eslint-config-custom@workspace:packages/eslint-config-custom":
   version: 0.0.0-use.local
   resolution: "@g-dash/eslint-config-custom@workspace:packages/eslint-config-custom"
