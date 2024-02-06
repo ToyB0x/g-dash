@@ -22,9 +22,9 @@
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
-    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.1.0",
-    "@graphql-codegen/introspection": "4.0.0",
+    "@graphql-codegen/introspection": "4.0.2",
     "@types/node": "20.11.16",
     "tsup": "8.0.1",
     "typescript": "5.3.3"
