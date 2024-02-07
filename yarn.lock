@@ -2557,7 +2557,7 @@ __metadata:
     "@g-dash/types": "npm:*"
     "@tanstack/react-table": "npm:8.11.8"
     "@types/react": "npm:18.2.55"
-    "@types/react-dom": "npm:18.2.18"
+    "@types/react-dom": "npm:18.2.19"
     eslint: "npm:8.56.0"
     react: "npm:18.2.0"
     typescript: "npm:5.3.3"
@@ -2600,7 +2600,7 @@ __metadata:
     "@tanstack/react-table": "npm:8.11.8"
     "@types/node": "npm:20.11.16"
     "@types/react": "npm:18.2.55"
-    "@types/react-dom": "npm:18.2.18"
+    "@types/react-dom": "npm:18.2.19"
     apexcharts: "npm:3.45.2"
     framer-motion: "npm:10.18.0"
     next: "npm:14.1.0"
@@ -3938,12 +3938,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.18":
-  version: 18.2.18
-  resolution: "@types/react-dom@npm:18.2.18"
+"@types/react-dom@npm:18.2.19":
+  version: 18.2.19
+  resolution: "@types/react-dom@npm:18.2.19"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 10c0/74dba11a1b8156f3a763f3fca1fb4ec1dcd349153279b8bf79210024a69f994bf2cf0728198c047f8130c5318420ea56281b0a4ef84c8ae943cd9a0cac705220
+  checksum: 10c0/88d7c6daa4659f661d0c97985d9fca492f24b421a34bb614dcd94c343aed7bea121463149e97fb01ecaa693be17b7d1542cf71ddb1705f3889a81eb2639a88aa
   languageName: node
   linkType: hard
 
