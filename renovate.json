@@ -10,14 +10,13 @@
     {
       "groupName": "all patch dependencies",
       "groupSlug": "all-patch",
-      "matchPackagePatterns": [
-        "*"
-      ],
-      "matchUpdateTypes": [
-        "patch"
-      ]
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["patch"]
     }
   ],
   "rangeStrategy": "pin",
-  "reviewers": ["ToyB0x"]
+  "reviewers": ["ToyB0x"],
+  "constraints": {
+    "corepack": "0.24.1"
+  }
 }
