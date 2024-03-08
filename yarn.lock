@@ -2601,7 +2601,7 @@ __metadata:
     "@types/node": "npm:20.11.25"
     "@types/react": "npm:18.2.64"
     "@types/react-dom": "npm:18.2.21"
-    apexcharts: "npm:3.46.0"
+    apexcharts: "npm:3.47.0"
     framer-motion: "npm:11.0.8"
     next: "npm:14.1.3"
     react: "npm:18.2.0"
@@ -4415,9 +4415,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apexcharts@npm:3.46.0":
-  version: 3.46.0
-  resolution: "apexcharts@npm:3.46.0"
+"apexcharts@npm:3.47.0":
+  version: 3.47.0
+  resolution: "apexcharts@npm:3.47.0"
   dependencies:
     "@yr/monotone-cubic-spline": "npm:^1.0.3"
     svg.draggable.js: "npm:^2.2.2"
@@ -4426,7 +4426,7 @@ __metadata:
     svg.pathmorphing.js: "npm:^0.1.3"
     svg.resize.js: "npm:^1.4.3"
     svg.select.js: "npm:^3.0.1"
-  checksum: 10c0/d7e0dc05663d93d9dbc25f4719fc4909d669f720da36db63fd2dc14116fdf3c8fa6ff27769a7b384ef243d8fa165b684b737bd6a5b0cbaa7261eb67611a838d0
+  checksum: 10c0/4b51e4fc17e8ba7ee011ecd216c3b3912d278c5a02c1f2f6535ca36811ca1babc472ed499968815c57785818cfcf370e6f38ce09418f3a51304df24e78006a8e
   languageName: node
   linkType: hard
 
