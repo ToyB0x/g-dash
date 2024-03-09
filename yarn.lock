@@ -5784,9 +5784,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-cli@npm:7.4.0":
-  version: 7.4.0
-  resolution: "dotenv-cli@npm:7.4.0"
+"dotenv-cli@npm:7.4.1":
+  version: 7.4.1
+  resolution: "dotenv-cli@npm:7.4.1"
   dependencies:
     cross-spawn: "npm:^7.0.3"
     dotenv: "npm:^16.3.0"
@@ -5794,7 +5794,7 @@ __metadata:
     minimist: "npm:^1.2.6"
   bin:
     dotenv: cli.js
-  checksum: 10c0/5dc5741e3f8d22af15bf2dd859072d785e71f0c5ec917f123e4645d5cb50efba412d8a0ebd705296be48c3b624f5df6b8537f28af41e52229d7fbbbac8b1c5c9
+  checksum: 10c0/d317c83b7783b123933bea7e0faee51b72adddc6ac0d588e4f2fdad6ab1b6da4f1d3d6b13843cb50ff2d4650850ed3a42dd09448e9cb842aa984875208d58caf
   languageName: node
   linkType: hard
 
@@ -7158,7 +7158,7 @@ __metadata:
   dependencies:
     "@g-dash/eslint-config-custom": "npm:*"
     "@turbo/gen": "npm:1.12.5"
-    dotenv-cli: "npm:7.4.0"
+    dotenv-cli: "npm:7.4.1"
     eslint: "npm:8.57.0"
     prettier: "npm:3.2.5"
     turbo: "npm:latest"
