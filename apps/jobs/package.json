@@ -14,7 +14,7 @@
   "dependencies": {
     "@g-dash/database": "*",
     "@g-dash/utils": "*",
-    "@sentry/node": "7.106.0",
+    "@sentry/node": "7.106.1",
     "commander": "12.0.0",
     "graphql": "16.8.1",
     "zod": "3.22.4"
@@ -25,7 +25,7 @@
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.2.4",
     "@graphql-codegen/introspection": "4.0.3",
-    "@types/node": "20.11.25",
+    "@types/node": "20.11.26",
     "tsup": "8.0.2",
     "typescript": "5.4.2"
   },
