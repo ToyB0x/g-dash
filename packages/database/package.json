@@ -21,12 +21,12 @@
     "studio": "prisma studio"
   },
   "dependencies": {
-    "@prisma/client": "5.10.2"
+    "@prisma/client": "5.11.0"
   },
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
-    "prisma": "5.10.2",
+    "prisma": "5.11.0",
     "tsup": "8.0.2",
     "tsx": "4.7.1",
     "typescript": "5.4.2"
