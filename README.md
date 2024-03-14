@@ -14,6 +14,11 @@ It is provided as OSS so that anyone can view, add, and edit the analysis logic 
 Currently, the sample implementation as Proof of Concept has been completed.  
 Over the next few months to a year, we will be adding more practical implementations.
 
+# Roadmap
+
+Reduce workload load and costs by making it work with Github Actions, such as pull-request-analytics-action.
+(Perform fetch processing etc. in Github Actions and send the result to the service server for UI display in the browser)
+
 # TODO
 
 - dashboard
