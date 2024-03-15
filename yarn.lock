@@ -2559,7 +2559,7 @@ __metadata:
   dependencies:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
-    date-fns: "npm:3.4.0"
+    date-fns: "npm:3.5.0"
     tsup: "npm:8.0.2"
     typescript: "npm:5.4.2"
   languageName: unknown
@@ -5509,10 +5509,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:3.4.0":
-  version: 3.4.0
-  resolution: "date-fns@npm:3.4.0"
-  checksum: 10c0/e4395adcdf10b1784c6479b9d715ed9a1cb06c9d99b95607ad6db43b18371e22314d3e9e5509a378da1c5a6b34b313049bf82897b7f263f413e051f59e0ea5c2
+"date-fns@npm:3.5.0":
+  version: 3.5.0
+  resolution: "date-fns@npm:3.5.0"
+  checksum: 10c0/588866a963af617c46f71d7ae4971d2e88bce67bda39916f03ec6c2807c0344da27c4793d718a9082e7651d37a4c9ffaecc1cc1dee057d6eafcd85535a795a9f
   languageName: node
   linkType: hard
 
