@@ -5,7 +5,7 @@ import ActivityMap from '@/graphs/activityMap'
 import { GraphArgs } from '@/graphs'
 import CommitBar from '@/graphs/commitBar'
 import PrBar from '@/graphs/prBar'
-// import ReviewBar from '@/graphs/reviewBar'
+import ReviewBar from '@/graphs/reviewBar'
 import PrChart from '@/graphs/prChart'
 import PrMergeLeadTimeBar from '@/graphs/prMergeLeadTimeBar'
 import CategoryPieChart from '@/graphs/categoryPieChart'
@@ -104,12 +104,21 @@ export const Container: FC<Props> = ({ graphArgs }) => (
         userIds={graphArgs.userIds}
         days={graphArgs.days}
       />
+    </div>
 
-      {/*  <ReviewBar*/}
-      {/*    orgId={graphArgs.orgId}*/}
-      {/*    userIds={graphArgs.userIds}*/}
-      {/*    days={graphArgs.days}*/}
-      {/*  />*/}
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '1%',
+        height: '420px',
+      }}
+    >
+      <ReviewBar
+        orgId={graphArgs.orgId}
+        userIds={graphArgs.userIds}
+        days={graphArgs.days}
+      />
     </div>
 
     <div style={{ height: '620px', width: 'full' }}>
