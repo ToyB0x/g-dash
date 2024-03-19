@@ -2360,7 +2360,7 @@ __metadata:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
     "@g-dash/types": "npm:*"
-    "@tanstack/react-table": "npm:8.13.2"
+    "@tanstack/react-table": "npm:8.14.0"
     "@types/react": "npm:18.2.67"
     "@types/react-dom": "npm:18.2.22"
     eslint: "npm:8.57.0"
@@ -2402,7 +2402,7 @@ __metadata:
     "@g-dash/types": "npm:*"
     "@g-dash/ui": "npm:*"
     "@t3-oss/env-nextjs": "npm:0.9.2"
-    "@tanstack/react-table": "npm:8.13.2"
+    "@tanstack/react-table": "npm:8.14.0"
     "@types/node": "npm:20.11.30"
     "@types/react": "npm:18.2.67"
     "@types/react-dom": "npm:18.2.22"
@@ -3544,22 +3544,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-table@npm:8.13.2":
-  version: 8.13.2
-  resolution: "@tanstack/react-table@npm:8.13.2"
+"@tanstack/react-table@npm:8.14.0":
+  version: 8.14.0
+  resolution: "@tanstack/react-table@npm:8.14.0"
   dependencies:
-    "@tanstack/table-core": "npm:8.13.2"
+    "@tanstack/table-core": "npm:8.14.0"
   peerDependencies:
     react: ">=16"
     react-dom: ">=16"
-  checksum: 10/b91d5fc04a9a0b43c38da00a5a5c2fcfe0c3b3ec521c97f5e2eb2893a7f3446209fe4d07950b8179a0ab10b7b49230abce3d2db2a56fdc9d8fdb27023afea639
+  checksum: 10/9febbc5c25dbe84d248312c745edeff785f6fe1e4ed91dcc9878ae50072891ee06613c966be4f5df23f2d647d4a68961461096c61177cd9b698568d7394cf0e4
   languageName: node
   linkType: hard
 
-"@tanstack/table-core@npm:8.13.2":
-  version: 8.13.2
-  resolution: "@tanstack/table-core@npm:8.13.2"
-  checksum: 10/7381147fd9d50905cb581e1498f2924a3b46646872248b25cb4f287419b0819919211da983873921497efb82e4ca40b20db86dac332027a371df4d84cddc9532
+"@tanstack/table-core@npm:8.14.0":
+  version: 8.14.0
+  resolution: "@tanstack/table-core@npm:8.14.0"
+  checksum: 10/308aa894f39005bda253f84cd6c4ffd9bf1350d0113af7ef24043bf5cc1bf16e9acbfa969ec3065df2a584853b6bf8344f6e37c753e2be54450ee737bb702ba4
   languageName: node
   linkType: hard
 
