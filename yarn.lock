@@ -2360,9 +2360,9 @@ __metadata:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
     "@g-dash/types": "npm:*"
-    "@tanstack/react-table": "npm:8.15.0"
+    "@tanstack/react-table": "npm:8.15.1"
     "@types/react": "npm:18.2.73"
-    "@types/react-dom": "npm:18.2.22"
+    "@types/react-dom": "npm:18.2.23"
     eslint: "npm:8.57.0"
     react: "npm:18.2.0"
     typescript: "npm:5.4.3"
@@ -2402,12 +2402,12 @@ __metadata:
     "@g-dash/types": "npm:*"
     "@g-dash/ui": "npm:*"
     "@t3-oss/env-nextjs": "npm:0.9.2"
-    "@tanstack/react-table": "npm:8.15.0"
+    "@tanstack/react-table": "npm:8.15.1"
     "@types/node": "npm:20.11.30"
     "@types/react": "npm:18.2.73"
-    "@types/react-dom": "npm:18.2.22"
+    "@types/react-dom": "npm:18.2.23"
     apexcharts: "npm:3.48.0"
-    framer-motion: "npm:11.0.22"
+    framer-motion: "npm:11.0.23"
     next: "npm:14.1.4"
     react: "npm:18.2.0"
     react-apexcharts: "npm:1.4.1"
@@ -3567,22 +3567,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-table@npm:8.15.0":
-  version: 8.15.0
-  resolution: "@tanstack/react-table@npm:8.15.0"
+"@tanstack/react-table@npm:8.15.1":
+  version: 8.15.1
+  resolution: "@tanstack/react-table@npm:8.15.1"
   dependencies:
-    "@tanstack/table-core": "npm:8.14.0"
+    "@tanstack/table-core": "npm:8.15.1"
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 10/390fc89cfa499797192394e4f32a9cb5c6af62cd15a745dee08b3a1b34d856a83af52adaca42868a2f2dfe4229c9ec40d2b00d5e8e492d0516bec4d094cdc05e
+  checksum: 10/0b0cedfc77362f0596fdd152d02a92c135c4d9fd993ccef8162bf5c713636a894999935047d2ee0ec564e894cd0fa8a2c8c7e013ca07173ea6d9a96e13d9c187
   languageName: node
   linkType: hard
 
-"@tanstack/table-core@npm:8.14.0":
-  version: 8.14.0
-  resolution: "@tanstack/table-core@npm:8.14.0"
-  checksum: 10/308aa894f39005bda253f84cd6c4ffd9bf1350d0113af7ef24043bf5cc1bf16e9acbfa969ec3065df2a584853b6bf8344f6e37c753e2be54450ee737bb702ba4
+"@tanstack/table-core@npm:8.15.1":
+  version: 8.15.1
+  resolution: "@tanstack/table-core@npm:8.15.1"
+  checksum: 10/d8f60fb5c893ad423906af572cfd8859e07917ed1d4e9fa3d31287394be9bd693e29e0b957728a2b3b42c2f099dcb9385de7485cd05fcc85d50aa9537bfb1b10
   languageName: node
   linkType: hard
 
@@ -3767,12 +3767,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.22":
-  version: 18.2.22
-  resolution: "@types/react-dom@npm:18.2.22"
+"@types/react-dom@npm:18.2.23":
+  version: 18.2.23
+  resolution: "@types/react-dom@npm:18.2.23"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 10/310da22244c1bb65a7f213f8727bda821dd211cfb2dd62d1f9b28dd50ef1c196d59e908494bd5f25c13a3844343f3a6135f39fb830aca6f79646fa56c1b56c08
+  checksum: 10/8311c67767b0aafb5cd94176a90f801f0f5f6930731d57caaa04bb0d87fdef6bc6f723a116d9777d2082ec022682acaad7a62d04dc27e330e818cf34f2ef2703
   languageName: node
   linkType: hard
 
@@ -6241,9 +6241,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.0.22":
-  version: 11.0.22
-  resolution: "framer-motion@npm:11.0.22"
+"framer-motion@npm:11.0.23":
+  version: 11.0.23
+  resolution: "framer-motion@npm:11.0.23"
   dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -6257,7 +6257,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/1945a3324952689585e38938929203e4e2523b869bdb29f3e0943fd6bd9023d65c20670ddbf69f4ab9690e5d54a805c8def0a777d08e1647d6254e4e674189f5
+  checksum: 10/6e6b3a46f0914f6a2fe0a71feb6b12433bc4815fc7ef0402525f0621eb6f2cfc9594c0d8cd2f32d74748ef82541b3eca53c0672d0f4c205305883061a898946a
   languageName: node
   linkType: hard
 
