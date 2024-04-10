@@ -17,6 +17,6 @@
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
     "tsup": "8.0.2",
-    "typescript": "5.4.4"
+    "typescript": "5.4.5"
   }
 }
