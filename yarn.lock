@@ -2343,7 +2343,7 @@ __metadata:
     graphql: "npm:16.8.1"
     tsup: "npm:8.0.2"
     typescript: "npm:5.4.5"
-    zod: "npm:3.23.3"
+    zod: "npm:3.23.4"
   languageName: unknown
   linkType: soft
 
@@ -2427,7 +2427,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-icons: "npm:5.1.0"
     typescript: "npm:5.4.5"
-    zod: "npm:3.23.3"
+    zod: "npm:3.23.4"
   languageName: unknown
   linkType: soft
 
@@ -10949,9 +10949,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:3.23.3":
-  version: 3.23.3
-  resolution: "zod@npm:3.23.3"
-  checksum: 10/7db67eff699ea2f0f6855cc45d936d0cf055c5ec8a704aa2638e3ba1dc2b3c6ab7a5a2b451c5c5e031908db37a484003dc82b69f5cbc8c183735238f65e8a24e
+"zod@npm:3.23.4":
+  version: 3.23.4
+  resolution: "zod@npm:3.23.4"
+  checksum: 10/29117ce59f16af155d9a3aab024d18e858e55b4b51c1f848772516ec6f019e617a0cdaf4c6e20f15154360a9f4c160056aba34502ec68072c8f0af31dfd653d6
   languageName: node
   linkType: hard
