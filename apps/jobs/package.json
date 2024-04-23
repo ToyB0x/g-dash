@@ -17,7 +17,7 @@
     "@sentry/node": "7.111.0",
     "commander": "12.0.0",
     "graphql": "16.8.1",
-    "zod": "3.23.0"
+    "zod": "3.23.3"
   },
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
