@@ -2471,7 +2471,7 @@ __metadata:
     "@prisma/client": "npm:5.13.0"
     prisma: "npm:5.13.0"
     tsup: "npm:8.0.2"
-    tsx: "npm:4.9.1"
+    tsx: "npm:4.9.3"
     typescript: "npm:5.4.5"
   languageName: unknown
   linkType: soft
@@ -10499,9 +10499,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:4.9.1":
-  version: 4.9.1
-  resolution: "tsx@npm:4.9.1"
+"tsx@npm:4.9.3":
+  version: 4.9.3
+  resolution: "tsx@npm:4.9.3"
   dependencies:
     esbuild: "npm:~0.20.2"
     fsevents: "npm:~2.3.3"
@@ -10511,7 +10511,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/b01394777463837393416777831a9ae2afcb187937ca101e0661e288ada1ed69686cd712e2da7b7fec52b4fdba05a04258e658a2b7836ac0da02ba040090585d
+  checksum: 10/17ed7b748d9f213e0b3795f99ef14edf26f814eb498d4a7be95a253648f39f376009e97d4202fdb3f8a03f3b0e1b3fe6e64b70be83d58beadf1a6158612a163b
   languageName: node
   linkType: hard
 
