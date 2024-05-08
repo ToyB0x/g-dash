@@ -19,13 +19,13 @@
     "prettier": "3.2.5",
     "turbo": "latest"
   },
-  "packageManager": "yarn@4.2.1",
+  "packageManager": "yarn@4.2.2",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "volta": {
     "node": "20.13.0",
-    "yarn": "4.2.1"
+    "yarn": "4.2.2"
   }
 }
