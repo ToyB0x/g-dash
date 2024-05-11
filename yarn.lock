@@ -2471,7 +2471,7 @@ __metadata:
     "@prisma/client": "npm:5.13.0"
     prisma: "npm:5.13.0"
     tsup: "npm:8.0.2"
-    tsx: "npm:4.9.4"
+    tsx: "npm:4.9.5"
     typescript: "npm:5.4.5"
   languageName: unknown
   linkType: soft
@@ -2535,7 +2535,7 @@ __metadata:
     "@g-dash/tsconfig": "npm:*"
     "@g-dash/types": "npm:*"
     "@tanstack/react-table": "npm:8.16.0"
-    "@types/react": "npm:18.3.1"
+    "@types/react": "npm:18.3.2"
     "@types/react-dom": "npm:18.3.0"
     eslint: "npm:8.57.0"
     react: "npm:18.3.1"
@@ -2578,7 +2578,7 @@ __metadata:
     "@t3-oss/env-nextjs": "npm:0.10.1"
     "@tanstack/react-table": "npm:8.16.0"
     "@types/node": "npm:20.12.11"
-    "@types/react": "npm:18.3.1"
+    "@types/react": "npm:18.3.2"
     "@types/react-dom": "npm:18.3.0"
     apexcharts: "npm:3.49.0"
     framer-motion: "npm:11.1.9"
@@ -3982,13 +3982,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.3.1":
-  version: 18.3.1
-  resolution: "@types/react@npm:18.3.1"
+"@types/react@npm:18.3.2":
+  version: 18.3.2
+  resolution: "@types/react@npm:18.3.2"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/baa6b8a75c471c89ebf3477b4feab57102ced25f0c1e553dd04ef6a1f0def28d5e0172fa626a631f22e223f840b5aaa2403b2d4bb671c83c5a9d6c7ae39c7a05
+  checksum: 10/a85eed82c1009dc9d979281d9ea1f5322255003de3378390f35d897b4bdaf1d34ea748636c03e9e9b4b7cc97c2f4582993d2d60e40846226ad497d97c7d8565a
   languageName: node
   linkType: hard
 
@@ -10499,9 +10499,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:4.9.4":
-  version: 4.9.4
-  resolution: "tsx@npm:4.9.4"
+"tsx@npm:4.9.5":
+  version: 4.9.5
+  resolution: "tsx@npm:4.9.5"
   dependencies:
     esbuild: "npm:~0.20.2"
     fsevents: "npm:~2.3.3"
@@ -10511,7 +10511,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/7dce8d861fa0a22693757da5aea3f1dffdf7736c7119e3f1a691e71221722ab881b223a5e5a3476bcefd537887941528efd829a8895f272782eda317a3d32956
+  checksum: 10/8ddd0e838a0b0af68224aabf422e48199cb9a94dcde31cc7ddd9a456369ad7fa7e05733aff3d8a03dd5c3c1a31de255b64e258aa6be67ea810c63de49b6db61f
   languageName: node
   linkType: hard
 
