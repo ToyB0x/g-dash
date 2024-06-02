@@ -16,7 +16,7 @@
     "@turbo/gen": "1.13.3",
     "dotenv-cli": "7.4.2",
     "eslint": "8.57.0",
-    "prettier": "3.2.5",
+    "prettier": "3.3.0",
     "turbo": "latest"
   },
   "packageManager": "yarn@4.2.2",
