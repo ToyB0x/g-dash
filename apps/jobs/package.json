@@ -16,7 +16,7 @@
     "@g-dash/utils": "*",
     "@sentry/node": "7.117.0",
     "commander": "12.1.0",
-    "graphql": "16.8.1",
+    "graphql": "16.8.2",
     "zod": "3.23.8"
   },
   "devDependencies": {
