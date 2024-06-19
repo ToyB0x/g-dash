@@ -2338,7 +2338,7 @@ __metadata:
     "@graphql-codegen/client-preset": "npm:4.3.0"
     "@graphql-codegen/introspection": "npm:4.0.3"
     "@sentry/node": "npm:7.117.0"
-    "@types/node": "npm:20.14.5"
+    "@types/node": "npm:20.14.6"
     commander: "npm:12.1.0"
     graphql: "npm:16.8.2"
     tsup: "npm:8.1.0"
@@ -2416,11 +2416,11 @@ __metadata:
     "@g-dash/ui": "npm:*"
     "@t3-oss/env-nextjs": "npm:0.10.1"
     "@tanstack/react-table": "npm:8.17.3"
-    "@types/node": "npm:20.14.5"
+    "@types/node": "npm:20.14.6"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
     apexcharts: "npm:3.49.1"
-    framer-motion: "npm:11.2.10"
+    framer-motion: "npm:11.2.11"
     next: "npm:14.2.4"
     react: "npm:18.3.1"
     react-apexcharts: "npm:1.4.1"
@@ -3886,12 +3886,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.14.5":
-  version: 20.14.5
-  resolution: "@types/node@npm:20.14.5"
+"@types/node@npm:20.14.6":
+  version: 20.14.6
+  resolution: "@types/node@npm:20.14.6"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/74c7974a8c75280f9397f22ce34d10d5575668e3c357a165f385c9365c39b3ccda3aa2e7237e7e907fc72e515afb93cc0be1f3e2074cc1889c1ffeb01d2843cc
+  checksum: 10/1dcfeeb03ce3c3a1d8a537fefee7cd0cffb78f89e9535b74ee12940559566b57c39dad20d1b165b60b5727408dd44e1a52e5c01cf02d0a99d93ef3da8062c86e
   languageName: node
   linkType: hard
 
@@ -6528,9 +6528,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.2.10":
-  version: 11.2.10
-  resolution: "framer-motion@npm:11.2.10"
+"framer-motion@npm:11.2.11":
+  version: 11.2.11
+  resolution: "framer-motion@npm:11.2.11"
   dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -6544,7 +6544,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/3f09356c08700f5f405b6259617d9eb3f49d49770efe15a81211bc41625001485f242fe2b44f6de657e707cd2ac766ca243bab72192dc948672525d331628a5d
+  checksum: 10/2969da7c39bbbd206d5e2cd321fcb1bf8f8c5c13706b85779c4480fa63d0429063467374b896f94c04ca2594cbff96b9845c87ba5c052d90335d52d0cb554086
   languageName: node
   linkType: hard
 
