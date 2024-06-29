@@ -28,7 +28,7 @@
     "@g-dash/tsconfig": "*",
     "prisma": "5.16.1",
     "tsup": "8.1.0",
-    "tsx": "4.15.8",
+    "tsx": "4.15.9",
     "typescript": "5.5.2"
   }
 }
