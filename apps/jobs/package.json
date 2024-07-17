@@ -25,8 +25,8 @@
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.3.2",
     "@graphql-codegen/introspection": "4.0.3",
-    "@types/node": "20.14.10",
-    "tsup": "8.1.0",
+    "@types/node": "20.14.11",
+    "tsup": "8.1.2",
     "typescript": "5.5.3"
   },
   "volta": {
