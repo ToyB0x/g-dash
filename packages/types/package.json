@@ -16,7 +16,7 @@
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
-    "tsup": "8.1.2",
+    "tsup": "8.2.0",
     "typescript": "5.5.3"
   }
 }
