@@ -2512,7 +2512,7 @@ __metadata:
   dependencies:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
-    tsup: "npm:8.2.0"
+    tsup: "npm:8.2.1"
     typescript: "npm:5.5.3"
   languageName: unknown
   linkType: soft
@@ -2525,7 +2525,7 @@ __metadata:
     "@g-dash/tsconfig": "npm:*"
     "@prisma/client": "npm:5.17.0"
     prisma: "npm:5.17.0"
-    tsup: "npm:8.2.0"
+    tsup: "npm:8.2.1"
     tsx: "npm:4.16.2"
     typescript: "npm:5.5.3"
   languageName: unknown
@@ -2557,7 +2557,7 @@ __metadata:
     "@types/node": "npm:20.14.11"
     commander: "npm:12.1.0"
     graphql: "npm:16.9.0"
-    tsup: "npm:8.2.0"
+    tsup: "npm:8.2.1"
     typescript: "npm:5.5.3"
     zod: "npm:3.23.8"
   languageName: unknown
@@ -2575,7 +2575,7 @@ __metadata:
   dependencies:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
-    tsup: "npm:8.2.0"
+    tsup: "npm:8.2.1"
     typescript: "npm:5.5.3"
   languageName: unknown
   linkType: soft
@@ -2610,7 +2610,7 @@ __metadata:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
     date-fns: "npm:3.6.0"
-    tsup: "npm:8.2.0"
+    tsup: "npm:8.2.1"
     typescript: "npm:5.5.3"
   languageName: unknown
   linkType: soft
@@ -6767,6 +6767,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fdir@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "fdir@npm:6.1.1"
+  peerDependencies:
+    picomatch: 3.x
+  peerDependenciesMeta:
+    picomatch:
+      optional: true
+  checksum: 10/fabde9004433983ba22fac2578c0b2835a498e66518df9d7994b1564a5f3f015ac974efaff02975b56966e01a684f600fe4cce0bb2f146aedec4dcf35d6c5906
+  languageName: node
+  linkType: hard
+
 "figures@npm:^3.0.0":
   version: 3.2.0
   resolution: "figures@npm:3.2.0"
@@ -9339,10 +9351,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picocolors@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "picocolors@npm:1.0.1"
+  checksum: 10/fa68166d1f56009fc02a34cdfd112b0dd3cf1ef57667ac57281f714065558c01828cdf4f18600ad6851cbe0093952ed0660b1e0156bddf2184b6aaf5817553a5
+  languageName: node
+  linkType: hard
+
 "picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 10/60c2595003b05e4535394d1da94850f5372c9427ca4413b71210f437f7b2ca091dbd611c45e8b37d10036fa8eade25c1b8951654f9d3973bfa66a2ff4d3b08bc
+  languageName: node
+  linkType: hard
+
+"picomatch@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "picomatch@npm:4.0.2"
+  checksum: 10/ce617b8da36797d09c0baacb96ca8a44460452c89362d7cb8f70ca46b4158ba8bc3606912de7c818eb4a939f7f9015cef3c766ec8a0c6bfc725fdc078e39c717
   languageName: node
   linkType: hard
 
@@ -10909,9 +10935,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:8.2.0":
-  version: 8.2.0
-  resolution: "tsup@npm:8.2.0"
+"tsup@npm:8.2.1":
+  version: 8.2.1
+  resolution: "tsup@npm:8.2.1"
   dependencies:
     bundle-require: "npm:^5.0.0"
     cac: "npm:^6.7.14"
@@ -10920,8 +10946,10 @@ __metadata:
     debug: "npm:^4.3.5"
     esbuild: "npm:^0.23.0"
     execa: "npm:^5.1.1"
-    globby: "npm:^11.1.0"
+    fdir: "npm:^6.1.1"
     joycon: "npm:^3.1.1"
+    picocolors: "npm:^1.0.1"
+    picomatch: "npm:^4.0.2"
     postcss-load-config: "npm:^6.0.1"
     resolve-from: "npm:^5.0.0"
     rollup: "npm:^4.18.1"
@@ -10945,7 +10973,7 @@ __metadata:
   bin:
     tsup: dist/cli-default.js
     tsup-node: dist/cli-node.js
-  checksum: 10/34fe9459deb301a693e8dd9faea6db29ee900295db16de9bc650d7596eff0ef56a5381fbcf2e12b4cc487c37315b99b21ab79f1cfe4ab11bcf249a07035ba6fb
+  checksum: 10/0c87200e7962ab069d4f5c18d5509fee77286ff9a65c132d4da9730f2b1030e108b06ce3968d810991563ec0b1bb577e73cb6f15de35d217fe5fdc7895a12d72
   languageName: node
   linkType: hard
 
