@@ -2512,7 +2512,7 @@ __metadata:
   dependencies:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
-    tsup: "npm:8.2.3"
+    tsup: "npm:8.2.4"
     typescript: "npm:5.5.4"
   languageName: unknown
   linkType: soft
@@ -2525,7 +2525,7 @@ __metadata:
     "@g-dash/tsconfig": "npm:*"
     "@prisma/client": "npm:5.17.0"
     prisma: "npm:5.17.0"
-    tsup: "npm:8.2.3"
+    tsup: "npm:8.2.4"
     tsx: "npm:4.16.5"
     typescript: "npm:5.5.4"
   languageName: unknown
@@ -2554,10 +2554,10 @@ __metadata:
     "@graphql-codegen/client-preset": "npm:4.3.3"
     "@graphql-codegen/introspection": "npm:4.0.3"
     "@sentry/node": "npm:7.118.0"
-    "@types/node": "npm:20.14.13"
+    "@types/node": "npm:20.14.14"
     commander: "npm:12.1.0"
     graphql: "npm:16.9.0"
-    tsup: "npm:8.2.3"
+    tsup: "npm:8.2.4"
     typescript: "npm:5.5.4"
     zod: "npm:3.23.8"
   languageName: unknown
@@ -2575,7 +2575,7 @@ __metadata:
   dependencies:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
-    tsup: "npm:8.2.3"
+    tsup: "npm:8.2.4"
     typescript: "npm:5.5.4"
   languageName: unknown
   linkType: soft
@@ -2610,7 +2610,7 @@ __metadata:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
     date-fns: "npm:3.6.0"
-    tsup: "npm:8.2.3"
+    tsup: "npm:8.2.4"
     typescript: "npm:5.5.4"
   languageName: unknown
   linkType: soft
@@ -2632,7 +2632,7 @@ __metadata:
     "@g-dash/ui": "npm:*"
     "@t3-oss/env-nextjs": "npm:0.11.0"
     "@tanstack/react-table": "npm:8.19.3"
-    "@types/node": "npm:20.14.13"
+    "@types/node": "npm:20.14.14"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
     apexcharts: "npm:3.51.0"
@@ -4123,12 +4123,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.14.13":
-  version: 20.14.13
-  resolution: "@types/node@npm:20.14.13"
+"@types/node@npm:20.14.14":
+  version: 20.14.14
+  resolution: "@types/node@npm:20.14.14"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/749160b6bd9866e6169cb1a222e75aaf81da3868af1fda1e1e66d33c7e182be381f98a42b7d231fddf470f6389f2052ee842e776b3fdc677df798b933617866d
+  checksum: 10/035bc347e3de04888d537801e23eb4b4f99522975ca002dbfef978edd853710031b7cd43bf022670d6aba4ed5d4ac75ea1b5ff77ff8f80998bffd943b7bcef48
   languageName: node
   linkType: hard
 
@@ -10916,9 +10916,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:8.2.3":
-  version: 8.2.3
-  resolution: "tsup@npm:8.2.3"
+"tsup@npm:8.2.4":
+  version: 8.2.4
+  resolution: "tsup@npm:8.2.4"
   dependencies:
     bundle-require: "npm:^5.0.0"
     cac: "npm:^6.7.14"
@@ -10953,7 +10953,7 @@ __metadata:
   bin:
     tsup: dist/cli-default.js
     tsup-node: dist/cli-node.js
-  checksum: 10/2523611f5879fe408e8cb6d1fbae18d9e7617d2ef47258f6be8c11323c6d5d6aad296f6004d3fa6dc94e5f5b4c70b3eae677ac3d5ce0e9e1e4925715ee8b69b9
+  checksum: 10/89613c3490797f7e107c55f961e2681d455b45a3acfe567dd3825d7ccd14b91f3cf8462f389b6e5ed7e9dd96266adc60830256d52f1bd5d443a1db504c9a7912
   languageName: node
   linkType: hard
 
