@@ -2537,7 +2537,7 @@ __metadata:
   dependencies:
     eslint-config-next: "npm:14.2.5"
     eslint-config-prettier: "npm:9.1.0"
-    eslint-config-turbo: "npm:1.13.4"
+    eslint-config-turbo: "npm:2.0.12"
     eslint-plugin-react: "npm:7.35.0"
   languageName: unknown
   linkType: soft
@@ -4000,32 +4000,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turbo/gen@npm:1.13.4":
-  version: 1.13.4
-  resolution: "@turbo/gen@npm:1.13.4"
+"@turbo/gen@npm:2.0.12":
+  version: 2.0.12
+  resolution: "@turbo/gen@npm:2.0.12"
   dependencies:
-    "@turbo/workspaces": "npm:1.13.4"
-    chalk: "npm:2.4.2"
+    "@turbo/workspaces": "npm:2.0.12"
     commander: "npm:^10.0.0"
     fs-extra: "npm:^10.1.0"
     inquirer: "npm:^8.2.4"
     minimatch: "npm:^9.0.0"
     node-plop: "npm:^0.26.3"
+    picocolors: "npm:1.0.1"
     proxy-agent: "npm:^6.2.2"
     ts-node: "npm:^10.9.1"
     update-check: "npm:^1.5.4"
     validate-npm-package-name: "npm:^5.0.0"
   bin:
     gen: dist/cli.js
-  checksum: 10/5d1247a24e0fc42abaad4acd93f4138bcaeb7505375fd7287844f50ff141afff69b26245b450df7186a3d991c8e92787cb88c9fb912649e55e556e423a734a3c
+  checksum: 10/21e2d65e3b339b14bc5523f68049be27e08ec8d35b4ceb79ccb5e759f798f5e3728371b027957dbd5eee1431888cae9663885655bfb8490a2e2e22a836094af8
   languageName: node
   linkType: hard
 
-"@turbo/workspaces@npm:1.13.4":
-  version: 1.13.4
-  resolution: "@turbo/workspaces@npm:1.13.4"
+"@turbo/workspaces@npm:2.0.12":
+  version: 2.0.12
+  resolution: "@turbo/workspaces@npm:2.0.12"
   dependencies:
-    chalk: "npm:2.4.2"
     commander: "npm:^10.0.0"
     execa: "npm:5.1.1"
     fast-glob: "npm:^3.2.12"
@@ -4034,12 +4033,13 @@ __metadata:
     inquirer: "npm:^8.0.0"
     js-yaml: "npm:^4.1.0"
     ora: "npm:4.1.1"
+    picocolors: "npm:1.0.1"
     rimraf: "npm:^3.0.2"
     semver: "npm:^7.3.5"
     update-check: "npm:^1.5.4"
   bin:
     workspaces: dist/cli.js
-  checksum: 10/18c7147404c20c4dff4802910dc1e2f32181cc208f3b4623dbc23c9a3e314e64f7ec81493610dbfcefb03e3ba9322286d6127f143ec7a01944d54332fec5d350
+  checksum: 10/9dba08c586e7e6ef3f2103770512b7beec705c7b97970f7892a8741f877e936ce27e006e568716ca82cc3e97fff67ec9ee7f179ee24e09a4b451ba1ae48d7fe0
   languageName: node
   linkType: hard
 
@@ -5071,7 +5071,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:2.4.2, chalk@npm:^2.4.2":
+"chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -6327,14 +6327,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-turbo@npm:1.13.4":
-  version: 1.13.4
-  resolution: "eslint-config-turbo@npm:1.13.4"
+"eslint-config-turbo@npm:2.0.12":
+  version: 2.0.12
+  resolution: "eslint-config-turbo@npm:2.0.12"
   dependencies:
-    eslint-plugin-turbo: "npm:1.13.4"
+    eslint-plugin-turbo: "npm:2.0.12"
   peerDependencies:
     eslint: ">6.6.0"
-  checksum: 10/bd459a34b1c7f849f18377bcffd384cf6269fbd12cd4233893d0a8d4c3b78e105302101ab693537be62074bec050ffa34faa1cbb61be2aa2301c74189ada142d
+  checksum: 10/4eb9142f2f24a314d6664498212893cb53c965536ee6c19008e99246f3174a4bd7b5f66fb568f5146953c02aac5165c3084572f9b8fbf4622b89ec643b8b59c4
   languageName: node
   linkType: hard
 
@@ -6497,14 +6497,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-turbo@npm:1.13.4":
-  version: 1.13.4
-  resolution: "eslint-plugin-turbo@npm:1.13.4"
+"eslint-plugin-turbo@npm:2.0.12":
+  version: 2.0.12
+  resolution: "eslint-plugin-turbo@npm:2.0.12"
   dependencies:
     dotenv: "npm:16.0.3"
   peerDependencies:
     eslint: ">6.6.0"
-  checksum: 10/260ced818ae9ea7335ac6eec1c67862c3ea4afc8fa9d01a912e8f3f3a0e50d5dba820ffb1caaa62b16b305552078bbafc8eeb513cd67ef8b7d85530760fc875d
+  checksum: 10/c0cbaf65465537904ff6b5cc97eab66e6dee213d3417704963a9a345c05825276174d7fd573fed90157a46121d7bc7f5ddd5402ad58ac4350193ff19d379bf7d
   languageName: node
   linkType: hard
 
@@ -6993,7 +6993,7 @@ __metadata:
   resolution: "g-dash@workspace:."
   dependencies:
     "@g-dash/eslint-config-custom": "npm:*"
-    "@turbo/gen": "npm:1.13.4"
+    "@turbo/gen": "npm:2.0.12"
     dotenv-cli: "npm:7.4.2"
     eslint: "npm:8.57.0"
     prettier: "npm:3.3.3"
@@ -9332,17 +9332,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picocolors@npm:1.0.1, picocolors@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "picocolors@npm:1.0.1"
+  checksum: 10/fa68166d1f56009fc02a34cdfd112b0dd3cf1ef57667ac57281f714065558c01828cdf4f18600ad6851cbe0093952ed0660b1e0156bddf2184b6aaf5817553a5
+  languageName: node
+  linkType: hard
+
 "picocolors@npm:^1.0.0":
   version: 1.0.0
   resolution: "picocolors@npm:1.0.0"
   checksum: 10/a2e8092dd86c8396bdba9f2b5481032848525b3dc295ce9b57896f931e63fc16f79805144321f72976383fc249584672a75cc18d6777c6b757603f372f745981
-  languageName: node
-  linkType: hard
-
-"picocolors@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "picocolors@npm:1.0.1"
-  checksum: 10/fa68166d1f56009fc02a34cdfd112b0dd3cf1ef57667ac57281f714065558c01828cdf4f18600ad6851cbe0093952ed0660b1e0156bddf2184b6aaf5817553a5
   languageName: node
   linkType: hard
 
