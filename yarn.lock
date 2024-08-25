@@ -2489,7 +2489,7 @@ __metadata:
     "@g-dash/tsconfig": "npm:*"
     "@g-dash/types": "npm:*"
     "@g-dash/ui": "npm:*"
-    "@t3-oss/env-nextjs": "npm:0.11.0"
+    "@t3-oss/env-nextjs": "npm:0.11.1"
     "@tanstack/react-table": "npm:8.20.5"
     "@types/node": "npm:20.16.1"
     "@types/react": "npm:18.3.4"
@@ -3777,31 +3777,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@t3-oss/env-core@npm:0.11.0":
-  version: 0.11.0
-  resolution: "@t3-oss/env-core@npm:0.11.0"
+"@t3-oss/env-core@npm:0.11.1":
+  version: 0.11.1
+  resolution: "@t3-oss/env-core@npm:0.11.1"
   peerDependencies:
     typescript: ">=5.0.0"
     zod: ^3.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/e6e934056e212ba14aca2ce33d0eb3cf2119ae39809bbf590ae63f173120c43c0461f47ab7bc2569f3ddcf7831f019e70e7ca38a5c7787f30b3a9de3f030cd15
+  checksum: 10/19c5860dac32a1b993ca68bc7cea55968a6be2d6e660741fe31a64f9c807876f4cf3edbd0e976dfffe6d05959a543b5a793aa2cf3300f5e0380c3189eda88be7
   languageName: node
   linkType: hard
 
-"@t3-oss/env-nextjs@npm:0.11.0":
-  version: 0.11.0
-  resolution: "@t3-oss/env-nextjs@npm:0.11.0"
+"@t3-oss/env-nextjs@npm:0.11.1":
+  version: 0.11.1
+  resolution: "@t3-oss/env-nextjs@npm:0.11.1"
   dependencies:
-    "@t3-oss/env-core": "npm:0.11.0"
+    "@t3-oss/env-core": "npm:0.11.1"
   peerDependencies:
     typescript: ">=5.0.0"
     zod: ^3.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/5627daa5fa0a8236c368ddeb6cf7b438e265259a77500a3c440b76992b7f43aa19b0f58b181a953a848cbb468468a226def0242abf1fda4454cdc08baf8f8820
+  checksum: 10/145df659b15fb1ea2d54a51e9b33f87226a1906b86232e08e3dc99c2048c77e85a28f51bdbade203cc11778eac4c41528a43fd14f038e4368dcd7b1c2981c3be
   languageName: node
   linkType: hard
 
