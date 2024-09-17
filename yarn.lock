@@ -2378,7 +2378,7 @@ __metadata:
   dependencies:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
-    tsup: "npm:8.2.4"
+    tsup: "npm:8.3.0"
     typescript: "npm:5.6.2"
   languageName: unknown
   linkType: soft
@@ -2391,7 +2391,7 @@ __metadata:
     "@g-dash/tsconfig": "npm:*"
     "@prisma/client": "npm:5.19.1"
     prisma: "npm:5.19.1"
-    tsup: "npm:8.2.4"
+    tsup: "npm:8.3.0"
     tsx: "npm:4.19.1"
     typescript: "npm:5.6.2"
   languageName: unknown
@@ -2423,7 +2423,7 @@ __metadata:
     "@types/node": "npm:20.16.5"
     commander: "npm:12.1.0"
     graphql: "npm:16.9.0"
-    tsup: "npm:8.2.4"
+    tsup: "npm:8.3.0"
     typescript: "npm:5.6.2"
     zod: "npm:3.23.8"
   languageName: unknown
@@ -2441,7 +2441,7 @@ __metadata:
   dependencies:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
-    tsup: "npm:8.2.4"
+    tsup: "npm:8.3.0"
     typescript: "npm:5.6.2"
   languageName: unknown
   linkType: soft
@@ -2476,7 +2476,7 @@ __metadata:
     "@g-dash/eslint-config-custom": "npm:*"
     "@g-dash/tsconfig": "npm:*"
     date-fns: "npm:3.6.0"
-    tsup: "npm:8.2.4"
+    tsup: "npm:8.3.0"
     typescript: "npm:5.6.2"
   languageName: unknown
   linkType: soft
@@ -6627,6 +6627,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fdir@npm:^6.3.0":
+  version: 6.3.0
+  resolution: "fdir@npm:6.3.0"
+  peerDependencies:
+    picomatch: ^3 || ^4
+  peerDependenciesMeta:
+    picomatch:
+      optional: true
+  checksum: 10/baa3a476a8407cc77bc77e3c946aea5ca0aa48f080f2c434b70196a37ddcd57bbc4c12d75164f9e6d947f6e148c297c9fa65f507178d0e9204d98ef83d776dcc
+  languageName: node
+  linkType: hard
+
 "figures@npm:^3.0.0":
   version: 3.2.0
   resolution: "figures@npm:3.2.0"
@@ -9220,6 +9232,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picomatch@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "picomatch@npm:4.0.2"
+  checksum: 10/ce617b8da36797d09c0baacb96ca8a44460452c89362d7cb8f70ca46b4158ba8bc3606912de7c818eb4a939f7f9015cef3c766ec8a0c6bfc725fdc078e39c717
+  languageName: node
+  linkType: hard
+
 "pirates@npm:^4.0.1":
   version: 4.0.6
   resolution: "pirates@npm:4.0.6"
@@ -10607,6 +10626,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tinyglobby@npm:^0.2.1":
+  version: 0.2.6
+  resolution: "tinyglobby@npm:0.2.6"
+  dependencies:
+    fdir: "npm:^6.3.0"
+    picomatch: "npm:^4.0.2"
+  checksum: 10/5954b30e4243a7b728ecf1798071031cfadfb1b69e4faf2c86f1dc8142851f2fde299f272f23937c1efbbb68afd6297f9d0354b4d1c1cfdb35313daa6efbee1f
+  languageName: node
+  linkType: hard
+
 "tinygradient@npm:^1.1.5":
   version: 1.1.5
   resolution: "tinygradient@npm:1.1.5"
@@ -10787,9 +10816,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:8.2.4":
-  version: 8.2.4
-  resolution: "tsup@npm:8.2.4"
+"tsup@npm:8.3.0":
+  version: 8.3.0
+  resolution: "tsup@npm:8.3.0"
   dependencies:
     bundle-require: "npm:^5.0.0"
     cac: "npm:^6.7.14"
@@ -10798,7 +10827,6 @@ __metadata:
     debug: "npm:^4.3.5"
     esbuild: "npm:^0.23.0"
     execa: "npm:^5.1.1"
-    globby: "npm:^11.1.0"
     joycon: "npm:^3.1.1"
     picocolors: "npm:^1.0.1"
     postcss-load-config: "npm:^6.0.1"
@@ -10806,6 +10834,7 @@ __metadata:
     rollup: "npm:^4.19.0"
     source-map: "npm:0.8.0-beta.0"
     sucrase: "npm:^3.35.0"
+    tinyglobby: "npm:^0.2.1"
     tree-kill: "npm:^1.2.2"
   peerDependencies:
     "@microsoft/api-extractor": ^7.36.0
@@ -10824,7 +10853,7 @@ __metadata:
   bin:
     tsup: dist/cli-default.js
     tsup-node: dist/cli-node.js
-  checksum: 10/89613c3490797f7e107c55f961e2681d455b45a3acfe567dd3825d7ccd14b91f3cf8462f389b6e5ed7e9dd96266adc60830256d52f1bd5d443a1db504c9a7912
+  checksum: 10/e69571253d436c822219b4dcbde927b1c083a9b21d50aef463742c5d4bb0e69bd6ea8515a439d08ab0fb0a982126b83b7068e5d150d3c1be86d752a1b730f8f1
   languageName: node
   linkType: hard
 
