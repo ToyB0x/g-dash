@@ -1403,7 +1403,7 @@ __metadata:
     "@types/react": "npm:18.3.9"
     "@types/react-dom": "npm:18.3.0"
     apexcharts: "npm:3.54.0"
-    framer-motion: "npm:11.9.0"
+    framer-motion: "npm:11.10.0"
     next: "npm:14.2.13"
     react: "npm:18.3.1"
     react-apexcharts: "npm:1.4.1"
@@ -5620,9 +5620,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.9.0":
-  version: 11.9.0
-  resolution: "framer-motion@npm:11.9.0"
+"framer-motion@npm:11.10.0":
+  version: 11.10.0
+  resolution: "framer-motion@npm:11.10.0"
   dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -5636,7 +5636,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/fa9dec871d99bd3289767eb2b1c2d4b68e142bbe3116deb6a17177c45e90d128e4184a0e96097bed15cf54d2db5c63c1ceed0b1156518e245b807ec8aa653a19
+  checksum: 10/34a8f9c1fb0b3c39f906e96f57bb1f28aa03e3b5622097fc9f5eec948d3dbc1035af06979f9156fd6deb1b131cb21b28174ef6795c5adf36920337d32b071f10
   languageName: node
   linkType: hard
 
