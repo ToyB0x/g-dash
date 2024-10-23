@@ -1320,7 +1320,7 @@ __metadata:
     "@graphql-codegen/client-preset": "npm:4.4.0"
     "@graphql-codegen/introspection": "npm:4.0.3"
     "@sentry/node": "npm:7.119.0"
-    "@types/node": "npm:20.16.6"
+    "@types/node": "npm:20.17.0"
     commander: "npm:12.1.0"
     graphql: "npm:16.9.0"
     tsup: "npm:8.3.0"
@@ -1398,7 +1398,7 @@ __metadata:
     "@g-dash/ui": "npm:*"
     "@t3-oss/env-nextjs": "npm:0.11.1"
     "@tanstack/react-table": "npm:8.20.5"
-    "@types/node": "npm:20.16.6"
+    "@types/node": "npm:20.17.0"
     "@types/react": "npm:18.3.9"
     "@types/react-dom": "npm:18.3.0"
     apexcharts: "npm:3.54.0"
@@ -2889,12 +2889,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.16.6":
-  version: 20.16.6
-  resolution: "@types/node@npm:20.16.6"
+"@types/node@npm:20.17.0":
+  version: 20.17.0
+  resolution: "@types/node@npm:20.17.0"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10/f8a07b113901fa2b5bfbea8dedd15321126238023586f047576805cb1a53abd7f717f9e490d8e71d4c7b627885659f862584fa844fa71aab9c86295d1f006771
+  checksum: 10/3b39bb883aeaa558f5779f12bda765db96b56282dd7e55d611915cf6b76d30c355ba099403afd11ccabb6a5bf7fe882ff8ae0af68eda0157669f943b51dc5551
   languageName: node
   linkType: hard
 
