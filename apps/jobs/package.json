@@ -23,7 +23,7 @@
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
     "@graphql-codegen/cli": "5.0.2",
-    "@graphql-codegen/client-preset": "4.4.0",
+    "@graphql-codegen/client-preset": "4.5.0",
     "@graphql-codegen/introspection": "4.0.3",
     "@types/node": "20.17.0",
     "tsup": "8.3.0",
