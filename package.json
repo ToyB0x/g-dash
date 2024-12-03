@@ -14,18 +14,18 @@
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
     "@turbo/gen": "1.13.4",
-    "dotenv-cli": "7.4.2",
+    "dotenv-cli": "7.4.4",
     "eslint": "8.57.1",
     "prettier": "3.3.3",
     "turbo": "latest"
   },
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@4.5.3",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "volta": {
-    "node": "20.18.0",
-    "yarn": "4.5.0"
+    "node": "20.18.1",
+    "yarn": "4.5.3"
   }
 }
