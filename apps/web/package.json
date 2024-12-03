@@ -10,20 +10,20 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/icons": "2.2.1",
-    "@chakra-ui/next-js": "2.4.1",
-    "@chakra-ui/react": "2.10.1",
-    "@emotion/react": "11.13.3",
-    "@emotion/styled": "11.13.0",
+    "@chakra-ui/icons": "2.2.4",
+    "@chakra-ui/next-js": "2.4.2",
+    "@chakra-ui/react": "2.10.4",
+    "@emotion/react": "11.13.5",
+    "@emotion/styled": "11.13.5",
     "@g-dash/constants": "*",
     "@g-dash/database": "*",
     "@g-dash/types": "*",
     "@g-dash/ui": "*",
     "@t3-oss/env-nextjs": "0.11.1",
     "@tanstack/react-table": "8.20.5",
-    "apexcharts": "3.54.0",
-    "framer-motion": "11.11.0",
-    "next": "14.2.13",
+    "apexcharts": "3.54.1",
+    "framer-motion": "11.11.17",
+    "next": "14.2.19",
     "react": "18.3.1",
     "react-apexcharts": "1.5.0",
     "react-dom": "18.3.1",
@@ -33,10 +33,10 @@
   "devDependencies": {
     "@g-dash/eslint-config-custom": "*",
     "@g-dash/tsconfig": "*",
-    "@types/node": "20.17.0",
-    "@types/react": "18.3.9",
-    "@types/react-dom": "18.3.0",
-    "typescript": "5.6.2"
+    "@types/node": "20.17.9",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "typescript": "5.6.3"
   },
   "volta": {
     "extends": "../../package.json"
